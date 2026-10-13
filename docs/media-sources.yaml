@@ -66,6 +66,11 @@ assets:
     source_page: https://github.com/typeassociates/MomoTrustSans
     checksum_sha256: 6214d43f1f33255e3cd5f519aeca1e4e4138f3ec78a3e43a5011b1663b5ab4e1
     approval_notes: Original variable webfont requested by the maintainer; licensed under SIL Open Font License 1.1, copied to docs/licenses/MomoTrustSans-OFL.txt.
+  - local_path: media/logos/erc-eu-logo.png
+    source_url: https://erc.europa.eu/sites/default/files/2025-08/LOGO_ERC-FLAG_EU.png
+    source_page: https://erc.europa.eu/support/logos
+    checksum_sha256: 629e7f875106af584904a1d89a31844b887c8242d5452df0b7e16694061dabac
+    approval_notes: Official combined EU emblem + ERC logo (with text), downloaded from the ERC's own beneficiary logo page and resized for web use; required alongside any announcement of ERC-funded grants per ERC visibility rules.
 blockers:
   - kind: missing-portraits
     source_page: https://csml.iit.it/people

@@ -6,6 +6,7 @@ import PersonCard from '@/components/PersonCard.astro';
 import PersonProfile from '@/components/PersonProfile.astro';
 import ResearchCard from '@/components/ResearchCard.astro';
 import SectionHeading from '@/components/SectionHeading.astro';
+import SocialIcon from '@/components/SocialIcon.astro';
 import BaseLayout from '@/layouts/BaseLayout.astro';
 import { mediaUrl } from '@/lib/paths';
 import { getSiteConfig } from '@/lib/site';
@@ -33,7 +34,7 @@ const { Content: AboutContent } = await render(about);
     </div>
   </section>
 
-  <section id="about" class="section shell about-grid">
+  <section id="about" class="section shell about-stack">
     <div>
       <SectionHeading eyebrow="About the group" title="Rigour for complex, real-world learning" />
       <div class="prose large"><AboutContent /></div>
@@ -67,7 +68,7 @@ const { Content: AboutContent } = await render(about);
         <div class="social-placeholder">
           <p>Live Bluesky cards are scheduled for the social-integration phase. Static builds never depend on a social API.</p>
           <a class="button secondary" href="https://bsky.app/profile/pontilgroup.bsky.social">Open Bluesky profile</a>
-          <a class="button secondary" href="https://x.com/PontilGroup">Open X profile</a>
+          <SocialIcon platform="x" href="https://x.com/PontilGroup" label="Open X profile" />
         </div>
       </div>
     </div>
@@ -126,7 +127,7 @@ const { Content: AboutContent } = await render(about);
         <a class="button" href={pi.data.iit_profile ?? site.contact.institution_url}>Principal investigator profile</a>
         <a class="button secondary" href={site.contact.institution_url}>IIT website</a>
         <a class="button secondary" href="https://bsky.app/profile/pontilgroup.bsky.social">Bluesky</a>
-        <a class="button secondary" href="https://x.com/PontilGroup">X</a>
+        <SocialIcon platform="x" href="https://x.com/PontilGroup" />
       </div>
     </div>
   </section>

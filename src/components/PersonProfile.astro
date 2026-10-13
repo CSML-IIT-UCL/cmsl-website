@@ -3,9 +3,16 @@ import { render, type CollectionEntry } from 'astro:content';
 import { mediaUrl } from '@/lib/paths';
 import { coverageForPerson, publicationsForPerson } from '@/lib/publications';
 import PublicationList from '@/components/PublicationList.astro';
+import SocialIcon from '@/components/SocialIcon.astro';
 
 interface Props { person: CollectionEntry<'people'>; showPublications?: boolean }
 const { person, showPublications = true } = Astro.props;
+const iconPlatformFor = (label: string): 'linkedin' | 'x' | null => {
+  const key = label.toLowerCase();
+  if (key === 'linkedin') return 'linkedin';
+  if (key === 'x' || key === 'twitter') return 'x';
+  return null;
+};
 const { Content } = await render(person);
 const photo = mediaUrl(person.data.photo);
 const initials = person.data.name.split(/\s+/).slice(0, 2).map((word) => word[0]).join('');
@@ -41,7 +48,12 @@ const relationship = person.data.status === 'alumni'
             OpenAlex{person.data.openalex_ids.length > 1 ? ` ${index + 1}` : ''}
           </a>
         ))}
-        {person.data.media_links.map((item) => <a class="button secondary" href={item.url}>{item.label}</a>)}
+        {person.data.media_links.map((item) => {
+          const platform = iconPlatformFor(item.label);
+          return platform
+            ? <SocialIcon platform={platform} href={item.url} label={item.label} />
+            : <a class="button secondary" href={item.url}>{item.label}</a>;
+        })}
       </div>
     </div>
   </div>

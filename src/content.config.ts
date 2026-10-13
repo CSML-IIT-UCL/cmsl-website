@@ -74,6 +74,8 @@ const news = defineCollection({
     event_date: z.coerce.date().nullable().optional(),
     pinned: z.boolean().default(false),
     link: nullableUrl,
+    image: localMediaPath,
+    image_alt: z.string().nullable().optional(),
   }),
 });
 

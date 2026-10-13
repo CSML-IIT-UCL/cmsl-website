@@ -110,11 +110,13 @@ published_at: '2026-10-13T09:00:00+02:00'
 event_date: null
 pinned: false
 link: null
+image: null
+image_alt: null
 ---
 Write the short announcement here. No HTML or layout code is needed.
 ```
 
-Use a unique ID, an actual date/time with offset, and `draft: false` when ready. A future `published_at` means not yet published. `event_date` describes when an event happens; it does not replace the date the news should appear. Add an optional HTTPS link for details. The shared news component handles formatting and scrolling.
+Use a unique ID, an actual date/time with offset, and `draft: false` when ready. A future `published_at` means not yet published. `event_date` describes when an event happens; it does not replace the date the news should appear. Add an optional HTTPS link for details. `image` is an optional `/media/...` path (for example a funder or award logo) shown above the announcement; set `image_alt` whenever `image` is set. The shared news component handles formatting and scrolling.
 
 ## Blog Posts: links to externally hosted articles
 

@@ -21,6 +21,13 @@ const personSchema = z.object({
   publications: z.object({ enabled: z.boolean(), include_in_team_list: z.boolean() }),
 });
 
+const newsSchema = z.object({
+  id: z.string().regex(/^[a-z0-9]+(?:-[a-z0-9]+)*$/),
+  draft: z.boolean().default(true),
+  image: z.string().nullable().optional(),
+  image_alt: z.string().nullable().optional(),
+});
+
 type Person = z.infer<typeof personSchema>;
 type Site = { principal_investigator_id: string; logo: string; hero?: { image?: string | null } };
 
@@ -75,6 +82,23 @@ try {
   validateLocalMedia('content/site.yaml', 'hero.image', site.hero?.image);
 } catch (error) {
   addError('content/site.yaml', 'document', error instanceof Error ? error.message : String(error));
+}
+
+for (const file of filesUnder('content/news', ['.md'])) {
+  try {
+    const parsed = newsSchema.safeParse(readMarkdown(file).data);
+    if (!parsed.success) {
+      for (const issue of parsed.error.issues) addError(file, issue.path.join('.') || 'frontmatter', issue.message);
+      continue;
+    }
+    const news = parsed.data;
+    const fileId = path.basename(file, '.md');
+    if (fileId !== news.id) addError(file, 'id', `must match filename '${fileId}'`);
+    validateLocalMedia(file, 'image', news.image);
+    if (news.image && !news.image_alt) addError(file, 'image_alt', 'required when image is set');
+  } catch (error) {
+    addError(file, 'frontmatter', error instanceof Error ? error.message : String(error));
+  }
 }
 
 for (const file of filesUnder('content/projects', ['.yaml', '.yml'])) {

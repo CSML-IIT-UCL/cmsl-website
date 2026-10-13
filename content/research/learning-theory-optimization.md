@@ -6,4 +6,4 @@ order: 10
 media: { src: null, alt: null, fit: cover, position: center, poster: null }
 link: null
 ---
-We study the mathematical foundations of machine learning, combining statistical analysis, empirical processes and numerical optimization to design efficient, reliable and interpretable algorithms.
+We study the mathematical principles behind machine learning, and use them to design algorithms that are efficient, reliable and easy to interpret.

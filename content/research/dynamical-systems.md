@@ -6,4 +6,4 @@ order: 40
 media: { src: null, alt: null, fit: contain, position: center, poster: null }
 link: null
 ---
-We develop physics-informed and operator-learning methods for modelling time-dependent processes and discovering governing structure from complex data.
+We combine machine learning with physics to model how complex systems change over time, and to uncover the rules behind their behaviour.

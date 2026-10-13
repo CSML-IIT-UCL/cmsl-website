@@ -6,4 +6,4 @@ order: 30
 media: { src: null, alt: null, fit: contain, position: center, poster: null }
 link: null
 ---
-Our work connects machine learning with scientific discovery across computational chemistry, neuroscience, robotics and climate modelling.
+We apply machine learning to scientific discovery, with work spanning chemistry, neuroscience, robotics and climate modelling.

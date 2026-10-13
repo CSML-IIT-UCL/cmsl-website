@@ -1,12 +1,19 @@
 ---
 import { render, type CollectionEntry } from 'astro:content';
+import { mediaUrl } from '@/lib/paths';
 interface Props { item: CollectionEntry<'news'> }
 const { item } = Astro.props;
 const { Content } = await render(item);
 const date = new Intl.DateTimeFormat('en-GB', { dateStyle: 'medium', timeZone: 'Europe/Rome' }).format(item.data.published_at);
+const image = mediaUrl(item.data.image);
 ---
 
 <article class="news-item">
+  {image && (
+    <p class="news-item-media">
+      <img src={image} alt={item.data.image_alt ?? ''} />
+    </p>
+  )}
   <time datetime={item.data.published_at.toISOString()}>{date}</time>
   <h3>{item.data.title}</h3>
   <div class="prose compact"><Content /></div>
