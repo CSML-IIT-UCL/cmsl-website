@@ -15,15 +15,15 @@ const records = teamPublications(people.map((person) => ({
 })));
 ---
 
-<BaseLayout title="Publications" description="Cached publications by configured CSML team members.">
+<BaseLayout title="Publications" description="Publications by the CSML team at IIT.">
   <div class="page-shell shell">
-    <SectionHeading eyebrow="Publications" title="Combined team bibliography" intro="The aggregate covers configured members' publication histories while affiliated with the group, including work before joining IIT where no affiliation window is set." />
+    <SectionHeading eyebrow="Publications" title="Combined team bibliography" intro="Includes each team member's publications, covering their full research history unless a join or departure date narrows it." />
     <div class="source-note">
       <span>Source: OpenAlex</span>
       <span>Last complete refresh: {publicationData.last_full_refresh_at ?? 'Not yet synced'}</span>
     </div>
     {records.length > 0 ? (
       <PublicationList publications={records} />
-    ) : <EmptyState title="Publication cache not yet synced" message="Profiles remain available while verified OpenAlex author identities and the first durable snapshot are prepared." />}
+    ) : <EmptyState title="Publications not available yet" message="Check back soon." />}
   </div>
 </BaseLayout>

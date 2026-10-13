@@ -15,7 +15,7 @@ const renderedOpenings = await Promise.all(openings.map(async (opening) => ({
 
 <BaseLayout title="Career Opportunities" description="Open positions and application guidance for CSML at IIT.">
   <div class="page-shell shell">
-    <SectionHeading eyebrow="Careers" title="Work with CSML" intro="Verified calls use the official application destination and deadline." />
+    <SectionHeading eyebrow="Careers" title="Work with CSML" intro="Each opening below links to its official application page and deadline." />
     {openings.length > 0 ? (
       <div class="opening-list">
         {renderedOpenings.map(({ opening, Content }) => {
@@ -30,10 +30,15 @@ const renderedOpenings = await Promise.all(openings.map(async (opening) => ({
           );
         })}
       </div>
-    ) : <EmptyState title="No verified openings currently published" message="Two legacy postdoctoral calls are staged as drafts until their current status is confirmed." />}
+    ) : <EmptyState title="No verified openings currently published" message="Check back soon, or see the PhD guidance below." />}
     <section class="application-note">
-      <h2>Prospective applicants</h2>
-      <p>The CV-upload service and its privacy terms are not yet approved. The website therefore does not display a form or claim that an application was submitted.</p>
+      <h2>PhD applications</h2>
+      <p>CSML does not currently have an open, position-specific PhD call. PhD recruitment at IIT runs through annual, university-affiliated calls by research domain; browse <a href="https://www.iit.it/en/phd">IIT's Open PhD Positions</a> for the current round, or get in touch with the group once a relevant call opens.</p>
+      <p>CV submission for general expressions of interest isn't available on this site yet.</p>
+    </section>
+    <section class="application-note">
+      <h2>Postdoctoral and other applications</h2>
+      <p>The postdoctoral openings above link to IIT's official application portal, where you submit your materials directly. A CV-submission option for general expressions of interest isn't available yet.</p>
     </section>
   </div>
 </BaseLayout>
