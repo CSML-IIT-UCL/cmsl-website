@@ -1,0 +1,77 @@
+---
+import { render, type CollectionEntry } from 'astro:content';
+import { mediaUrl } from '@/lib/paths';
+import { coverageForPerson, publicationsForPerson } from '@/lib/publications';
+import PublicationList from '@/components/PublicationList.astro';
+
+interface Props { person: CollectionEntry<'people'>; showPublications?: boolean }
+const { person, showPublications = true } = Astro.props;
+const { Content } = await render(person);
+const photo = mediaUrl(person.data.photo);
+const initials = person.data.name.split(/\s+/).slice(0, 2).map((word) => word[0]).join('');
+const website = person.data.personal_website ?? person.data.iit_profile;
+const publications = publicationsForPerson(person.data.id);
+const coverage = coverageForPerson(person.data.id);
+const relationship = person.data.status === 'alumni'
+  ? 'Former colleague'
+  : person.data.status === 'affiliated'
+    ? 'Affiliated researcher'
+    : 'CSML member';
+---
+
+<article class="profile">
+  <div class="profile-header">
+    <div class="profile-portrait">
+      {photo
+        ? <img src={photo} alt={person.data.photo_alt ?? `Portrait of ${person.data.name}`} />
+        : <span aria-hidden="true">{initials}</span>}
+    </div>
+    <div>
+      <p class="eyebrow">{relationship}</p>
+      <h1>{person.data.name}</h1>
+      <p class="profile-role">{person.data.role_label}</p>
+      <div class="profile-links" aria-label={`${person.data.name} links`}>
+        {website && <a class="button secondary" href={website}>Website</a>}
+        {person.data.email && <a class="button secondary" href={`mailto:${person.data.email}`}>Email</a>}
+        {person.data.orcid && <a class="button secondary" href={`https://orcid.org/${person.data.orcid}`}>ORCID</a>}
+        {person.data.scholar_url && <a class="button secondary" href={person.data.scholar_url}>Scholar</a>}
+        {person.data.github_url && <a class="button secondary" href={person.data.github_url}>GitHub</a>}
+        {person.data.openalex_ids.map((authorId, index) => (
+          <a class="button secondary" href={`https://openalex.org/${authorId}`}>
+            OpenAlex{person.data.openalex_ids.length > 1 ? ` ${index + 1}` : ''}
+          </a>
+        ))}
+        {person.data.media_links.map((item) => <a class="button secondary" href={item.url}>{item.label}</a>)}
+      </div>
+    </div>
+  </div>
+  {person.body && <div class="prose profile-biography"><Content /></div>}
+  {person.data.research_interests.length > 0 && (
+    <ul class="tag-list" aria-label="Research interests">
+      {person.data.research_interests.map((interest) => <li>{interest}</li>)}
+    </ul>
+  )}
+  {showPublications && (
+    <section class="profile-publications" aria-labelledby="profile-publications-title">
+      <h2 id="profile-publications-title">Publications</h2>
+      {person.data.openalex_ids.length > 0 && (
+        <p class="publication-source">
+          Source: {person.data.openalex_ids.map((authorId, index) => (
+            <><a href={`https://openalex.org/${authorId}`}>{authorId}</a>{index < person.data.openalex_ids.length - 1 ? ', ' : ''}</>
+          ))}
+        </p>
+      )}
+      {publications.length > 0 ? (
+        <PublicationList publications={publications} />
+      ) : (
+        <p class="muted">
+          {coverage
+            ? 'No publications are present in the current OpenAlex cache.'
+            : person.data.openalex_ids.length > 0
+              ? 'This verified OpenAlex profile has not yet been refreshed into the site cache.'
+              : 'Publication identity has not yet been linked to a verified OpenAlex author record.'}
+        </p>
+      )}
+    </section>
+  )}
+</article>

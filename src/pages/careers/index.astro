@@ -1,0 +1,39 @@
+---
+import { getCollection, render } from 'astro:content';
+import EmptyState from '@/components/EmptyState.astro';
+import SectionHeading from '@/components/SectionHeading.astro';
+import BaseLayout from '@/layouts/BaseLayout.astro';
+
+const now = new Date();
+const openings = (await getCollection('openings', ({ data }) => !data.draft && data.status === 'open' && (!data.deadline_at || data.deadline_at > now)))
+  .sort((a, b) => a.data.published_at.getTime() - b.data.published_at.getTime());
+const renderedOpenings = await Promise.all(openings.map(async (opening) => ({
+  opening,
+  Content: (await render(opening)).Content,
+})));
+---
+
+<BaseLayout title="Career Opportunities" description="Open positions and application guidance for CSML at IIT.">
+  <div class="page-shell shell">
+    <SectionHeading eyebrow="Careers" title="Work with CSML" intro="Verified calls use the official application destination and deadline." />
+    {openings.length > 0 ? (
+      <div class="opening-list">
+        {renderedOpenings.map(({ opening, Content }) => {
+          return (
+            <article class="opening-card">
+              <span class="status">{opening.data.application_type.replace('_', ' ')}</span>
+              <h2>{opening.data.title}</h2>
+              <div class="prose compact"><Content /></div>
+              {opening.data.deadline_at && <p>Deadline: <time datetime={opening.data.deadline_at.toISOString()}>{opening.data.deadline_at.toLocaleDateString('en-GB')}</time></p>}
+              {opening.data.apply_url && <a class="button" href={opening.data.apply_url}>Official application</a>}
+            </article>
+          );
+        })}
+      </div>
+    ) : <EmptyState title="No verified openings currently published" message="Two legacy postdoctoral calls are staged as drafts until their current status is confirmed." />}
+    <section class="application-note">
+      <h2>Prospective applicants</h2>
+      <p>The CV-upload service and its privacy terms are not yet approved. The website therefore does not display a form or claim that an application was submitted.</p>
+    </section>
+  </div>
+</BaseLayout>

@@ -1,0 +1,9 @@
+version: 1
+# OpenAlex is the bibliographic source of record. Team members should correct
+# their works in OpenAlex, then request an explicit cache refresh. These lists
+# are maintainer-only escape hatches for exceptional source errors, retractions,
+# or reviewed records that OpenAlex cannot represent; they are not profile-editing tools.
+additions: []
+exclusions: []
+patches: []
+aliases: []

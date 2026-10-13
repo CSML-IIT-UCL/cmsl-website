@@ -1,0 +1,36 @@
+title: Computational Statistics and Machine Learning
+short_title: CSML
+description: The Computational Statistics and Machine Learning research group at the Istituto Italiano di Tecnologia.
+principal_investigator_id: massimiliano-pontil
+logo: /media/csml_logos/IIT-logo-CSML T2 POS.svg
+# Extra space above/below the logo inside the header banner, in pixels.
+logo_margin_top: 15
+logo_margin_bottom: 15
+hero:
+  image: /media/team/csml-team.jpg
+  alt: Members of the CSML group on the terrace at CHT@Erzelli, with Genoa in the background
+  focal_position: center 48%
+role_groups:
+  - key: senior_academic
+    label: Senior Academics
+    order: 10
+  - key: postdoc
+    label: Post-Docs
+    order: 20
+  - key: phd_student
+    label: PhD Students
+    order: 30
+  - key: research_engineer
+    label: Research Engineers
+    order: 40
+  - key: affiliated_researcher
+    label: Affiliated & Visiting Researchers
+    order: 50
+  - key: research_support
+    label: Research Support
+    order: 60
+contact:
+  location_label: CHT@Erzelli
+  address: null
+  institution_url: https://www.iit.it/
+  privacy_url: https://www.iit.it/privacy-policy

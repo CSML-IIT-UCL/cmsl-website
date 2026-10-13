@@ -1,0 +1,22 @@
+mode: disabled
+privacy_notice_url: null
+max_cv_size_mb: 10
+accepted_cv_types:
+  - application/pdf
+types:
+  phd:
+    label: PhD application
+    subject_tag: PHD
+    form_url: null
+  postdoc:
+    label: Postdoctoral application
+    subject_tag: POSTDOC
+    form_url: null
+  research_engineer:
+    label: Research engineer application
+    subject_tag: ENGINEER
+    form_url: null
+  open:
+    label: Open application
+    subject_tag: OPEN
+    form_url: null

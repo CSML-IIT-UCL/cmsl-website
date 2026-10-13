@@ -1,0 +1,75 @@
+version: 1
+retrieved_at: '2026-10-13'
+assets:
+  - local_path: media/csml_logos/IIT-logo-CSML T1 POS.svg
+    source_url: null
+    source_page: repository-supplied
+    checksum_sha256: ca0bb2b8a842317334d34bb9372c22c3de5e3af3959c9206933191575f941d9d
+    approval_notes: Official asset supplied in the repository; preserved unchanged.
+  - local_path: media/csml_logos/IIT-logo-CSML T1 NEG.svg
+    source_url: null
+    source_page: repository-supplied
+    checksum_sha256: 510bbe9fb3101dc6403abf6ae7c9d324034f108c51ba894f7343f02983d8ec5f
+    approval_notes: Official asset supplied in the repository; preserved unchanged.
+  - local_path: media/csml_logos/IIT-logo-CSML T2 POS.svg
+    source_url: null
+    source_page: repository-supplied
+    checksum_sha256: 91f53814cd6e0c3da35ddbdcfe0487c5acbc5ae23d28ea3f78db9e0a1570fcbb
+    approval_notes: Official asset supplied in the repository; preserved unchanged.
+  - local_path: media/csml_logos/IIT-logo-CSML T2 NEG.svg
+    source_url: null
+    source_page: repository-supplied
+    checksum_sha256: e3859865d4a9d35166a6ca134f520355202e81dfe385eff383bc40036a3a35a6
+    approval_notes: Official asset supplied in the repository; preserved unchanged.
+  - local_path: media/team/csml-team.jpg
+    source_url: https://r.iit.it/media/3e86e-Pontil.jpg
+    source_page: https://csml.iit.it/home
+    checksum_sha256: 24df492259a35aa77dcf3944b74bd9d9e70bfd979becea34512ebdeb5482f65f
+    approval_notes: Current legacy-homepage team photograph, migrated at the maintainer's request; source file preserved without retouching.
+  - local_path: media/people/massimiliano-pontil.jpg
+    source_url: https://scientilla.iit.it/api/v1/users/username/massimiliano.pontil@iit.it/profile-image
+    source_page: https://csml.iit.it/people-details/-/people/massimiliano-pontil
+    checksum_sha256: c1fe5c14ce8756b8a41c1dfa6b06381d23c70e6c80d22e963f60c3839ecbdb1b
+    approval_notes: Portrait currently published by IIT, migrated at the maintainer's request.
+  - local_path: media/people/emanuele-ballarin.jpg
+    source_url: https://scientilla.iit.it/api/v1/users/username/emanuele.ballarin@iit.it/profile-image
+    source_page: https://csml.iit.it/people-details/-/people/emanuele-ballarin
+    checksum_sha256: 032a20316fbd5d39b30861f4820dfe65233d0b4db0fff8e91fc11aec34482d67
+    approval_notes: Portrait currently published by IIT, migrated at the maintainer's request; source response is PNG despite the local extension.
+  - local_path: media/people/lisa-cuneo.jpg
+    source_url: https://scientilla.iit.it/api/v1/users/username/lisa.cuneo@iit.it/profile-image
+    source_page: https://csml.iit.it/people-details/-/people/lisa-cuneo
+    checksum_sha256: fd45c1be7ccede951804e9c3c15caf11d90ca45f25025db35d199685db1c4651
+    approval_notes: Portrait currently published by IIT, migrated at the maintainer's request.
+  - local_path: media/people/alek-frohlich.jpg
+    source_url: https://scientilla.iit.it/api/v1/users/username/alek.frohlich@iit.it/profile-image
+    source_page: https://csml.iit.it/people-details/-/people/alek-frohlich
+    checksum_sha256: fcd65cc6649d3083b0412246efa6881f9639d4bf9cae4277d524f651c728dc4b
+    approval_notes: Portrait currently published by IIT, migrated at the maintainer's request.
+  - local_path: media/people/daniel-ordonez.jpg
+    source_url: https://scientilla.iit.it/api/v1/users/username/daniel.ordonez@iit.it/profile-image
+    source_page: https://csml.iit.it/people-details/-/people/daniel-ordonez
+    checksum_sha256: 382973f026e678bbab97798aecbb324bbd54a66ce27162792cf57a20e5152f61
+    approval_notes: Portrait currently published by IIT, migrated at the maintainer's request.
+  - local_path: media/people/daniel-rodrigues.jpg
+    source_url: https://scientilla.iit.it/api/v1/users/username/daniel.rodrigues@iit.it/profile-image
+    source_page: https://csml.iit.it/people-details/-/people/daniel-rodrigues
+    checksum_sha256: 5528fb18bc78ba018d199f59c84ca2a9d23621552dd60365c4aeaf73b919cf0e
+    approval_notes: Portrait currently published by IIT, migrated at the maintainer's request.
+  - local_path: media/people/giacomo-turri.jpg
+    source_url: https://scientilla.iit.it/api/v1/users/username/giacomo.turri@iit.it/profile-image
+    source_page: https://csml.iit.it/people-details/-/people/giacomo-turri
+    checksum_sha256: 69e7f7c1a742ffae465392a82f30bcd2e6fc5ed1223ea09e8b5c641de3580b55
+    approval_notes: Portrait currently published by IIT, migrated at the maintainer's request.
+  - local_path: media/fonts/MomoTrustSans-Variable.woff2
+    source_url: https://raw.githubusercontent.com/typeassociates/MomoTrustSans/main/fonts/webfonts/MomoTrustSans%5Bwght%5D.woff2
+    source_page: https://github.com/typeassociates/MomoTrustSans
+    checksum_sha256: 6214d43f1f33255e3cd5f519aeca1e4e4138f3ec78a3e43a5011b1663b5ab4e1
+    approval_notes: Original variable webfont requested by the maintainer; licensed under SIL Open Font License 1.1, copied to docs/licenses/MomoTrustSans-OFL.txt.
+blockers:
+  - kind: missing-portraits
+    source_page: https://csml.iit.it/people
+    note: IIT currently publishes its generic logo instead of a portrait for the other listed people; the new site uses text initials rather than mislabelling that logo as a portrait.
+  - kind: project-logos
+    source_page: https://csml.iit.it/funded-projects
+    note: The four verified project records do not expose approved reusable project/funder logo files; cards therefore use text identities without invented logos.

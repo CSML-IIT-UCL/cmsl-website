@@ -1,0 +1,45 @@
+---
+import { withBase, mediaUrl } from '@/lib/paths';
+import type { SiteConfig } from '@/lib/site';
+
+interface Props { site: SiteConfig }
+const { site } = Astro.props;
+const home = withBase();
+const logo = mediaUrl(site.logo);
+---
+
+<header class="site-header">
+  <a class="skip-link" href="#main-content">Skip to content</a>
+  <div class="shell header-inner">
+    <a class="brand" href={home} aria-label={`${site.short_title} home`}>
+      {logo && (
+        <img
+          src={logo}
+          alt={`${site.short_title} · IIT`}
+          width="669"
+          height="157"
+          style={`margin-top: ${site.logo_margin_top}px; margin-bottom: ${site.logo_margin_bottom}px;`}
+        />
+      )}
+    </a>
+    <details class="nav-menu">
+      <summary aria-label="Open navigation">Menu</summary>
+      <nav aria-label="Primary navigation">
+        <a href={`${home}#about`}>About</a>
+        <a href={`${home}#research`}>Research</a>
+        <a href={`${home}#people`}>People</a>
+        <a href={withBase('publications/')}>Publications</a>
+        <a href={withBase('careers/')}>Careers</a>
+        <a href={withBase('blog/')}>Blog Posts</a>
+      </nav>
+    </details>
+    <nav class="desktop-nav" aria-label="Primary navigation">
+      <a href={`${home}#about`}>About</a>
+      <a href={`${home}#research`}>Research</a>
+      <a href={`${home}#people`}>People</a>
+      <a href={withBase('publications/')}>Publications</a>
+      <a href={withBase('careers/')}>Careers</a>
+      <a href={withBase('blog/')}>Blog Posts</a>
+    </nav>
+  </div>
+</header>

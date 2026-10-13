@@ -1,0 +1,15 @@
+id: fair
+title: Future AI Research
+acronym: FAIR
+draft: false
+status: completed
+start_date: '2023-01-01'
+end_date: '2026-04-30'
+project_url: https://future-ai-research.it/
+project_logo: null
+funders:
+  - name: European Union – NextGenerationEU
+    logo: null
+    logo_alt: null
+    url: https://next-generation-eu.europa.eu/
+order: 10

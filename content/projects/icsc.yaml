@@ -1,0 +1,15 @@
+id: icsc
+title: National Centre for HPC, Big Data and Quantum Computing
+acronym: ICSC
+draft: false
+status: completed
+start_date: '2022-09-01'
+end_date: '2026-06-30'
+project_url: https://www.ifabfoundation.org/
+project_logo: null
+funders:
+  - name: European Union – NextGenerationEU
+    logo: null
+    logo_alt: null
+    url: https://next-generation-eu.europa.eu/
+order: 20

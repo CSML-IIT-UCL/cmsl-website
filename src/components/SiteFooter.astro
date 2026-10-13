@@ -1,0 +1,21 @@
+---
+import { withBase } from '@/lib/paths';
+import type { SiteConfig } from '@/lib/site';
+
+interface Props { site: SiteConfig }
+const { site } = Astro.props;
+---
+
+<footer class="site-footer">
+  <div class="shell footer-grid">
+    <div>
+      <strong>{site.short_title}</strong>
+      <p>{site.title}<br />Istituto Italiano di Tecnologia</p>
+    </div>
+    <div class="footer-links">
+      <a href={withBase()}>Home</a>
+      <a href={site.contact.institution_url}>IIT</a>
+      <a href={site.contact.privacy_url}>Privacy</a>
+    </div>
+  </div>
+</footer>

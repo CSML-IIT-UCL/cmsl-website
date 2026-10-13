@@ -1,0 +1,43 @@
+{
+  "name": "csml-website",
+  "version": "0.1.0",
+  "private": true,
+  "type": "module",
+  "engines": {
+    "node": ">=22.12.0"
+  },
+  "scripts": {
+    "dev": "node scripts/dev.mjs",
+    "dev:staging": "node scripts/dev.mjs --staging",
+    "content:validate": "node --experimental-strip-types scripts/validate-content.ts",
+    "content:export-authors": "node --experimental-strip-types scripts/export-authors.ts",
+    "check": "npm run content:validate && ASTRO_TELEMETRY_DISABLED=1 astro check",
+    "test:unit": "vitest run",
+    "test:python": "python3 -m unittest discover -s tests/python -p 'test_*.py'",
+    "test": "npm run test:unit && npm run test:python",
+    "build": "node scripts/build.mjs production",
+    "build:staging": "node scripts/build.mjs staging",
+    "preview": "ASTRO_TELEMETRY_DISABLED=1 astro preview --host 127.0.0.1 --port 4321",
+    "preview:staging": "ASTRO_TELEMETRY_DISABLED=1 SITE_BASE_PATH=/cmsl-website/dev/ PUBLIC_SITE_ENV=staging astro preview --host 127.0.0.1 --port 4321",
+    "test:e2e": "playwright test",
+    "validate:production": "node --experimental-strip-types scripts/validate-production.ts",
+    "publications:setup": "node scripts/setup-publications.mjs",
+    "publications:list": "node --experimental-strip-types scripts/list-publications.ts",
+    "publications:update": "node scripts/update-publications.mjs",
+    "blogs:update": "node scripts/update-blogs.mjs"
+  },
+  "dependencies": {
+    "astro": "7.3.8",
+    "js-yaml": "5.4.3",
+    "zod": "4.6.7"
+  },
+  "devDependencies": {
+    "@astrojs/check": "0.9.10",
+    "@playwright/test": "1.64.0",
+    "@types/js-yaml": "4.0.9",
+    "@types/node": "22.20.5",
+    "tsx": "4.23.15",
+    "typescript": "6.0.3",
+    "vitest": "5.0.4"
+  }
+}

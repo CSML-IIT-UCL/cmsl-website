@@ -1,0 +1,10 @@
+# Add one record like this under sources: in content/blog-sources.yaml.
+# Confirm the listing/author. Leave feed_url null until the feed is verified.
+# A source without RSS/Atom needs a supported, tested HTML adapter.
+id: example-author-blog
+enabled: false
+listing_url: https://example.org/blog/
+author_name: Example Researcher
+person_id: null
+feed_url: null
+adapter: auto

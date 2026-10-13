@@ -1,0 +1,2 @@
+# Python collector dependencies are intentionally empty in the Phase 1 bootstrap.
+# Phase 4 will pin only the dependencies used by scripts/sync_openalex.py.

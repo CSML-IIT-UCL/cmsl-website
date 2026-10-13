@@ -1,0 +1,25 @@
+---
+import type { CollectionEntry } from 'astro:content';
+import { mediaUrl, withBase } from '@/lib/paths';
+
+interface Props { person: CollectionEntry<'people'> }
+const { person } = Astro.props;
+const photo = mediaUrl(person.data.photo);
+const initials = person.data.name.split(/\s+/).slice(0, 2).map((word) => word[0]).join('');
+---
+
+<article class="person-card">
+  <a href={withBase(`people/${person.data.id}/`)} aria-label={`View ${person.data.name}'s profile`}>
+    <div class="person-portrait">
+      {photo
+        ? <img src={photo} alt={person.data.photo_alt ?? `Portrait of ${person.data.name}`} loading="lazy" />
+        : <span aria-hidden="true">{initials}</span>}
+    </div>
+    <div class="person-card-copy">
+      <h4>{person.data.name}</h4>
+      <p class="role-label">{person.data.role_label}</p>
+      {person.data.research_summary && <p>{person.data.research_summary}</p>}
+      <span class="text-link">View profile <span aria-hidden="true">→</span></span>
+    </div>
+  </a>
+</article>

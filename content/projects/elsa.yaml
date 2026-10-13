@@ -1,0 +1,15 @@
+id: elsa
+title: European Lighthouse on Secure and Safe AI
+acronym: ELSA
+draft: false
+status: completed
+start_date: '2022-09-01'
+end_date: '2026-08-31'
+project_url: https://www.elsa-ai.eu/
+project_logo: null
+funders:
+  - name: European Union
+    logo: null
+    logo_alt: null
+    url: https://european-union.europa.eu/
+order: 30

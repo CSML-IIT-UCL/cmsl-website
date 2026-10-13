@@ -1,0 +1,13 @@
+---
+import BaseLayout from '@/layouts/BaseLayout.astro';
+import { withBase } from '@/lib/paths';
+---
+
+<BaseLayout title="Page not found">
+  <div class="page-shell shell narrow">
+    <p class="eyebrow">404</p>
+    <h1>That page is not here.</h1>
+    <p class="lead">The address may have changed, or the content may still be under review.</p>
+    <a class="button" href={withBase()}>Return home</a>
+  </div>
+</BaseLayout>

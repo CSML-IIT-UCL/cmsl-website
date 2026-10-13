@@ -1,0 +1,21 @@
+---
+import { getCollection, type CollectionEntry } from 'astro:content';
+import PersonProfile from '@/components/PersonProfile.astro';
+import BaseLayout from '@/layouts/BaseLayout.astro';
+import { withBase } from '@/lib/paths';
+
+export async function getStaticPaths() {
+  const people = await getCollection('people', ({ data }) => !data.draft);
+  return people.map((person) => ({ params: { id: person.data.id }, props: { person } }));
+}
+
+interface Props { person: CollectionEntry<'people'> }
+const { person } = Astro.props;
+---
+
+<BaseLayout title={person.data.name} description={person.data.research_summary ?? `${person.data.name} at CSML, IIT.`}>
+  <div class="page-shell shell">
+    <a class="back-link" href={`${withBase()}#people`}><span aria-hidden="true">←</span> Back to people</a>
+    <PersonProfile person={person} />
+  </div>
+</BaseLayout>

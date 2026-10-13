@@ -1,0 +1,13 @@
+# Copy into the matching content folder; replace all example values.
+# Keep draft: true until ready for public preview and review.
+id: example-project
+title: Example project
+acronym: EXAMPLE
+draft: true
+status: active                   # active | completed
+start_date: null
+end_date: null
+project_url: null
+project_logo: null
+funders: []                      # Each: name, logo, logo_alt, optional url
+order: 10

@@ -1,0 +1,11 @@
+# Copy into the matching content folder; replace all example values.
+# Keep draft: true until ready for public preview and review.
+id: example-external-post
+draft: true
+title: Example article title
+author: Example Researcher
+person_id: null                 # Optional existing content/people ID
+url: https://example.org/blog/example-article/
+published_at: null              # Optional quoted ISO date
+image: null                     # Optional approved local or HTTPS article image
+image_alt: null

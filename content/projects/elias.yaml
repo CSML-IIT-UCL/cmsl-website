@@ -1,0 +1,15 @@
+id: elias
+title: European Lighthouse of AI for Sustainability
+acronym: ELIAS
+draft: false
+status: active
+start_date: '2023-09-01'
+end_date: '2027-08-31'
+project_url: https://elias-ai.eu/
+project_logo: null
+funders:
+  - name: European Union
+    logo: null
+    logo_alt: null
+    url: https://european-union.europa.eu/
+order: 40

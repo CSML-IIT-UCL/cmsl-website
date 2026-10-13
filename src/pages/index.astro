@@ -1,0 +1,133 @@
+---
+import { getCollection, getEntry, render } from 'astro:content';
+import EmptyState from '@/components/EmptyState.astro';
+import NewsItem from '@/components/NewsItem.astro';
+import PersonCard from '@/components/PersonCard.astro';
+import PersonProfile from '@/components/PersonProfile.astro';
+import ResearchCard from '@/components/ResearchCard.astro';
+import SectionHeading from '@/components/SectionHeading.astro';
+import BaseLayout from '@/layouts/BaseLayout.astro';
+import { mediaUrl } from '@/lib/paths';
+import { getSiteConfig } from '@/lib/site';
+
+const site = getSiteConfig();
+const allPeople = (await getCollection('people', ({ data }) => !data.draft)).sort((a, b) => a.data.order - b.data.order || a.data.name.localeCompare(b.data.name));
+const pi = allPeople.find((person) => person.data.id === site.principal_investigator_id);
+if (!pi) throw new Error(`Configured PI '${site.principal_investigator_id}' is not a published person.`);
+const research = (await getCollection('research', ({ data }) => !data.draft)).sort((a, b) => a.data.order - b.data.order);
+const news = (await getCollection('news', ({ data }) => !data.draft && data.published_at <= new Date())).sort((a, b) => b.data.published_at.getTime() - a.data.published_at.getTime());
+const projects = (await getCollection('projects', ({ data }) => !data.draft)).sort((a, b) => a.data.order - b.data.order);
+const hero = mediaUrl(site.hero.image);
+const about = await getEntry('about', 'about');
+if (!about) throw new Error('content/about.md is missing.');
+const { Content: AboutContent } = await render(about);
+---
+
+<BaseLayout>
+  <section class:list={['hero', !hero && 'hero-placeholder']} aria-labelledby="hero-title">
+    {hero && <img src={hero} alt={site.hero.alt ?? 'CSML team'} style={`object-position:${site.hero.focal_position}`} fetchpriority="high" />}
+    <div class="shell hero-copy">
+      <p class="eyebrow">Istituto Italiano di Tecnologia</p>
+      <h1 id="hero-title">Computational Statistics &amp; Machine Learning</h1>
+      <p>Foundational methods for reliable learning, scientific discovery and dynamical systems.</p>
+    </div>
+  </section>
+
+  <section id="about" class="section shell about-grid">
+    <div>
+      <SectionHeading eyebrow="About the group" title="Rigour for complex, real-world learning" />
+      <div class="prose large"><AboutContent /></div>
+    </div>
+    <aside class="pi-card" aria-label="Principal investigator">
+      <p class="eyebrow">Principal investigator</p>
+      <PersonProfile person={pi} showPublications={false} />
+    </aside>
+  </section>
+
+  <section id="research" class="section section-tint">
+    <div class="shell">
+      <SectionHeading eyebrow="Research" title="Four connected directions" intro="From mathematical foundations to scientific and robotic systems." />
+      <div class="research-grid">
+        {research.map((item, index) => <ResearchCard item={item} index={index} />)}
+      </div>
+    </div>
+  </section>
+
+  <section id="updates" class="section shell">
+    <SectionHeading eyebrow="Updates" title="News & social" intro="Authored group news and direct links to our public channels." />
+    <div class="updates-grid">
+      <div class="updates-panel">
+        <div class="panel-heading"><h3>Group news</h3><span>{news.length}</span></div>
+        <div class="updates-scroll">
+          {news.length > 0 ? news.map((item) => <NewsItem item={item} />) : <EmptyState title="No published news yet" message="Verified announcements will appear here as content entries are approved." />}
+        </div>
+      </div>
+      <div class="updates-panel">
+        <div class="panel-heading"><h3>Social feeds</h3><span>Live later</span></div>
+        <div class="social-placeholder">
+          <p>Live Bluesky cards are scheduled for the social-integration phase. Static builds never depend on a social API.</p>
+          <a class="button secondary" href="https://bsky.app/profile/pontilgroup.bsky.social">Open Bluesky profile</a>
+          <a class="button secondary" href="https://x.com/PontilGroup">Open X profile</a>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section id="people" class="section shell">
+    <SectionHeading eyebrow="People" title="The CSML team" intro="Profiles are generated from one shared people and publication registry." />
+    {site.role_groups.map((group) => {
+      const members = allPeople.filter((person) => person.data.role === group.key);
+      if (members.length === 0) return null;
+      return (
+        <section class="people-group" aria-labelledby={`group-${group.key}`}>
+          <h3 id={`group-${group.key}`}>{group.label}</h3>
+          <div class="people-grid">{members.map((person) => <PersonCard person={person} />)}</div>
+        </section>
+      );
+    })}
+  </section>
+
+  <section id="projects" class="section section-tint">
+    <div class="shell">
+      <SectionHeading eyebrow="Projects" title="Funded research" intro="Verified project records will include the actual project, funding institution and destination." />
+      {projects.length > 0 ? (
+        <div class="project-list">
+          {projects.map((project) => (
+            <article class="project-card">
+              <span class="status">{project.data.status}</span>
+              <h3>{project.data.acronym}</h3>
+              <p>{project.data.title}</p>
+              {(project.data.start_date || project.data.end_date) && (
+                <p class="project-meta">
+                  {project.data.start_date?.getUTCFullYear() ?? 'Start not recorded'}–{project.data.end_date?.getUTCFullYear() ?? 'ongoing'}
+                </p>
+              )}
+              {project.data.funders.length > 0 && (
+                <p class="project-funders">
+                  Funded by {project.data.funders.map((funder, index) => (
+                    <><a href={funder.url ?? undefined}>{funder.name}</a>{index < project.data.funders.length - 1 ? ', ' : ''}</>
+                  ))}
+                </p>
+              )}
+              {project.data.project_url && <a class="text-link" href={project.data.project_url}>Project website <span aria-hidden="true">↗</span></a>}
+            </article>
+          ))}
+        </div>
+      ) : <EmptyState title="Project inventory in review" message="The legacy listing did not expose a reliable project inventory. No funding relationship has been guessed." />}
+    </div>
+  </section>
+
+  <section id="contact" class="section shell contact-grid">
+    <SectionHeading eyebrow="Contact" title="Start a conversation" intro="Use the verified professional profiles while team contact and location details are reviewed." />
+    <div class="contact-card">
+      <p><strong>Computational Statistics and Machine Learning</strong><br />Istituto Italiano di Tecnologia</p>
+      {site.contact.location_label && <p class="contact-location">Research centre: {site.contact.location_label}</p>}
+      <div class="button-row">
+        <a class="button" href={pi.data.iit_profile ?? site.contact.institution_url}>Principal investigator profile</a>
+        <a class="button secondary" href={site.contact.institution_url}>IIT website</a>
+        <a class="button secondary" href="https://bsky.app/profile/pontilgroup.bsky.social">Bluesky</a>
+        <a class="button secondary" href="https://x.com/PontilGroup">X</a>
+      </div>
+    </div>
+  </section>
+</BaseLayout>

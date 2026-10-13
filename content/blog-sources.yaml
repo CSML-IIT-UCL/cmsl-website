@@ -1,0 +1,15 @@
+sources:
+  - id: vladimir-kostic
+    enabled: true
+    listing_url: https://vladi-slk.github.io/blog.html
+    author_name: Vladimir R. Kostić
+    person_id: null
+    feed_url: null
+    adapter: auto
+  - id: pietro-novelli
+    enabled: true
+    listing_url: https://pietronvll.github.io/archive.html
+    author_name: Pietro Novelli
+    person_id: pietro-novelli
+    feed_url: null
+    adapter: auto

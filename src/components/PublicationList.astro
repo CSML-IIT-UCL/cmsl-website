@@ -1,0 +1,26 @@
+---
+import type { PublicationRecord } from '@/lib/publications';
+
+interface Props { publications: PublicationRecord[] }
+const { publications } = Astro.props;
+---
+
+<ol class="publication-list">
+  {publications.map((publication) => (
+    <li>
+      <div class="publication-heading">
+        <a href={publication.landing_page_url ?? publication.source_url}>{publication.title}</a>
+        {publication.is_retracted && <span class="status retracted">Retracted</span>}
+      </div>
+      {publication.authors.length > 0 && <p class="publication-authors">{publication.authors.join(', ')}</p>}
+      <p>
+        {[publication.publication_year ?? 'Undated', publication.venue, publication.type].filter(Boolean).join(' · ')}
+      </p>
+      <div class="publication-links">
+        {publication.doi && <a href={`https://doi.org/${publication.doi}`}>DOI</a>}
+        {publication.open_access_url && <a href={publication.open_access_url}>Open access</a>}
+        <a href={publication.source_url}>OpenAlex</a>
+      </div>
+    </li>
+  ))}
+</ol>
