@@ -25,7 +25,9 @@ Scoped instructions can add detail, but must not weaken branch protection, crede
 
 ## Non-negotiable Git and publishing rules
 
-**Never push directly to `main`, including bot-generated data, documentation, hotfixes, or agent changes.** Production receives changes only through a reviewed PR from same-repository `dev`. Do not use bypass permissions, disable rules, force-push, or merge unrequested changes to finish a task.
+**Bootstrap exception (current phase):** the maintainer has explicitly authorized direct commits/pushes to `main` while the project is pre-v1.0 (see `docs/operations.md`). The `dev -> main` PR-only rule below is the target policy once routine editorial use begins, not a current restriction. It does not authorize force-push, secret exposure, or discarding unpublished work on either branch.
+
+Once routine editorial use begins: production receives changes only through a reviewed PR from same-repository `dev`. Do not use bypass permissions, disable rules, force-push, or merge unrequested changes to finish a task.
 
 Use `dev` for shared content edits and previews; working branches merge into `dev` first. Every push to `dev` or `main` must schedule validation and a build, without path filters that skip content/data/documentation changes. `dev` renders at the configured site base plus `/dev/`; `main` renders at the production base. Invalid builds keep the last good deployment and report errors.
 
