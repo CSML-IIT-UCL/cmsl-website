@@ -41,7 +41,7 @@ const newsSchema = z.object({
 });
 
 type Person = z.infer<typeof personSchema>;
-type Site = { principal_investigator_id: string; logo: string; hero?: { image?: string | null } };
+type Site = { principal_investigator_id: string; logo: string; logo_dark?: string | null; hero?: { image?: string | null } };
 
 const errors: string[] = [];
 const people = new Map<string, Person>();
@@ -91,6 +91,7 @@ try {
   if (!pi) addError('content/site.yaml', 'principal_investigator_id', 'must reference an existing person');
   else if (pi.draft) addError('content/site.yaml', 'principal_investigator_id', 'must reference a published person');
   validateLocalMedia('content/site.yaml', 'logo', site.logo);
+  validateLocalMedia('content/site.yaml', 'logo_dark', site.logo_dark);
   validateLocalMedia('content/site.yaml', 'hero.image', site.hero?.image);
 } catch (error) {
   addError('content/site.yaml', 'document', error instanceof Error ? error.message : String(error));

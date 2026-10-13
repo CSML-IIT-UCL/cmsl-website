@@ -3,6 +3,7 @@ short_title: CSML
 description: The Computational Statistics and Machine Learning research group at the Istituto Italiano di Tecnologia.
 principal_investigator_id: massimiliano-pontil
 logo: /media/csml_logos/IIT-logo-CSML T2 POS.svg
+logo_dark: /media/csml_logos/IIT-logo-CSML T2 NEG.svg
 # Extra space above/below the logo inside the header banner, in pixels.
 logo_margin_top: 15
 logo_margin_bottom: 15

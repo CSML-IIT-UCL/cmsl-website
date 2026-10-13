@@ -8,6 +8,7 @@ const siteSchema = z.object({
   description: z.string(),
   principal_investigator_id: z.string(),
   logo: z.string(),
+  logo_dark: z.string().nullable().optional(),
   logo_margin_top: z.number().default(0),
   logo_margin_bottom: z.number().default(0),
   hero: z.object({

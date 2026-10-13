@@ -5,14 +5,16 @@ id: massimiliano-pontil
 name: Massimiliano Pontil
 # Hide until reviewed
 draft: false
-# Homepage group (ignored for alumni)
+# Homepage group (ignored for alumni): senior_academic | postdoc | phd_student | research_engineer | affiliated_researcher | research_support
 role: senior_academic
-# Displayed job title
+# Displayed job title (free text, e.g. "Senior Researcher", "Postdoctoral Researcher", "PhD Student", "Research Engineer", "External Collaborator")
 role_label: Senior Researcher Tenured · Principal Investigator
 # active | alumni | affiliated
 status: active
 # Sort position within group
 order: 10
+# Public contact address
+email: null
 # Portrait path under media/
 photo: /media/people/massimiliano-pontil.jpg
 # Required when photo is set
@@ -44,6 +46,8 @@ linkedin_url: https://www.linkedin.com/in/massimiliano-pontil-b179ba4/
 x_url: https://twitter.com/MPontil
 # Bluesky profile
 bluesky_url: null
+# Current employer (alumni only)
+current_affiliation: null
 # Other verified links
 media_links: []
 # Verified OpenAlex author IDs

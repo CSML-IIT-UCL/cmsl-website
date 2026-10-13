@@ -1,0 +1,9 @@
+id: vladimir-kostic-toeplitz-spectral
+draft: false
+title: Numerical linear algebra without the matrix
+author: Vladimir R. Kostić
+person_id: vladimir-kostic
+url: https://vladi-slk.github.io/posts/2026-09-30-toeplitz-spectral-methods/index.html
+published_at: "2026-09-30"
+image: https://vladi-slk.github.io/posts/2026-09-30-toeplitz-spectral-methods/figs/toeplitz-hero.png
+image_alt: The chaotic attractor of the forced Duffing oscillator next to the power spectrum of its velocity.

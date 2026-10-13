@@ -5,8 +5,8 @@ import { coverageForPerson, publicationsForPerson } from '@/lib/publications';
 import PublicationList from '@/components/PublicationList.astro';
 import SocialIcon from '@/components/SocialIcon.astro';
 
-interface Props { person: CollectionEntry<'people'>; showPublications?: boolean }
-const { person, showPublications = true } = Astro.props;
+interface Props { person: CollectionEntry<'people'>; showPublications?: boolean; showTags?: boolean; showRelationship?: boolean }
+const { person, showPublications = true, showTags = true, showRelationship = true } = Astro.props;
 const iconPlatformFor = (label: string): 'github' | 'linkedin' | 'scholar' | 'x' | null => {
   const key = label.toLowerCase();
   if (key === 'github') return 'github';
@@ -36,7 +36,7 @@ const relationship = person.data.status === 'alumni'
         : <span aria-hidden="true">{initials}</span>}
     </div>
     <div>
-      <p class="eyebrow">{relationship}</p>
+      {showRelationship && <p class="eyebrow">{relationship}</p>}
       <h1>{person.data.name}</h1>
       <p class="profile-role">{person.data.role_label}</p>
       {person.data.status === 'alumni' && (
@@ -68,7 +68,7 @@ const relationship = person.data.status === 'alumni'
     </div>
   </div>
   {person.body && <div class="prose profile-biography"><Content /></div>}
-  {person.data.research_interests.length > 0 && (
+  {showTags && person.data.research_interests.length > 0 && (
     <ul class="tag-list" aria-label="Research interests">
       {person.data.research_interests.map((interest) => <li>{interest}</li>)}
     </ul>

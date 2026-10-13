@@ -8,7 +8,7 @@ sources:
     # Byline for collected entries
     author_name: Vladimir R. Kostić
     # Optional linked people/ id
-    person_id: null
+    person_id: vladimir-kostic
     # Verified RSS/Atom feed
     feed_url: null
     # auto or named adapter

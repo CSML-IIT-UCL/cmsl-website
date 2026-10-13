@@ -61,11 +61,56 @@ assets:
     source_page: https://csml.iit.it/people-details/-/people/giacomo-turri
     checksum_sha256: 69e7f7c1a742ffae465392a82f30bcd2e6fc5ed1223ea09e8b5c641de3580b55
     approval_notes: Portrait currently published by IIT, migrated at the maintainer's request.
+  - local_path: media/people/riccardo-grazzi.jpg
+    source_url: https://prolearner.github.io/riccardograzzi.github.io/assets/img/avatar.jpeg
+    source_page: https://prolearner.github.io/riccardograzzi.github.io/
+    checksum_sha256: 9dabeda431a4e5245cf7e3ceeedc1f77d3d369763fa4c74ae6176ad9760bde6e
+    approval_notes: Portrait published on the alumnus's own personal site, migrated at the maintainer's request for the alumni section.
+  - local_path: media/people/ruohan-wang.jpg
+    source_url: https://ruohanw.github.io/me.jpg
+    source_page: https://ruohanw.github.io/
+    checksum_sha256: b2e6211b58ea654512a30bb9a8d0e3e32936fc195216915fec1ee0b39a90dac4
+    approval_notes: Portrait published on the alumnus's own personal site, migrated at the maintainer's request for the alumni section.
+  - local_path: media/people/isak_falk.jpeg
+    source_url: null
+    source_page: maintainer-supplied
+    checksum_sha256: 2855edb7253f84fee5e4c589ef29e5183e7ad2ae819d0df525f989f1a30159d2
+    approval_notes: Portrait supplied directly by the maintainer for the alumni section; no portrait was published on the alumnus's own site.
+  - local_path: media/people/saverio-salzo.jpg
+    source_url: https://www.diag.uniroma1.it/sites/default/files/styles/ridimensiona_hpport/public/pictures/picture-2248-1689539375.jpg?itok=F9fTE0ZA
+    source_page: https://www.diag.uniroma1.it/users/saverio_salzo
+    checksum_sha256: 9f84f82c2a92f0b7ffde03ad09e38c6203c13e811bac4d4e05f027d05e6162b4
+    approval_notes: Portrait published on the subject's own Sapienza/DIAG faculty page, migrated at the maintainer's request.
+  - local_path: media/people/vladimir-kostic.png
+    source_url: https://vladi-slk.github.io/imgs/mypic.png
+    source_page: https://vladi-slk.github.io/
+    checksum_sha256: 051806f81fa1a1b9045bee0c7e54e9d52f93a7431b5c859feb63b7c5923d2a39
+    approval_notes: Portrait published on the subject's own personal site, migrated at the maintainer's request.
+  - local_path: media/people/pietro-novelli.jpeg
+    source_url: https://pietronvll.github.io/head.jpeg
+    source_page: https://pietronvll.github.io/
+    checksum_sha256: 5111348a4d5d2cd7b8eeb0500af9d90bd9567609ef6d1d551b0925460c114875
+    approval_notes: Portrait published on the subject's own personal site, migrated at the maintainer's request.
+  - local_path: media/people/karim-lounici.jpg
+    source_url: null
+    source_page: maintainer-supplied
+    checksum_sha256: 037529bc565391130f007ab05a1b98f9fbaf60282b7c6e11f9bc22ee2ae7c336
+    approval_notes: Portrait supplied directly by the maintainer; renamed from karim_lounici.jpg to match the id-based media/people naming convention.
+  - local_path: media/people/matia-bojovic.jpg
+    source_url: null
+    source_page: maintainer-supplied
+    checksum_sha256: 2fce1b4504564ca28f8738a9885c2cb3aea09f1a5b7ef8c7e32fbaa4f9e01615
+    approval_notes: Portrait supplied directly by the maintainer (LinkedIn photo is not programmatically fetchable); renamed from mattia_bojovic.jpeg to match the id-based media/people naming convention and the matia-bojovic content id.
   - local_path: media/fonts/MomoTrustSans-Variable.woff2
     source_url: https://raw.githubusercontent.com/typeassociates/MomoTrustSans/main/fonts/webfonts/MomoTrustSans%5Bwght%5D.woff2
     source_page: https://github.com/typeassociates/MomoTrustSans
     checksum_sha256: 6214d43f1f33255e3cd5f519aeca1e4e4138f3ec78a3e43a5011b1663b5ab4e1
     approval_notes: Original variable webfont requested by the maintainer; licensed under SIL Open Font License 1.1, copied to docs/licenses/MomoTrustSans-OFL.txt.
+  - local_path: media/blogs/tow_animation.gif
+    source_url: null
+    source_page: maintainer-supplied
+    checksum_sha256: aa0ebc89f94a4ab18c9027983d5bc7f72c06dfdf17837fd1ed867d5bd01e4f46
+    approval_notes: Toy-example animation supplied directly by the maintainer as the thumbnail for Pietro Novelli's "The Operator Way" blog entry.
   - local_path: media/logos/erc-eu-logo.png
     source_url: https://erc.europa.eu/sites/default/files/2025-08/LOGO_ERC-FLAG_EU.png
     source_page: https://erc.europa.eu/support/logos
@@ -78,3 +123,6 @@ blockers:
   - kind: project-logos
     source_page: https://csml.iit.it/funded-projects
     note: The four verified project records do not expose approved reusable project/funder logo files; cards therefore use text identities without invented logos.
+  - kind: missing-portraits
+    source_page: http://www.andreas-maurer.eu/
+    note: The only photo on Andreas Maurer's personal site is a distant mountaineering snapshot ("on the summit"), not a usable headshot; his profile uses the text-initials fallback rather than publishing an unrelated image.

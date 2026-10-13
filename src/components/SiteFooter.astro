@@ -1,21 +1,42 @@
 ---
-import { withBase } from '@/lib/paths';
+import { getCollection } from 'astro:content';
+import { withBase, mediaUrl } from '@/lib/paths';
+import SocialIcon from '@/components/SocialIcon.astro';
 import type { SiteConfig } from '@/lib/site';
 
 interface Props { site: SiteConfig }
 const { site } = Astro.props;
+const people = await getCollection('people', ({ data }) => !data.draft);
+const pi = people.find((person) => person.data.id === site.principal_investigator_id);
+const logo = mediaUrl(site.logo_dark ?? site.logo);
+const home = withBase();
 ---
 
-<footer class="site-footer">
-  <div class="shell footer-grid">
-    <div>
-      <strong>{site.short_title}</strong>
-      <p>{site.title}<br />Istituto Italiano di Tecnologia</p>
+<footer class="site-footer" id="contact">
+  <div class="shell footer-contact">
+    <div class="footer-brand">
+      {logo && (
+        <img src={logo} alt={`${site.short_title} · IIT`} width="669" height="157" loading="lazy" />
+      )}
+      <p>
+        <strong>{site.title}</strong><br />
+        Istituto Italiano di Tecnologia
+        {site.contact.location_label && <span class="contact-location"> · {site.contact.location_label}</span>}
+      </p>
     </div>
-    <div class="footer-links">
-      <a href={withBase()}>Home</a>
+    <div class="button-row">
+      {pi && <a class="button" href={pi.data.iit_profile ?? site.contact.institution_url}>Principal investigator profile</a>}
+      <a class="button secondary" href={site.contact.institution_url}>IIT website</a>
+      <a class="button secondary" href="https://bsky.app/profile/pontilgroup.bsky.social">Bluesky</a>
+      <SocialIcon platform="x" href="https://x.com/PontilGroup" />
+    </div>
+  </div>
+  <div class="shell footer-bottom">
+    <span>{site.short_title} · Istituto Italiano di Tecnologia</span>
+    <nav class="footer-links" aria-label="Footer">
+      <a href={home}>Home</a>
       <a href={site.contact.institution_url}>IIT</a>
       <a href={site.contact.privacy_url}>Privacy</a>
-    </div>
+    </nav>
   </div>
 </footer>

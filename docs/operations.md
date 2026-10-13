@@ -4,7 +4,7 @@
 
 The initial GitHub Pages target is `https://danfoa.github.io/cmsl-website/`; the shared preview target is `https://danfoa.github.io/cmsl-website/dev/`. The repository is currently private, so Pages availability depends on the owner's GitHub plan. `SITE_ORIGIN` and `SITE_BASE_PATH` remain configurable for a future IIT domain.
 
-This Phase 1 implementation is cache-only. Builds do not contact OpenAlex or blog sources. Bluesky/X widgets and CV submission are not enabled.
+This Phase 1 implementation is cache-only. Builds do not contact OpenAlex or blog sources. The live Bluesky feed reads the public API directly from the visitor's browser (no proxy, no credentials) and is enabled. There is no live X feed - the homepage links directly to the X profile instead (see `README.md#live-social-feeds`). CV submission is not enabled; it needs an approved hosted form.
 
 ## Bootstrap exception
 

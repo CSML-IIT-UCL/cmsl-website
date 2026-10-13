@@ -1,0 +1,9 @@
+id: vladimir-kostic-litl
+draft: false
+title: Learning dynamics you never observed
+author: Vladimir R. Kostić
+person_id: vladimir-kostic
+url: https://vladi-slk.github.io/posts/2026-10-01-langevin-informed-transfer-learning/index.html
+published_at: "2026-10-01"
+image: https://vladi-slk.github.io/posts/2026-10-01-langevin-informed-transfer-learning/figs/litl-hero.png
+image_alt: A double-well potential, biased samples, and the slowest eigenfunction recovered by LITL from those samples.

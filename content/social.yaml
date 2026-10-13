@@ -3,8 +3,3 @@ bluesky:
   actor: pontilgroup.bsky.social
   max_items: 8
   session_cache_seconds: 300
-x:
-  enabled: false
-  handle: PontilGroup
-  proxy_url: null
-  max_items: 8

@@ -6,12 +6,21 @@ import PersonCard from '@/components/PersonCard.astro';
 import PersonProfile from '@/components/PersonProfile.astro';
 import ResearchCard from '@/components/ResearchCard.astro';
 import SectionHeading from '@/components/SectionHeading.astro';
-import SocialIcon from '@/components/SocialIcon.astro';
 import BaseLayout from '@/layouts/BaseLayout.astro';
 import { mediaUrl } from '@/lib/paths';
 import { getSiteConfig } from '@/lib/site';
+import { getSocialConfig } from '@/lib/social';
 
 const site = getSiteConfig();
+const social = getSocialConfig();
+const socialClientConfig = {
+  bluesky: {
+    enabled: social.bluesky.enabled,
+    actor: social.bluesky.actor,
+    maxItems: social.bluesky.max_items,
+    cacheSeconds: social.bluesky.session_cache_seconds,
+  },
+};
 const allPeople = (await getCollection('people', ({ data }) => !data.draft)).sort((a, b) => a.data.order - b.data.order || a.data.name.localeCompare(b.data.name));
 const currentPeople = allPeople.filter((person) => person.data.status !== 'alumni');
 const alumni = allPeople.filter((person) => person.data.status === 'alumni');
@@ -38,18 +47,18 @@ const { Content: AboutContent } = await render(about);
 
   <section id="about" class="section shell about-stack">
     <div>
-      <SectionHeading eyebrow="About the group" title="Rigour for complex, real-world learning" />
+      <SectionHeading eyebrow="About the group" />
       <div class="prose large"><AboutContent /></div>
     </div>
     <aside class="pi-card" aria-label="Principal investigator">
       <p class="eyebrow">Principal investigator</p>
-      <PersonProfile person={pi} showPublications={false} />
+      <PersonProfile person={pi} showPublications={false} showTags={false} showRelationship={false} />
     </aside>
   </section>
 
   <section id="research" class="section section-tint">
     <div class="shell">
-      <SectionHeading eyebrow="Research" title="Four connected directions" intro="From mathematical foundations to scientific and robotic systems." />
+      <SectionHeading title="Research" />
       <div class="research-grid">
         {research.map((item, index) => <ResearchCard item={item} index={index} />)}
       </div>
@@ -57,27 +66,55 @@ const { Content: AboutContent } = await render(about);
   </section>
 
   <section id="updates" class="section shell">
-    <SectionHeading eyebrow="Updates" title="News & social" intro="Authored group news and direct links to our public channels." />
-    <div class="updates-grid">
+    <SectionHeading title="Updates" />
+    <div class="updates-stack">
       <div class="updates-panel">
         <div class="panel-heading"><h3>Group news</h3><span>{news.length}</span></div>
-        <div class="updates-scroll">
+        <div class="updates-scroll" data-news-list>
           {news.length > 0 ? news.map((item) => <NewsItem item={item} />) : <EmptyState title="No published news yet" message="Verified announcements will appear here as content entries are approved." />}
         </div>
       </div>
-      <div class="updates-panel">
-        <div class="panel-heading"><h3>Social feeds</h3><span>Live later</span></div>
+      <div class="updates-panel social-card social-feed" data-platform="bluesky" data-state={social.bluesky.enabled ? 'loading' : 'unavailable'}>
+        <div class="panel-heading">
+          <h3>Bluesky</h3>
+          <span class="social-fetched-at"></span>
+        </div>
+        <ul class="social-list" aria-live="polite"></ul>
         <div class="social-placeholder">
-          <p>Live Bluesky cards are scheduled for the social-integration phase. Static builds never depend on a social API.</p>
+          <p class="social-status-loading">Loading recent Bluesky posts…</p>
+          <p class="social-status-empty">No recent posts to show.</p>
+          <p class="social-status-error">Bluesky posts could not be loaded right now.</p>
+          <p class="social-status-unavailable">Live Bluesky cards are not enabled.</p>
+          <button type="button" class="button secondary social-retry">Try again</button>
           <a class="button secondary" href="https://bsky.app/profile/pontilgroup.bsky.social">Open Bluesky profile</a>
-          <SocialIcon platform="x" href="https://x.com/PontilGroup" label="Open X profile" />
         </div>
       </div>
     </div>
   </section>
 
+  <template id="social-post-template">
+    <li class="social-post">
+      <img class="social-post-avatar" alt="" aria-hidden="true" loading="lazy" />
+      <div class="social-post-body">
+        <p class="social-post-byline"><span class="social-post-author"></span> <span class="social-post-handle"></span></p>
+        <p class="social-post-text"></p>
+        <a class="social-post-link text-link" target="_blank" rel="noopener noreferrer">
+          <time class="social-post-time"></time>
+        </a>
+      </div>
+    </li>
+  </template>
+
+  <script type="application/json" id="social-config" set:html={JSON.stringify(socialClientConfig)} />
+  <script>
+    import '@/scripts/social-feed';
+  </script>
+  <script>
+    import '@/scripts/news-panel';
+  </script>
+
   <section id="people" class="section shell">
-    <SectionHeading eyebrow="People" title="The CSML team" intro="Profiles are generated from one shared people and publication registry." />
+    <SectionHeading title="People" />
     {site.role_groups.map((group) => {
       const members = currentPeople.filter((person) => person.data.role === group.key);
       if (members.length === 0) return null;
@@ -98,7 +135,7 @@ const { Content: AboutContent } = await render(about);
 
   <section id="projects" class="section section-tint">
     <div class="shell">
-      <SectionHeading eyebrow="Projects" title="Funded research" intro="Verified project records will include the actual project, funding institution and destination." />
+      <SectionHeading title="Projects" />
       {projects.length > 0 ? (
         <div class="project-list">
           {projects.map((project) => (
@@ -123,20 +160,6 @@ const { Content: AboutContent } = await render(about);
           ))}
         </div>
       ) : <EmptyState title="Projects coming soon" message="Check back soon." />}
-    </div>
-  </section>
-
-  <section id="contact" class="section shell contact-grid">
-    <SectionHeading eyebrow="Contact" title="Start a conversation" intro="Use the verified professional profiles while team contact and location details are reviewed." />
-    <div class="contact-card">
-      <p><strong>Computational Statistics and Machine Learning</strong><br />Istituto Italiano di Tecnologia</p>
-      {site.contact.location_label && <p class="contact-location">Research centre: {site.contact.location_label}</p>}
-      <div class="button-row">
-        <a class="button" href={pi.data.iit_profile ?? site.contact.institution_url}>Principal investigator profile</a>
-        <a class="button secondary" href={site.contact.institution_url}>IIT website</a>
-        <a class="button secondary" href="https://bsky.app/profile/pontilgroup.bsky.social">Bluesky</a>
-        <SocialIcon platform="x" href="https://x.com/PontilGroup" />
-      </div>
     </div>
   </section>
 </BaseLayout>

@@ -262,9 +262,19 @@ All these edits use dev, preview, and a main PR. Do not change the application s
 
 ## Live social feeds
 
-Social content is read at visit time rather than by a daily site build. Bluesky uses its public API. X uses its official authenticated API through an approved private-credential proxy and renders matching site-styled cards. The implementation plan records the current API/access references S23-S27.
+Bluesky posts are read in the visitor's browser at visit time, lazily once the Updates section scrolls into view - never during the site build. Settings live in `content/social.yaml`:
 
-An unavailable proxy/API shows a clear state and a direct profile link. The rest of the website remains usable. API credentials never belong in content files or browser code. X access/usage costs require explicit institutional approval; no one should activate billing to make a local preview work. Local/CI previews can use harmless fixtures instead.
+```yaml
+bluesky:
+  enabled: true
+  actor: pontilgroup.bsky.social
+  max_items: 8
+  session_cache_seconds: 300
+```
+
+It calls the public `app.bsky.feed.getAuthorFeed` API directly (no credentials, no proxy), filters out replies/reposts, caches results in the visitor's session for `session_cache_seconds`, and renders through the shared social-card list. If the feed can't be reached, the panel shows a retry button and a direct link to the profile; the rest of the page is unaffected.
+
+There is no live X feed. X's read API has no free tier, and a static GitHub Pages site can't keep a paid API's bearer token secret without a separately hosted proxy service - that's a bigger, costed decision than a content edit, so the homepage only links directly to the X profile instead. API credentials never belong in content files or browser code. Local/CI builds and tests never need live credentials.
 
 ## Start a live local server
 
