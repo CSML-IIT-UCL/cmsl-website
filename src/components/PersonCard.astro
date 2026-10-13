@@ -18,8 +18,6 @@ const initials = person.data.name.split(/\s+/).slice(0, 2).map((word) => word[0]
     <div class="person-card-copy">
       <h4>{person.data.name}</h4>
       <p class="role-label">{person.data.role_label}</p>
-      {person.data.research_summary && <p>{person.data.research_summary}</p>}
-      <span class="text-link">View profile <span aria-hidden="true">→</span></span>
     </div>
   </a>
 </article>

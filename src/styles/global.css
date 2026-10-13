@@ -119,9 +119,7 @@ p { margin: 0; }
 .person-portrait img { width: 100%; height: 100%; object-fit: cover; }
 .person-card-copy { flex: 1; padding: 1.2rem; display: flex; flex-direction: column; align-items: flex-start; }
 .person-card-copy h4 { font-size: 1.15rem; }
-.person-card-copy .role-label { color: var(--accent-dark); font-size: .83rem; font-weight: 700; margin: .35rem 0 .75rem; }
-.person-card-copy > p:not(.role-label) { color: var(--muted); font-size: .9rem; }
-.person-card-copy .text-link { margin-top: auto; padding-top: 1rem; font-size: .88rem; }
+.person-card-copy .role-label { color: var(--accent-dark); font-size: .83rem; font-weight: 700; margin: .35rem 0 0; }
 
 .project-list { display: flex; gap: 1rem; overflow-x: auto; scroll-snap-type: x mandatory; padding-bottom: 1rem; }
 .project-card { flex: 0 0 min(360px, 84vw); scroll-snap-align: start; padding: 1.5rem; background: var(--surface); border: 1px solid var(--line); border-radius: var(--radius); }
