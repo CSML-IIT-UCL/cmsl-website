@@ -2,9 +2,514 @@
   "version": 1,
   "source": "OpenAlex",
   "last_full_refresh_at": null,
-  "author_roster_signature": null,
-  "queried_author_ids": [],
-  "coverage_by_person": {},
+  "author_roster_signature": "3e34fc114d36165d7a8ae862c75af850728709fc2c274975db259ebe4b755ed5",
+  "queried_author_ids": [
+    "A5069560062",
+    "A5089972466"
+  ],
+  "coverage_by_person": {
+    "daniel-ordonez": {
+      "author_ids": [
+        "A5089972466"
+      ],
+      "last_successful_refresh_at": "2026-10-13T18:55:38.073848Z",
+      "works_count": 13,
+      "status": "complete"
+    },
+    "erfan-mirzaei": {
+      "author_ids": [
+        "A5069560062"
+      ],
+      "last_successful_refresh_at": "2026-10-13T19:06:07.132655Z",
+      "works_count": 10,
+      "status": "complete"
+    }
+  },
   "mapping_warnings": [],
-  "records": []
+  "records": [
+    {
+      "id": "https://openalex.org/W7161064952",
+      "source": "OpenAlex",
+      "source_url": "https://openalex.org/W7161064952",
+      "doi": "10.5281/zenodo.20139774",
+      "title": "kooplearn: A scikit-learn compatible library of algorithms for evolution operator learning",
+      "publication_year": 2026,
+      "publication_date": "2026-05-12",
+      "type": "software",
+      "authors": [
+        "Giacomo Turri",
+        "Grégoire Pacreau",
+        "Giacomo Meanti",
+        "Timothée Devergne",
+        "Daniel Ordoñez-Apraez",
+        "Erfan Mirzaei",
+        "Bruno Belucci",
+        "Karim Lounici",
+        "Vladimir R. Kostić",
+        "Massimiliano Pontil",
+        "Pietro Novelli"
+      ],
+      "member_ids": [
+        "daniel-ordonez",
+        "erfan-mirzaei"
+      ],
+      "venue": "Zenodo (CERN European Organization for Nuclear Research)",
+      "landing_page_url": "https://doi.org/10.5281/zenodo.20139774",
+      "open_access_url": "https://doi.org/10.5281/zenodo.20139774",
+      "is_retracted": false
+    },
+    {
+      "id": "https://openalex.org/W7165927878",
+      "source": "OpenAlex",
+      "source_url": "https://openalex.org/W7165927878",
+      "doi": "10.21105/joss.10342",
+      "title": "kooplearn: A scikit-learn compatible library of algorithms for evolution operator learning",
+      "publication_year": 2026,
+      "publication_date": "2026-06-25",
+      "type": "article",
+      "authors": [
+        "Giacomo Turri",
+        "Grégoire Pacreau",
+        "Giacomo Meanti",
+        "Timothée Devergne",
+        "Daniel Ordoñez-Apraez",
+        "Erfan Mirzaei",
+        "Bruno Belucci",
+        "Karim Lounici",
+        "Vladimir Kostić",
+        "Massimiliano Pontil",
+        "Pietro Novelli"
+      ],
+      "member_ids": [
+        "daniel-ordonez",
+        "erfan-mirzaei"
+      ],
+      "venue": "The Journal of Open Source Software",
+      "landing_page_url": "https://doi.org/10.21105/joss.10342",
+      "open_access_url": "https://doi.org/10.21105/joss.10342",
+      "is_retracted": false
+    },
+    {
+      "id": "https://openalex.org/W7165734987",
+      "source": "OpenAlex",
+      "source_url": "https://openalex.org/W7165734987",
+      "doi": "10.15167/ordonez-apraez-daniel-felipe_phd2026-05-25",
+      "title": "Morphological Symmetries in Robot Learning: A Hitchhiker's Guide to Symmetry-aware Robot Modelling, Control, and Estimation",
+      "publication_year": 2026,
+      "publication_date": "2026-05-25",
+      "type": "dissertation",
+      "authors": [
+        "Daniel Ordoñez-Apraez"
+      ],
+      "member_ids": [
+        "daniel-ordonez"
+      ],
+      "venue": "CINECA IRIS Institutial Research Information System (University of Genoa)",
+      "landing_page_url": "https://hdl.handle.net/11567/1301430",
+      "open_access_url": "https://hdl.handle.net/11567/1301430",
+      "is_retracted": false
+    },
+    {
+      "id": "https://openalex.org/W7161055421",
+      "source": "OpenAlex",
+      "source_url": "https://openalex.org/W7161055421",
+      "doi": "10.48550/arxiv.2605.12228",
+      "title": "Morphologically Equivariant Flow Matching for Bimanual Mobile Manipulation",
+      "publication_year": 2026,
+      "publication_date": "2026-05-12",
+      "type": "preprint",
+      "authors": [
+        "Max Siebenborn",
+        "Daniel Ordoñez-Apraez",
+        "Sophie Lueth",
+        "Giulio Turrisi",
+        "Massimiliano Pontil",
+        "Claudio Semini",
+        "Georgia Chalvatzaki"
+      ],
+      "member_ids": [
+        "daniel-ordonez"
+      ],
+      "venue": "arXiv (Cornell University)",
+      "landing_page_url": "https://arxiv.org/abs/2605.12228",
+      "open_access_url": "https://arxiv.org/abs/2605.12228",
+      "is_retracted": false
+    },
+    {
+      "id": "https://openalex.org/W4416287530",
+      "source": "OpenAlex",
+      "source_url": "https://openalex.org/W4416287530",
+      "doi": "10.48550/arxiv.2507.07826",
+      "title": "An Empirical Bernstein Inequality for Dependent Data in Hilbert Spaces and Applications",
+      "publication_year": 2025,
+      "publication_date": "2025-07-10",
+      "type": "preprint",
+      "authors": [
+        "Erfan Mirzaei",
+        "Maurer, Andreas",
+        "Vladimir Kostić",
+        "Massimiliano Pontil"
+      ],
+      "member_ids": [
+        "erfan-mirzaei"
+      ],
+      "venue": "arXiv (Cornell University)",
+      "landing_page_url": "http://arxiv.org/abs/2507.07826",
+      "open_access_url": "http://arxiv.org/abs/2507.07826",
+      "is_retracted": false
+    },
+    {
+      "id": "https://openalex.org/W7117141180",
+      "source": "OpenAlex",
+      "source_url": "https://openalex.org/W7117141180",
+      "doi": "10.1109/tcds.2025.3648042",
+      "title": "Exploiting Expertise of Non-Expert and Diverse Agents in Social Bandit Learning: A Free Energy Approach",
+      "publication_year": 2025,
+      "publication_date": "2025-12-24",
+      "type": "article",
+      "authors": [
+        "Erfan Mirzaei",
+        "Seyed Pooya Shariatpanahi",
+        "Alireza Tavakoli",
+        "Reshad Hosseini",
+        "Majid Nili Ahmadabadi"
+      ],
+      "member_ids": [
+        "erfan-mirzaei"
+      ],
+      "venue": "IEEE Transactions on Cognitive and Developmental Systems",
+      "landing_page_url": "https://doi.org/10.1109/tcds.2025.3648042",
+      "open_access_url": "https://doi.org/10.36227/techrxiv.171177240.03554657/v1",
+      "is_retracted": false
+    },
+    {
+      "id": "https://openalex.org/W4414981027",
+      "source": "OpenAlex",
+      "source_url": "https://openalex.org/W4414981027",
+      "doi": "10.48550/arxiv.2510.06028",
+      "title": "Generalization of Gibbs and Langevin Monte Carlo Algorithms in the Interpolation Regime",
+      "publication_year": 2025,
+      "publication_date": "2025-10-07",
+      "type": "preprint",
+      "authors": [
+        "Maurer, Andreas",
+        "Erfan Mirzaei",
+        "Massimiliano Pontil"
+      ],
+      "member_ids": [
+        "erfan-mirzaei"
+      ],
+      "venue": "arXiv (Cornell University)",
+      "landing_page_url": "https://arxiv.org/abs/2510.06028",
+      "open_access_url": "https://arxiv.org/abs/2510.06028",
+      "is_retracted": false
+    },
+    {
+      "id": "https://openalex.org/W7117556744",
+      "source": "OpenAlex",
+      "source_url": "https://openalex.org/W7117556744",
+      "doi": "10.48550/arxiv.2512.21409",
+      "title": "kooplearn: A Scikit-Learn Compatible Library of Algorithms for Evolution Operator Learning",
+      "publication_year": 2025,
+      "publication_date": "2025-12-24",
+      "type": "preprint",
+      "authors": [
+        "Giacomo Turri",
+        "Grégoire Pacreau",
+        "Giacomo Meanti",
+        "Timothée Devergne",
+        "Daniel Ordoñez-Apraez",
+        "Erfan Mirzaei",
+        "Bruno Belucci",
+        "Karim Lounici",
+        "Vladimir Kostić",
+        "Massimiliano Pontil",
+        "Pietro Novelli"
+      ],
+      "member_ids": [
+        "daniel-ordonez",
+        "erfan-mirzaei"
+      ],
+      "venue": "arXiv (Cornell University)",
+      "landing_page_url": "https://doi.org/10.48550/arxiv.2512.21409",
+      "open_access_url": "https://doi.org/10.48550/arxiv.2512.21409",
+      "is_retracted": false
+    },
+    {
+      "id": "https://openalex.org/W7117631759",
+      "source": "OpenAlex",
+      "source_url": "https://openalex.org/W7117631759",
+      "doi": null,
+      "title": "kooplearn: A Scikit-Learn Compatible Library of Algorithms for Evolution Operator Learning",
+      "publication_year": 2025,
+      "publication_date": "2025-12-24",
+      "type": "preprint",
+      "authors": [
+        "Giacomo Turri",
+        "Grégoire Pacreau",
+        "Giacomo Meanti",
+        "Timothée Devergne",
+        "Daniel Ordoñez-Apraez",
+        "Erfan Mirzaei",
+        "Bruno Belucci",
+        "Karim Lounici",
+        "Vladimir Kostić",
+        "Massimiliano Pontil",
+        "Pietro Novelli"
+      ],
+      "member_ids": [
+        "daniel-ordonez",
+        "erfan-mirzaei"
+      ],
+      "venue": "arXiv (Cornell University)",
+      "landing_page_url": "http://arxiv.org/abs/2512.21409",
+      "open_access_url": "http://arxiv.org/abs/2512.21409",
+      "is_retracted": false
+    },
+    {
+      "id": "https://openalex.org/W4406236045",
+      "source": "OpenAlex",
+      "source_url": "https://openalex.org/W4406236045",
+      "doi": "10.1177/02783649241282422",
+      "title": "Morphological symmetries in robotics",
+      "publication_year": 2025,
+      "publication_date": "2025-01-10",
+      "type": "article",
+      "authors": [
+        "Daniel Ordoñez-Apraez",
+        "Giulio Turrisi",
+        "Vladimir Kostic",
+        "Mario Martín",
+        "Antonio Agudo",
+        "Francesc Moreno-Noguer",
+        "Massimiliano Pontil",
+        "Claudio Semini",
+        "Carlos Mastalli"
+      ],
+      "member_ids": [
+        "daniel-ordonez"
+      ],
+      "venue": "The International Journal of Robotics Research",
+      "landing_page_url": "https://doi.org/10.1177/02783649241282422",
+      "open_access_url": "http://arxiv.org/abs/2402.15552",
+      "is_retracted": false
+    },
+    {
+      "id": "https://openalex.org/W4416098782",
+      "source": "OpenAlex",
+      "source_url": "https://openalex.org/W4416098782",
+      "doi": "10.48550/arxiv.2505.05287",
+      "title": "Morphologically Symmetric Reinforcement Learning for Ambidextrous Bimanual Manipulation",
+      "publication_year": 2025,
+      "publication_date": "2025-05-08",
+      "type": "preprint",
+      "authors": [
+        "Zechu Li",
+        "Yufeng Jin",
+        "Daniel Ordoñez-Apraez",
+        "Claudio Semini",
+        "Puze Liu",
+        "Georgia Chalvatzaki"
+      ],
+      "member_ids": [
+        "daniel-ordonez"
+      ],
+      "venue": "arXiv (Cornell University)",
+      "landing_page_url": "http://arxiv.org/abs/2505.05287",
+      "open_access_url": "http://arxiv.org/abs/2505.05287",
+      "is_retracted": false
+    },
+    {
+      "id": "https://openalex.org/W4410295487",
+      "source": "OpenAlex",
+      "source_url": "https://openalex.org/W4410295487",
+      "doi": "10.1109/isbi60581.2025.10981145",
+      "title": "Real-Time Eeg-Based Epileptic Seizure Detection by One-Class Classification using CNN-LSTM and STFT",
+      "publication_year": 2025,
+      "publication_date": "2025-04-14",
+      "type": "conference-paper",
+      "authors": [
+        "Erfan Mirzaei",
+        "Rahul Singh"
+      ],
+      "member_ids": [
+        "erfan-mirzaei"
+      ],
+      "venue": "IEEE International Symposium on Biomedical Imaging (ISBI)",
+      "landing_page_url": "https://doi.org/10.1109/isbi60581.2025.10981145",
+      "open_access_url": null,
+      "is_retracted": false
+    },
+    {
+      "id": "https://openalex.org/W4415035561",
+      "source": "OpenAlex",
+      "source_url": "https://openalex.org/W4415035561",
+      "doi": "10.48550/arxiv.2505.19809",
+      "title": "Representation Learning for Equivariant Inference with Guarantees",
+      "publication_year": 2025,
+      "publication_date": "2025-05-26",
+      "type": "preprint",
+      "authors": [
+        "Daniel Ordoñez-Apraez",
+        "Vladimir Kostić",
+        "Alek Fröhlich",
+        "Vivien Brandt",
+        "Karim Lounici",
+        "Massimiliano Pontil"
+      ],
+      "member_ids": [
+        "daniel-ordonez"
+      ],
+      "venue": "arXiv (Cornell University)",
+      "landing_page_url": "https://arxiv.org/abs/2505.19809",
+      "open_access_url": "https://arxiv.org/abs/2505.19809",
+      "is_retracted": false
+    },
+    {
+      "id": "https://openalex.org/W4405785545",
+      "source": "OpenAlex",
+      "source_url": "https://openalex.org/W4405785545",
+      "doi": "10.1109/iros58592.2024.10802439",
+      "title": "Leveraging Symmetry in RL-based Legged Locomotion Control",
+      "publication_year": 2024,
+      "publication_date": "2024-10-14",
+      "type": "conference-paper",
+      "authors": [
+        "Zhi Su",
+        "Xiaoyu Huang",
+        "Daniel Ordoñez-Apraez",
+        "Yunfei Li",
+        "Zhongyu Li",
+        "Qiayuan Liao",
+        "Giulio Turrisi",
+        "Massimiliano Pontil",
+        "Claudio Semini",
+        "Yi Wu",
+        "Koushil Sreenath"
+      ],
+      "member_ids": [
+        "daniel-ordonez"
+      ],
+      "venue": "IEEE/RSJ International Conference on Intelligent Robots and Systems (IROS)",
+      "landing_page_url": "https://doi.org/10.1109/iros58592.2024.10802439",
+      "open_access_url": "http://arxiv.org/abs/2403.17320",
+      "is_retracted": false
+    },
+    {
+      "id": "https://openalex.org/W3201103276",
+      "source": "OpenAlex",
+      "source_url": "https://openalex.org/W3201103276",
+      "doi": "10.1007/978-3-031-25891-6_42",
+      "title": "BioLCNet: Reward-Modulated Locally Connected Spiking Neural Networks",
+      "publication_year": 2023,
+      "publication_date": "2023-01-01",
+      "type": "conference-paper",
+      "authors": [
+        "Hafez Ghaemi",
+        "Erfan Mirzaei",
+        "Mahbod Nouri",
+        "Saeed Reza Kheradpisheh"
+      ],
+      "member_ids": [
+        "erfan-mirzaei"
+      ],
+      "venue": "Lecture notes in computer science",
+      "landing_page_url": "https://doi.org/10.1007/978-3-031-25891-6_42",
+      "open_access_url": "http://arxiv.org/abs/2109.05539",
+      "is_retracted": false
+    },
+    {
+      "id": "https://openalex.org/W4389712899",
+      "source": "OpenAlex",
+      "source_url": "https://openalex.org/W4389712899",
+      "doi": "10.48550/arxiv.2312.07457",
+      "title": "Dynamics Harmonic Analysis of Robotic Systems: Application in Data-Driven Koopman Modelling",
+      "publication_year": 2023,
+      "publication_date": "2023-12-12",
+      "type": "preprint",
+      "authors": [
+        "Daniel Ordoñez-Apraez",
+        "Vladimir Kostić",
+        "Giulio Turrisi",
+        "Pietro Novelli",
+        "Carlos Mastalli",
+        "Claudio Semini",
+        "Massimiliano Pontil"
+      ],
+      "member_ids": [
+        "daniel-ordonez"
+      ],
+      "venue": "arXiv (Cornell University)",
+      "landing_page_url": "http://arxiv.org/abs/2312.07457",
+      "open_access_url": "http://arxiv.org/abs/2312.07457",
+      "is_retracted": false
+    },
+    {
+      "id": "https://openalex.org/W4385328349",
+      "source": "OpenAlex",
+      "source_url": "https://openalex.org/W4385328349",
+      "doi": "10.15607/rss.2023.xix.053",
+      "title": "On discrete symmetries of robotics systems: A group-theoretic and data-driven analysis",
+      "publication_year": 2023,
+      "publication_date": "2023-07-10",
+      "type": "conference-paper",
+      "authors": [
+        "Daniel Ordoñez-Apraez",
+        "Mario Martín",
+        "Antonio Agudo",
+        "Francesc Moreno"
+      ],
+      "member_ids": [
+        "daniel-ordonez"
+      ],
+      "venue": null,
+      "landing_page_url": "https://doi.org/10.15607/rss.2023.xix.053",
+      "open_access_url": "https://doi.org/10.15607/rss.2023.xix.053",
+      "is_retracted": false
+    },
+    {
+      "id": "https://openalex.org/W3208440471",
+      "source": "OpenAlex",
+      "source_url": "https://openalex.org/W3208440471",
+      "doi": "10.1109/icra46639.2022.9812441",
+      "title": "An Adaptable Approach to Learn Realistic Legged Locomotion without Examples",
+      "publication_year": 2022,
+      "publication_date": "2022-05-23",
+      "type": "conference-paper",
+      "authors": [
+        "Daniel Ordoñez-Apraez",
+        "Antonio Agudo",
+        "Francesc Moreno-Noguer",
+        "Mario Martín"
+      ],
+      "member_ids": [
+        "daniel-ordonez"
+      ],
+      "venue": "Proceedings - IEEE International Conference on Robotics and Automation/Proceedings",
+      "landing_page_url": "https://doi.org/10.1109/icra46639.2022.9812441",
+      "open_access_url": "http://arxiv.org/abs/2110.14998",
+      "is_retracted": false
+    },
+    {
+      "id": "https://openalex.org/W4323021345",
+      "source": "OpenAlex",
+      "source_url": "https://openalex.org/W4323021345",
+      "doi": "10.1109/icbme57741.2022.10052963",
+      "title": "Seizure Prediction in Epileptic Patients Using EEG and Anomaly Detection",
+      "publication_year": 2022,
+      "publication_date": "2022-12-21",
+      "type": "conference-paper",
+      "authors": [
+        "Erfan Mirzaei",
+        "Mohammad Bagher Shamsollahi"
+      ],
+      "member_ids": [
+        "erfan-mirzaei"
+      ],
+      "venue": "National and International Iranian Conference on Biomedical Engineering (ICBME)",
+      "landing_page_url": "https://doi.org/10.1109/icbme57741.2022.10052963",
+      "open_access_url": null,
+      "is_retracted": false
+    }
+  ]
 }

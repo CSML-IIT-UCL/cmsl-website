@@ -13,6 +13,8 @@ import { getSiteConfig } from '@/lib/site';
 
 const site = getSiteConfig();
 const allPeople = (await getCollection('people', ({ data }) => !data.draft)).sort((a, b) => a.data.order - b.data.order || a.data.name.localeCompare(b.data.name));
+const currentPeople = allPeople.filter((person) => person.data.status !== 'alumni');
+const alumni = allPeople.filter((person) => person.data.status === 'alumni');
 const pi = allPeople.find((person) => person.data.id === site.principal_investigator_id);
 if (!pi) throw new Error(`Configured PI '${site.principal_investigator_id}' is not a published person.`);
 const research = (await getCollection('research', ({ data }) => !data.draft)).sort((a, b) => a.data.order - b.data.order);
@@ -77,7 +79,7 @@ const { Content: AboutContent } = await render(about);
   <section id="people" class="section shell">
     <SectionHeading eyebrow="People" title="The CSML team" intro="Profiles are generated from one shared people and publication registry." />
     {site.role_groups.map((group) => {
-      const members = allPeople.filter((person) => person.data.role === group.key);
+      const members = currentPeople.filter((person) => person.data.role === group.key);
       if (members.length === 0) return null;
       return (
         <section class="people-group" aria-labelledby={`group-${group.key}`}>
@@ -86,6 +88,12 @@ const { Content: AboutContent } = await render(about);
         </section>
       );
     })}
+    {alumni.length > 0 && (
+      <section class="people-group" aria-labelledby="group-alumni">
+        <h3 id="group-alumni">Alumni</h3>
+        <div class="people-grid">{alumni.map((person) => <PersonCard person={person} />)}</div>
+      </section>
+    )}
   </section>
 
   <section id="projects" class="section section-tint">

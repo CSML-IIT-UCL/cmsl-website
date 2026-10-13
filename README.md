@@ -9,19 +9,21 @@ Most changes require only plain text and a few fields. The website applies its o
 | Change | File or folder |
 |---|---|
 | My profile, links, portrait, role, biography | `content/people/<my-person-id>.md` |
-| Add a person | Copy `templates/person.md` into `content/people/` |
-| Add a news item | Copy `templates/news.md` into `content/news/` |
+| Add a person | Copy `content/people/_template.md` (or `templates/person.md`) into `content/people/` |
+| Add a news item | Copy `content/news/_template.md` (or `templates/news.md`) into `content/news/` |
 | Team description | `content/about.md` |
-| Research area | `content/research/<id>.md` |
-| Funded project and funding logos | `content/projects/<id>.yaml` |
-| Open or close a position | `content/openings/<id>.md` |
-| Add an external article card manually | Copy `templates/blog-entry.yaml` into `content/blog-entries/` |
+| Research area | Copy `content/research/_template.md` into `content/research/<id>.md` |
+| Funded project and funding logos | Copy `content/projects/_template.yaml` into `content/projects/<id>.yaml` |
+| Open or close a position | Copy `content/openings/_template.md` into `content/openings/<id>.md` |
+| Add an external article card manually | Copy `content/blog-entries/_template.yaml` into `content/blog-entries/` |
 | Add a blog to automatic discovery | `content/blog-sources.yaml`; see `templates/blog-source.yaml` |
 | Exceptional publication-source correction (maintainers only) | `content/publication-overrides.yaml` |
 | Correct/exclude an imported blog entry | `content/blog-overrides.yaml` |
 | Site contacts, navigation, PI selection | `content/site.yaml` |
 | Public social account/API-proxy settings | `content/social.yaml` |
 | Approved original images | `media/people/`, `media/research/`, `media/funders/`, etc. |
+
+Every `content/<type>/` folder also keeps its own `_template.*` file (e.g. `content/people/_template.md`) with every field commented. Files starting with `_` are never built or validated as real content, so you can copy one in place without hunting through `templates/` first; `templates/` holds the same files for reference.
 
 Do **not** edit `data/publications.json` or `data/blog.json` by hand. They are generated caches. Do not edit `src/` just to change a biography or announcement. The principal investigator uses the same person record as their normal profile.
 
@@ -70,19 +72,29 @@ personal_website: null
 orcid: null
 scholar_url: null
 github_url: null
+linkedin_url: null
+x_url: null
+bluesky_url: null
+current_affiliation: null
 openalex_ids: []
 publications:
   enabled: true
   include_in_team_list: true
+  start_of_affiliation: null
+  end_of_affiliation: null
 ---
 Write a short research biography here.
 ```
 
 Replace the example identity, fill real fields, and set `draft: false` when ready for public preview/review. Leave absent optional fields `null` or omit them as shown in the full template. Use `[]` for empty lists. Never paste placeholder author IDs into a real record.
 
-Valid main role keys are `senior_academic`, `postdoc`, `phd_student`, and `research_engineer`. Additional supported categories are `affiliated_researcher` and `research_support`. `role_label` is your displayed job title; it need not exactly repeat the group label. Membership `status` is `active`, `alumni`, or `affiliated`. For an alumnus, explicitly decide whether publications remain collected and set `include_in_team_list: false` unless the team has agreed otherwise.
+Valid main role keys are `senior_academic`, `postdoc`, `phd_student`, and `research_engineer`. Additional supported categories are `affiliated_researcher` and `research_support`. `role_label` is your displayed job title; it need not exactly repeat the group label. Membership `status` is `active`, `alumni`, or `affiliated`. Alumni are grouped separately on the homepage under "Alumni", regardless of their former `role`.
 
-The primary external website button uses `personal_website`, or falls back to `iit_profile`. Missing links do not produce empty buttons. Your ORCID, Scholar URL, and OpenAlex IDs serve different purposes: a Scholar link does not import your publications. Have a maintainer verify the OpenAlex identity from ORCID, affiliation, and known publications. Multiple verified IDs are supported when OpenAlex split one person across records.
+The primary external website button uses `personal_website`, or falls back to `iit_profile`. Missing links do not produce empty buttons. `orcid`, `scholar_url`, `github_url`, `linkedin_url`, `x_url`, and `bluesky_url` each render a dedicated app icon when set, and simply do not render when left `null`. Your ORCID, Scholar URL, and OpenAlex IDs serve different purposes: a Scholar link does not import your publications. Have a maintainer verify the OpenAlex identity from ORCID, affiliation, and known publications. Multiple verified IDs are supported when OpenAlex split one person across records.
+
+`current_affiliation` only applies to alumni (`status: alumni`): it is the person's current employer/institution, shown on their alumni card and profile above their past CSML `role_label`. Leave it `null` (never guessed) until a maintainer verifies it; the site shows an honest "not yet verified" placeholder instead of fabricating one.
+
+For an alumnus, explicitly decide whether publications remain collected (`publications.enabled`) and whether they count toward the shared team bibliography (`include_in_team_list`), unless the team has agreed otherwise. `start_of_affiliation` and `end_of_affiliation` (plain years, e.g. `2022`/`2025`) scope *which* of a person's works count toward the shared `/publications/` team pool: only works published inside that window are included there. Leaving both `null` means no restriction. This never affects the person's own `/people/<id>/` profile, which always shows their complete publication history regardless of these bounds.
 
 ### Add a portrait
 
@@ -160,6 +172,8 @@ A manual refresh is also available in **Actions -> Refresh blog entries -> Run w
 The group list and personal profiles use a tracked cache sourced directly from each person's verified OpenAlex author ID. The collector queries that author ID, never a name search. Viewing pages, starting the local server, editing an author ID, or rebuilding does not call OpenAlex; an explicit refresh updates the cache. This keeps GitHub Pages static and repeatable and preserves working pages during an API outage.
 
 OpenAlex is the publication source of record. Team members should correct their publication list in OpenAlex and then request a refresh; they should not maintain a second bibliography in this repository. `content/publication-overrides.yaml` is reserved for exceptional, reviewed source errors or exclusions that cannot be corrected normally in OpenAlex.
+
+The shared `/publications/` page only counts a person's works toward that common pool within their `start_of_affiliation`/`end_of_affiliation` window (see "Edit or add a profile" above); their own `/people/<id>/` profile always shows their complete history regardless of that window.
 
 The weekly Action performs a full refresh using the configured verified author IDs and free API plan. It writes to **dev**; a release PR is still needed for production. The implementation follows the supplied [OpenAlex guide](docs/openalex-free-tier-guide.md), with the stricter release/cache rules in [the plan](IMPLEMENTATION_PLAN.md).
 
@@ -240,9 +254,9 @@ For an unknown person ID, fix the selection before retrying. For a missing key, 
 
 ## Other content updates
 
-For a research area, copy `templates/research.md`, fill the title/body, and optionally set media/alt text. Images use a common frame; choose `contain` for a diagram whose labels would be cropped. Animated media needs a static poster and motion controls supplied by the UI.
+For a research area, copy `content/research/_template.md` (or `templates/research.md`), fill the title/body, and optionally set media/alt text. Images use a common frame; choose `contain` for a diagram whose labels would be cropped. Animated media needs a static poster and motion controls supplied by the UI.
 
-For a project, copy `templates/project.yaml`, fill its real project link, status, and funder identity. Use approved funder logos. Mark completed projects accurately. For an opening, copy `templates/opening.md` and use the official call/application URL. Set status to closed or use the actual deadline. A general email expression of interest is not a substitute for a formal recruitment portal.
+For a project, copy `content/projects/_template.yaml` (or `templates/project.yaml`), fill its real project link, status, and funder identity. Use approved funder logos. Mark completed projects accurately. For an opening, copy `content/openings/_template.md` (or `templates/opening.md`) and use the official call/application URL. Set status to closed or use the actual deadline. A general email expression of interest is not a substitute for a formal recruitment portal.
 
 All these edits use dev, preview, and a main PR. Do not change the application service/recipient as an ordinary content edit without the responsible maintainer's review.
 

@@ -7,9 +7,11 @@ import SocialIcon from '@/components/SocialIcon.astro';
 
 interface Props { person: CollectionEntry<'people'>; showPublications?: boolean }
 const { person, showPublications = true } = Astro.props;
-const iconPlatformFor = (label: string): 'linkedin' | 'x' | null => {
+const iconPlatformFor = (label: string): 'github' | 'linkedin' | 'scholar' | 'x' | null => {
   const key = label.toLowerCase();
+  if (key === 'github') return 'github';
   if (key === 'linkedin') return 'linkedin';
+  if (key === 'scholar' || key === 'google scholar') return 'scholar';
   if (key === 'x' || key === 'twitter') return 'x';
   return null;
 };
@@ -37,12 +39,20 @@ const relationship = person.data.status === 'alumni'
       <p class="eyebrow">{relationship}</p>
       <h1>{person.data.name}</h1>
       <p class="profile-role">{person.data.role_label}</p>
+      {person.data.status === 'alumni' && (
+        <p class="profile-current-affiliation">
+          {person.data.current_affiliation ?? 'Current affiliation not yet verified'}
+        </p>
+      )}
       <div class="profile-links" aria-label={`${person.data.name} links`}>
         {website && <a class="button secondary" href={website}>Website</a>}
         {person.data.email && <a class="button secondary" href={`mailto:${person.data.email}`}>Email</a>}
-        {person.data.orcid && <a class="button secondary" href={`https://orcid.org/${person.data.orcid}`}>ORCID</a>}
-        {person.data.scholar_url && <a class="button secondary" href={person.data.scholar_url}>Scholar</a>}
-        {person.data.github_url && <a class="button secondary" href={person.data.github_url}>GitHub</a>}
+        {person.data.orcid && <SocialIcon platform="orcid" href={`https://orcid.org/${person.data.orcid}`} />}
+        {person.data.scholar_url && <SocialIcon platform="scholar" href={person.data.scholar_url} />}
+        {person.data.github_url && <SocialIcon platform="github" href={person.data.github_url} />}
+        {person.data.linkedin_url && <SocialIcon platform="linkedin" href={person.data.linkedin_url} />}
+        {person.data.x_url && <SocialIcon platform="x" href={person.data.x_url} />}
+        {person.data.bluesky_url && <SocialIcon platform="bluesky" href={person.data.bluesky_url} />}
         {person.data.openalex_ids.map((authorId, index) => (
           <a class="button secondary" href={`https://openalex.org/${authorId}`}>
             OpenAlex{person.data.openalex_ids.length > 1 ? ` ${index + 1}` : ''}
@@ -66,13 +76,6 @@ const relationship = person.data.status === 'alumni'
   {showPublications && (
     <section class="profile-publications" aria-labelledby="profile-publications-title">
       <h2 id="profile-publications-title">Publications</h2>
-      {person.data.openalex_ids.length > 0 && (
-        <p class="publication-source">
-          Source: {person.data.openalex_ids.map((authorId, index) => (
-            <><a href={`https://openalex.org/${authorId}`}>{authorId}</a>{index < person.data.openalex_ids.length - 1 ? ', ' : ''}</>
-          ))}
-        </p>
-      )}
       {publications.length > 0 ? (
         <PublicationList publications={publications} />
       ) : (

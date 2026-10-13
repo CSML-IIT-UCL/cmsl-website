@@ -19,6 +19,8 @@ export function filesUnder(directory: string, extensions: string[]): string[] {
   return fs.readdirSync(directory, { withFileTypes: true }).flatMap((entry) => {
     const fullPath = path.join(directory, entry.name);
     if (entry.isDirectory()) return filesUnder(fullPath, extensions);
+    // '_'-prefixed files (e.g. _template.md) are copy-paste scaffolds, not real content.
+    if (entry.name.startsWith('_')) return [];
     return extensions.some((extension) => entry.name.endsWith(extension)) ? [fullPath] : [];
   }).sort();
 }

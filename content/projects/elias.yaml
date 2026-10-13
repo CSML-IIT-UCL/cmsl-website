@@ -1,15 +1,30 @@
+# Stable slug, matches filename
 id: elias
+# Full project title
 title: European Lighthouse of AI for Sustainability
+# Short acronym on card
 acronym: ELIAS
+# Hide until reviewed
 draft: false
+# active | completed
 status: active
+# Quoted ISO date
 start_date: '2023-09-01'
+# Quoted ISO date (null = ongoing)
 end_date: '2027-08-31'
+# Verified project destination
 project_url: https://elias-ai.eu/
+# Path under media/
 project_logo: null
+# Verified funder list
 funders:
+  # Official funder name
   - name: European Union
+    # Path under media/
     logo: null
+    # Required when logo is set
     logo_alt: null
+    # Funder's official site
     url: https://european-union.europa.eu/
+# Sort position in strip
 order: 40

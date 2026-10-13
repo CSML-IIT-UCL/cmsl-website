@@ -17,7 +17,14 @@ const initials = person.data.name.split(/\s+/).slice(0, 2).map((word) => word[0]
     </div>
     <div class="person-card-copy">
       <h4>{person.data.name}</h4>
-      <p class="role-label">{person.data.role_label}</p>
+      {person.data.status === 'alumni' ? (
+        <>
+          <p class="current-affiliation">{person.data.current_affiliation ?? 'Current affiliation not yet verified'}</p>
+          <p class="role-label past-role">{person.data.role_label}</p>
+        </>
+      ) : (
+        <p class="role-label">{person.data.role_label}</p>
+      )}
     </div>
   </a>
 </article>

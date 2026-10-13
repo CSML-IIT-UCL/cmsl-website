@@ -1,20 +1,29 @@
 ---
+import { getCollection } from 'astro:content';
 import EmptyState from '@/components/EmptyState.astro';
 import SectionHeading from '@/components/SectionHeading.astro';
 import BaseLayout from '@/layouts/BaseLayout.astro';
-import { publicationData } from '@/lib/publications';
+import { publicationData, teamPublications } from '@/lib/publications';
 import PublicationList from '@/components/PublicationList.astro';
+
+const people = await getCollection('people', ({ data }) => !data.draft);
+const records = teamPublications(people.map((person) => ({
+  id: person.data.id,
+  includeInTeamList: person.data.publications.enabled && person.data.publications.include_in_team_list,
+  startOfAffiliation: person.data.publications.start_of_affiliation ?? null,
+  endOfAffiliation: person.data.publications.end_of_affiliation ?? null,
+})));
 ---
 
 <BaseLayout title="Publications" description="Cached publications by configured CSML team members.">
   <div class="page-shell shell">
-    <SectionHeading eyebrow="Publications" title="Combined team bibliography" intro="The aggregate covers configured members' publication histories, including work before joining IIT." />
+    <SectionHeading eyebrow="Publications" title="Combined team bibliography" intro="The aggregate covers configured members' publication histories while affiliated with the group, including work before joining IIT where no affiliation window is set." />
     <div class="source-note">
       <span>Source: OpenAlex</span>
       <span>Last complete refresh: {publicationData.last_full_refresh_at ?? 'Not yet synced'}</span>
     </div>
-    {publicationData.records.length > 0 ? (
-      <PublicationList publications={publicationData.records} />
+    {records.length > 0 ? (
+      <PublicationList publications={records} />
     ) : <EmptyState title="Publication cache not yet synced" message="Profiles remain available while verified OpenAlex author identities and the first durable snapshot are prepared." />}
   </div>
 </BaseLayout>

@@ -1,10 +1,18 @@
-# Add one record like this under sources: in content/blog-sources.yaml.
-# Confirm the listing/author. Leave feed_url null until the feed is verified.
-# A source without RSS/Atom needs a supported, tested HTML adapter.
+# Add one record shaped like this under sources: in content/blog-sources.yaml
+# (a single shared file; there is no separate content/blog-sources/ directory
+# to copy a template into). Leave feed_url null until a real, advertised
+# RSS/Atom feed is verified to exist.
+# Unique slug within this file
 id: example-author-blog
+# Actually fetched when true
 enabled: false
+# Blog's public listing page
 listing_url: https://example.org/blog/
+# Byline for collected entries
 author_name: Example Researcher
+# Optional linked people/ id
 person_id: null
+# Verified RSS/Atom feed
 feed_url: null
+# auto or named adapter
 adapter: auto

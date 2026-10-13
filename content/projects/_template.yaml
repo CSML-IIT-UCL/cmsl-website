@@ -1,0 +1,33 @@
+# Copy into content/projects/, or copy content/projects/_template.yaml directly.
+# Rename to your-project-id.yaml; id must match the filename. Keep draft: true
+# until the project is reviewed.
+# Stable slug, matches filename
+id: example-project
+# Full project title
+title: Example project
+# Short acronym on card
+acronym: EXAMPLE
+# Hide until reviewed
+draft: true
+# active | completed
+status: active
+# Quoted ISO date
+start_date: null
+# Quoted ISO date (null = ongoing)
+end_date: null
+# Verified project destination
+project_url: null
+# Path under media/
+project_logo: null
+# Verified funder list
+funders:
+  # Official funder name
+  - name: Example Funder
+    # Path under media/
+    logo: null
+    # Required when logo is set
+    logo_alt: null
+    # Funder's official site
+    url: null
+# Sort position in strip
+order: 10

@@ -17,8 +17,20 @@ const personSchema = z.object({
   orcid: z.string().regex(/^\d{4}-\d{4}-\d{4}-\d{3}[\dX]$/).nullable().optional(),
   scholar_url: z.string().url().startsWith('https://').nullable().optional(),
   github_url: z.string().url().startsWith('https://').nullable().optional(),
+  linkedin_url: z.string().url().startsWith('https://').nullable().optional(),
+  x_url: z.string().url().startsWith('https://').nullable().optional(),
+  bluesky_url: z.string().url().startsWith('https://').nullable().optional(),
+  current_affiliation: z.string().min(1).nullable().optional(),
   openalex_ids: z.array(z.string().regex(/^A\d+$/)),
-  publications: z.object({ enabled: z.boolean(), include_in_team_list: z.boolean() }),
+  publications: z.object({
+    enabled: z.boolean(),
+    include_in_team_list: z.boolean(),
+    start_of_affiliation: z.number().int().min(1990).max(2100).nullable().optional(),
+    end_of_affiliation: z.number().int().min(1990).max(2100).nullable().optional(),
+  }).refine(
+    (value) => value.start_of_affiliation == null || value.end_of_affiliation == null || value.start_of_affiliation <= value.end_of_affiliation,
+    { message: 'start_of_affiliation must be on or before end_of_affiliation', path: ['end_of_affiliation'] },
+  ),
 });
 
 const newsSchema = z.object({

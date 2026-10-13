@@ -1,15 +1,30 @@
+# Stable slug, matches filename
 id: icsc
+# Full project title
 title: National Centre for HPC, Big Data and Quantum Computing
+# Short acronym on card
 acronym: ICSC
+# Hide until reviewed
 draft: false
+# active | completed
 status: completed
+# Quoted ISO date
 start_date: '2022-09-01'
+# Quoted ISO date (null = ongoing)
 end_date: '2026-06-30'
+# Verified project destination
 project_url: https://www.ifabfoundation.org/
+# Path under media/
 project_logo: null
+# Verified funder list
 funders:
+  # Official funder name
   - name: European Union – NextGenerationEU
+    # Path under media/
     logo: null
+    # Required when logo is set
     logo_alt: null
+    # Funder's official site
     url: https://next-generation-eu.europa.eu/
+# Sort position in strip
 order: 20

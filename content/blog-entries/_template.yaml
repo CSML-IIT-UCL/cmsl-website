@@ -1,0 +1,22 @@
+# Copy into content/blog-entries/, or copy content/blog-entries/_template.yaml
+# directly. Rename to your-entry-id.yaml; id must match the filename. Keep
+# draft: true until reviewed. For recurring automatic discovery of a whole
+# blog, use content/blog-sources.yaml instead (see templates/blog-source.yaml).
+# Stable slug, matches filename
+id: example-external-post
+# Hide until reviewed
+draft: true
+# Real article title
+title: Example article title
+# Real byline
+author: Example Researcher
+# Optional linked people/ id
+person_id: null
+# Original article link
+url: https://example.org/blog/example-article/
+# Optional quoted ISO date
+published_at: null
+# Optional article image
+image: null
+# Required when image is set
+image_alt: null

@@ -10,8 +10,12 @@ const about = defineCollection({
   schema: z.object({ title: z.string().min(1) }),
 });
 
+const affiliationYear = z.number().int().min(1990).max(2100).nullable().optional();
+
 const people = defineCollection({
-  loader: glob({ base: './content/people', pattern: '**/*.md' }),
+  // '!_*.md' keeps content/people/_template.md out of the published roster so
+  // team members can copy it in place without it being parsed as a real person.
+  loader: glob({ base: './content/people', pattern: ['**/*.md', '!_*.md'] }),
   schema: z.object({
     id: z.string().regex(/^[a-z0-9]+(?:-[a-z0-9]+)*$/),
     name: z.string().min(1),
@@ -37,17 +41,30 @@ const people = defineCollection({
     orcid: z.string().regex(/^\d{4}-\d{4}-\d{4}-\d{3}[\dX]$/).nullable().optional(),
     scholar_url: nullableUrl,
     github_url: nullableUrl,
+    linkedin_url: nullableUrl,
+    x_url: nullableUrl,
+    bluesky_url: nullableUrl,
+    // Current employer/institution, shown only for alumni (status: alumni) cards and profiles.
+    current_affiliation: z.string().min(1).nullable().optional(),
     media_links: z.array(z.object({ label: z.string().min(1), url: z.string().url().startsWith('https://') })).default([]),
     openalex_ids: z.array(z.string().regex(/^A\d+$/)).default([]),
     publications: z.object({
       enabled: z.boolean().default(true),
       include_in_team_list: z.boolean().default(true),
-    }),
+      // Inclusive year range this person was part of the group. Only used to scope
+      // which of their works count toward the shared/common publications pool; the
+      // person's own profile always shows their complete publication history.
+      start_of_affiliation: affiliationYear,
+      end_of_affiliation: affiliationYear,
+    }).refine(
+      (value) => value.start_of_affiliation == null || value.end_of_affiliation == null || value.start_of_affiliation <= value.end_of_affiliation,
+      { message: 'start_of_affiliation must be on or before end_of_affiliation', path: ['end_of_affiliation'] },
+    ),
   }),
 });
 
 const research = defineCollection({
-  loader: glob({ base: './content/research', pattern: '**/*.md' }),
+  loader: glob({ base: './content/research', pattern: ['**/*.md', '!_*.md'] }),
   schema: z.object({
     id: z.string().regex(/^[a-z0-9]+(?:-[a-z0-9]+)*$/),
     title: z.string().min(1),
@@ -65,7 +82,7 @@ const research = defineCollection({
 });
 
 const news = defineCollection({
-  loader: glob({ base: './content/news', pattern: '**/*.md' }),
+  loader: glob({ base: './content/news', pattern: ['**/*.md', '!_*.md'] }),
   schema: z.object({
     id: z.string().regex(/^[a-z0-9]+(?:-[a-z0-9]+)*$/),
     title: z.string().min(1),
@@ -80,7 +97,7 @@ const news = defineCollection({
 });
 
 const projects = defineCollection({
-  loader: glob({ base: './content/projects', pattern: '**/*.{yaml,yml}' }),
+  loader: glob({ base: './content/projects', pattern: ['**/*.{yaml,yml}', '!_*.{yaml,yml}'] }),
   schema: z.object({
     id: z.string().regex(/^[a-z0-9]+(?:-[a-z0-9]+)*$/),
     title: z.string().min(1),
@@ -102,7 +119,7 @@ const projects = defineCollection({
 });
 
 const openings = defineCollection({
-  loader: glob({ base: './content/openings', pattern: '**/*.md' }),
+  loader: glob({ base: './content/openings', pattern: ['**/*.md', '!_*.md'] }),
   schema: z.object({
     id: z.string().regex(/^[a-z0-9]+(?:-[a-z0-9]+)*$/),
     title: z.string().min(1),
@@ -118,7 +135,7 @@ const openings = defineCollection({
 });
 
 const blogEntries = defineCollection({
-  loader: glob({ base: './content/blog-entries', pattern: '**/*.{yaml,yml}' }),
+  loader: glob({ base: './content/blog-entries', pattern: ['**/*.{yaml,yml}', '!_*.{yaml,yml}'] }),
   schema: z.object({
     id: z.string().regex(/^[a-z0-9]+(?:-[a-z0-9]+)*$/),
     draft: z.boolean().default(true),

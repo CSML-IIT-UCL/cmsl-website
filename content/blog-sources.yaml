@@ -1,15 +1,29 @@
 sources:
+  # Unique slug within this file
   - id: vladimir-kostic
+    # Actually fetched when true
     enabled: true
+    # Blog's public listing page
     listing_url: https://vladi-slk.github.io/blog.html
+    # Byline for collected entries
     author_name: Vladimir R. Kostić
+    # Optional linked people/ id
     person_id: null
+    # Verified RSS/Atom feed
     feed_url: null
+    # auto or named adapter
     adapter: auto
+  # Unique slug within this file
   - id: pietro-novelli
+    # Actually fetched when true
     enabled: true
+    # Blog's public listing page
     listing_url: https://pietronvll.github.io/archive.html
+    # Byline for collected entries
     author_name: Pietro Novelli
+    # Optional linked people/ id
     person_id: pietro-novelli
+    # Verified RSS/Atom feed
     feed_url: null
+    # auto or named adapter
     adapter: auto
