@@ -41,7 +41,6 @@ const { Content: AboutContent } = await render(about);
   <section class:list={['hero', !hero && 'hero-placeholder']} aria-labelledby="hero-title">
     {hero && <img src={hero} alt={site.hero.alt ?? 'CSML team'} style={`object-position:${site.hero.focal_position}`} fetchpriority="high" />}
     <div class="shell hero-copy">
-      <p class="eyebrow">Istituto Italiano di Tecnologia</p>
       <h1 id="hero-title">Computational Statistics &amp; Machine Learning</h1>
       <p>Foundational methods for reliable learning, scientific discovery and dynamical systems.</p>
     </div>

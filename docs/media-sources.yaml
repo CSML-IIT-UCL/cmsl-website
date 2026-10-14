@@ -166,6 +166,16 @@ assets:
     source_page: https://ec.europa.eu/regional_policy/information-sources/logo-download-center_en
     checksum_sha256: dff51c32d948d0a34ac7943878ecfff02d3ebe5cfc4cc007c8952d4f6bc8aedf
     approval_notes: Official "Funded by the European Union – NextGenerationEU" lockup (English) from the European Commission's own logo download centre for Recovery and Resilience Facility communications; used as the NextGenerationEU funder logo.
+  - local_path: media/logos/openalex-logo.png
+    source_url: https://openalex.org/brand-assets/openalex-lockup.png
+    source_page: https://openalex.org
+    checksum_sha256: 79e0e6fb9c8857bfd1314b8ab57cbacebcdd794512091ce27024a9155313cf07
+    approval_notes: Official OpenAlex wordmark lockup from OpenAlex's own brand-assets folder; used to attribute OpenAlex as the publications data source.
+  - local_path: media/logos/openalex-mark.png
+    source_url: https://openalex.org/brand-assets/openalex-mark.png
+    source_page: https://openalex.org
+    checksum_sha256: 47171b7b7189a80e73447a1a4cfa748c8834411bf6e0c4814fd576446afabbb8
+    approval_notes: Official OpenAlex trefoil mark (icon only, transparent background) from OpenAlex's own brand-assets folder; used as the compact per-publication OpenAlex link icon.
   - local_path: media/flags/it.svg
     source_url: https://raw.githubusercontent.com/lipis/flag-icons/main/flags/4x3/it.svg
     source_page: https://github.com/lipis/flag-icons

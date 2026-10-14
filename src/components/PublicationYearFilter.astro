@@ -1,0 +1,51 @@
+---
+import type { PublicationRecord } from '@/lib/publications';
+
+interface Props { publications: PublicationRecord[] }
+const { publications } = Astro.props;
+
+const years = publications
+  .map((publication) => publication.publication_year)
+  .filter((year): year is number => year != null);
+
+const minYear = years.length > 0 ? Math.min(...years) : null;
+const maxYear = years.length > 0 ? Math.max(...years) : null;
+
+const counts = new Map<number, number>();
+for (const year of years) counts.set(year, (counts.get(year) ?? 0) + 1);
+
+const histogram = minYear != null && maxYear != null
+  ? Array.from({ length: maxYear - minYear + 1 }, (_, index) => {
+      const year = minYear + index;
+      return { year, count: counts.get(year) ?? 0 };
+    })
+  : [];
+
+const maxCount = histogram.reduce((max, bucket) => Math.max(max, bucket.count), 0);
+---
+
+{minYear != null && maxYear != null && maxYear > minYear && (
+  <div class="year-filter" data-year-filter data-min-year={minYear} data-max-year={maxYear}>
+    <div class="year-filter-histogram" aria-hidden="true">
+      {histogram.map((bucket) => (
+        <div class="year-filter-bar" style={`--bar-fill: ${maxCount > 0 ? bucket.count / maxCount : 0}`}>
+          {bucket.count > 0 && <span class="year-filter-bar-count">{bucket.count}</span>}
+        </div>
+      ))}
+    </div>
+    <div class="year-filter-track">
+      <div class="year-filter-range" data-year-filter-range></div>
+      <input type="range" class="year-filter-input" min={minYear} max={maxYear} step="1" value={minYear} data-year-filter-from aria-label="Earliest year shown" />
+      <input type="range" class="year-filter-input" min={minYear} max={maxYear} step="1" value={maxYear} data-year-filter-to aria-label="Latest year shown" />
+    </div>
+    <div class="year-filter-labels">
+      <span data-year-filter-from-label>{minYear}</span>
+      <span aria-hidden="true">&ndash;</span>
+      <span data-year-filter-to-label>{maxYear}</span>
+    </div>
+  </div>
+)}
+
+<script>
+  import '@/scripts/publication-year-filter';
+</script>
