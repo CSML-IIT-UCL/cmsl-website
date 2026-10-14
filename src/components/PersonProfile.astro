@@ -26,6 +26,14 @@ const flagSrc = nationality ? mediaUrl(flagIconPath(nationality)) : null;
 const website = person.data.personal_website ?? person.data.iit_profile;
 const publications = publicationsForPerson(person.data.id);
 const coverage = coverageForPerson(person.data.id);
+// PhD thesis link: only for roles that have actually earned a PhD, derived from
+// the same verified OpenAlex records (never a manually-entered URL), so a PhD
+// student's own master's dissertation record is never mislabelled as a PhD.
+const thesisEligible = person.data.role === 'postdoc' || person.data.role === 'senior_academic';
+const thesisRecord = thesisEligible ? publications.find((record) => record.type === 'dissertation') : undefined;
+const thesisUrl = thesisRecord
+  ? thesisRecord.landing_page_url ?? thesisRecord.open_access_url ?? (thesisRecord.doi ? `https://doi.org/${thesisRecord.doi}` : null)
+  : null;
 const relationship = person.data.status === 'alumni'
   ? 'Former colleague'
   : person.data.status === 'affiliated'
@@ -59,6 +67,7 @@ const emailFallback = email ? readableEmailFallback(email) : null;
         </p>
       )}
       <div class="profile-links" aria-label={`${person.data.name} links`}>
+        {thesisUrl && <a class="button secondary" href={thesisUrl}>PhD Thesis</a>}
         {website && <a class="button secondary" href={website}>Website</a>}
         {emailParts && (
           <span class="email-link" data-email-user={emailParts.user} data-email-domain={emailParts.domain}>
