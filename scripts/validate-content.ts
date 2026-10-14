@@ -2,6 +2,7 @@ import fs from 'node:fs';
 import path from 'node:path';
 import { z } from 'zod';
 import { filesUnder, readMarkdown, readYaml } from './content-utils.ts';
+import { NATIONALITIES } from '../src/lib/nationality.ts';
 
 const personSchema = z.object({
   id: z.string().regex(/^[a-z0-9]+(?:-[a-z0-9]+)*$/),
@@ -12,6 +13,10 @@ const personSchema = z.object({
   status: z.enum(['active', 'alumni', 'affiliated']),
   photo: z.string().nullable().optional(),
   photo_alt: z.string().nullable().optional(),
+  nationality: z.string().regex(/^[A-Z]{2}$/).nullable().optional()
+    .refine((code) => code == null || code in NATIONALITIES, {
+      message: 'unrecognized nationality code; add it to src/lib/nationality.ts first',
+    }),
   iit_profile: z.string().url().startsWith('https://').nullable().optional(),
   personal_website: z.string().url().startsWith('https://').nullable().optional(),
   orcid: z.string().regex(/^\d{4}-\d{4}-\d{4}-\d{3}[\dX]$/).nullable().optional(),

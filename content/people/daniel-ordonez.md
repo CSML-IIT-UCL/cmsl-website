@@ -19,6 +19,8 @@ email: daniel.ordonez@iit.it
 photo: /media/people/daniel-ordonez.jpg
 # Required when photo is set
 photo_alt: Daniel Felipe Ordoñez Apraez
+# Optional ISO 3166-1 alpha-2 nationality code; see src/lib/nationality.ts
+nationality: CO
 # Profile meta description
 research_summary: Geometry and physics as inductive priors for robot modelling, control and estimation.
 # Topic tags on profile

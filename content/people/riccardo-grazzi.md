@@ -19,6 +19,8 @@ email: null
 photo: /media/people/riccardo-grazzi.jpg
 # Required when photo is set
 photo_alt: Portrait of Riccardo Grazzi
+# Optional ISO 3166-1 alpha-2 nationality code; see src/lib/nationality.ts
+nationality: IT
 # Profile meta description
 research_summary: null
 # Topic tags on profile
@@ -40,7 +42,7 @@ x_url: https://x.com/riccardograzzi
 # Bluesky profile
 bluesky_url: null
 # Current employer (alumni only)
-current_affiliation: Researcher, Microsoft Research Cambridge
+current_affiliation: Research Scientist, Microsoft Research Cambridge
 # Other verified links
 media_links: []
 # Verified OpenAlex author IDs

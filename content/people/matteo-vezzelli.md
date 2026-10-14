@@ -19,6 +19,8 @@ email: null
 photo: null
 # Required when photo is set
 photo_alt: null
+# Optional ISO 3166-1 alpha-2 nationality code; see src/lib/nationality.ts
+nationality: IT
 # Profile meta description
 research_summary: null
 # Topic tags on profile

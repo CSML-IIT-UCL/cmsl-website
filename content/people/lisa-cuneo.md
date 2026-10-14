@@ -19,6 +19,8 @@ email: null
 photo: /media/people/lisa-cuneo.jpg
 # Required when photo is set
 photo_alt: Lisa Cuneo
+# Optional ISO 3166-1 alpha-2 nationality code; see src/lib/nationality.ts
+nationality: IT
 # Profile meta description
 research_summary: Inverse problems, optimization and machine learning for advanced optical microscopy and biomedical data.
 # Topic tags on profile

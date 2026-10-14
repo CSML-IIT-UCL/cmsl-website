@@ -19,6 +19,8 @@ email: null
 photo: /media/people/massimiliano-pontil.jpg
 # Required when photo is set
 photo_alt: Massimiliano Pontil
+# Optional ISO 3166-1 alpha-2 nationality code; see src/lib/nationality.ts
+nationality: IT
 # Profile meta description
 research_summary: Mathematical foundations of machine learning, including transfer, operator and dynamical-systems learning.
 # Topic tags on profile

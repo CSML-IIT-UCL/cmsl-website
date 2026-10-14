@@ -1,5 +1,5 @@
 version: 1
-retrieved_at: '2026-10-13'
+retrieved_at: '2026-10-14'
 assets:
   - local_path: media/csml_logos/IIT-logo-CSML T1 POS.svg
     source_url: null
@@ -116,13 +116,105 @@ assets:
     source_page: https://erc.europa.eu/support/logos
     checksum_sha256: 629e7f875106af584904a1d89a31844b887c8242d5452df0b7e16694061dabac
     approval_notes: Official combined EU emblem + ERC logo (with text), downloaded from the ERC's own beneficiary logo page and resized for web use; required alongside any announcement of ERC-funded grants per ERC visibility rules.
+  - local_path: media/people/erfan-mirzaei.jpg
+    source_url: https://erfunmirzaei.github.io/assets/img/prof_pic.png
+    source_page: https://erfunmirzaei.github.io/
+    checksum_sha256: 81b729e9b8ffaa9858de7ddd91867acda42183f74c2c9b91c72198d427f89081
+    approval_notes: Portrait published on the subject's own academic site, migrated at the maintainer's request; resized from the original 1152x1522 source for web use.
+  - local_path: media/people/marco-prattico.jpg
+    source_url: https://avatars.githubusercontent.com/marcopra
+    source_page: https://github.com/marcopra
+    checksum_sha256: ef2c2f5c9896e318ec6e63568a3a11f19685882275fbf81b32d09efdc499ebf5
+    approval_notes: Portrait taken from the subject's own GitHub avatar, migrated at the maintainer's request; his personal site (marcopra.github.io) uses a mascot logo rather than a headshot.
+  - local_path: media/people/luca-franceschi.jpg
+    source_url: https://scholar.googleusercontent.com/citations?view_op=medium_photo&user=NCls8VMAAAAJ&citpid=3
+    source_page: https://scholar.google.com/citations?user=NCls8VMAAAAJ&hl=en
+    checksum_sha256: 3d4ecd17e4c562e5ec826bf7d13f58d32f8d8fa36b89d2c5a66b4b303415ed2b
+    approval_notes: Portrait taken from the subject's own Google Scholar profile, migrated at the maintainer's request; his GitHub account (lucfra) has no uploaded avatar.
+  - local_path: media/people/giulia-denevi.jpg
+    source_url: https://scholar.googleusercontent.com/citations?view_op=medium_photo&user=ckVkVnIAAAAJ&citpid=2
+    source_page: https://scholar.google.com/citations?user=ckVkVnIAAAAJ&hl=it
+    checksum_sha256: 2d8988cd6261f15c20d543c9b73e661f4bc1bdd2910f0eade7ea331c1afe0a3c
+    approval_notes: Portrait taken from the subject's own Google Scholar profile, migrated at the maintainer's request; her LinkedIn profile photo is not programmatically fetchable.
+  - local_path: media/projects/elias-logo.png
+    source_url: https://elias-ai.eu/wp-content/uploads/2023/09/elias_logo_big-1.png
+    source_page: https://elias-ai.eu/
+    checksum_sha256: e79df93ca03ef1980409d04a5ae971dacdeaf93ff2529b9ac269766934d23b44
+    approval_notes: Official ELIAS project logo published on the project's own site, migrated at the maintainer's request for use as the project card identity.
+  - local_path: media/projects/elsa-logo.png
+    source_url: https://elsa-ai.eu/wp-content/uploads/2024/01/elsa_logo_RGB_twocolor.png
+    source_page: https://www.elsa-ai.eu/
+    checksum_sha256: b17db5c7dbafe82c769aa78b2886a9cf7931b147f2e2ed76fcb9a1e50f9447da
+    approval_notes: Official ELSA project logo published on the project's own site, migrated at the maintainer's request for use as the project card identity.
+  - local_path: media/projects/fair-logo.svg
+    source_url: https://fondazione-fair.it/wp-content/uploads/2024/02/Logo_FAIR_colore.svg
+    source_page: https://fondazione-fair.it/
+    checksum_sha256: 67ca0697b7f7a27c2053f5f4afe973fefa5fc9581f70c4fd149ecd754f1a39d5
+    approval_notes: Official FAIR (Future Artificial Intelligence Research) foundation logo published on the project's own site (future-ai-research.it redirects there), migrated at the maintainer's request for use as the project card identity.
+  - local_path: media/projects/icsc-logo.svg
+    source_url: https://www.supercomputing-icsc.it/
+    source_page: https://www.supercomputing-icsc.it/
+    checksum_sha256: 092f2deced2f3fcdb6f3d433f0a36895b4417430876b60fd6951b9e9bf53d30b
+    approval_notes: Official ICSC header logo, extracted as inline SVG markup from the project's own published homepage HTML, migrated at the maintainer's request for use as the project card identity.
+  - local_path: media/logos/eu-funded.jpg
+    source_url: https://ec.europa.eu/regional_policy/images/information-sources/logo-download-center/eu_funded_en.jpg
+    source_page: https://ec.europa.eu/regional_policy/information-sources/logo-download-center_en
+    checksum_sha256: bd620a8c5bd485b3da3f77c83b2c64ab2cd1e0c375c6c976794f42817539896b
+    approval_notes: Official "Funded by the European Union" emblem (English) from the European Commission's own logo download centre for EU-funded projects; used as the generic European Union funder logo.
+  - local_path: media/logos/eu-nextgenerationeu.jpg
+    source_url: https://ec.europa.eu/regional_policy/images/information-sources/logo-download-center/nextgeneu_en.jpg
+    source_page: https://ec.europa.eu/regional_policy/information-sources/logo-download-center_en
+    checksum_sha256: dff51c32d948d0a34ac7943878ecfff02d3ebe5cfc4cc007c8952d4f6bc8aedf
+    approval_notes: Official "Funded by the European Union – NextGenerationEU" lockup (English) from the European Commission's own logo download centre for Recovery and Resilience Facility communications; used as the NextGenerationEU funder logo.
+  - local_path: media/flags/it.svg
+    source_url: https://raw.githubusercontent.com/lipis/flag-icons/main/flags/4x3/it.svg
+    source_page: https://github.com/lipis/flag-icons
+    checksum_sha256: 9fa88118818d9b64838f578e2babcca3d0630aed21b5c33b34aff7ac5ce506bc
+    approval_notes: Rectangular flag icon from the flag-icons project (MIT, see docs/licenses/flag-icons-MIT.txt), used as the person-profile nationality badge for Italy.
+  - local_path: media/flags/co.svg
+    source_url: https://raw.githubusercontent.com/lipis/flag-icons/main/flags/4x3/co.svg
+    source_page: https://github.com/lipis/flag-icons
+    checksum_sha256: 6bab3c96c1657510c6e49354dd40203c69401bee54da497392ab9267334e5fd4
+    approval_notes: Rectangular flag icon from the flag-icons project (MIT, see docs/licenses/flag-icons-MIT.txt), used as the person-profile nationality badge for Colombia.
+  - local_path: media/flags/br.svg
+    source_url: https://raw.githubusercontent.com/lipis/flag-icons/main/flags/4x3/br.svg
+    source_page: https://github.com/lipis/flag-icons
+    checksum_sha256: b0a912826c3ffd7287435ebed66e18fe058e992309c00dc10b430dd41a29ba91
+    approval_notes: Rectangular flag icon from the flag-icons project (MIT, see docs/licenses/flag-icons-MIT.txt), used as the person-profile nationality badge for Brazil.
+  - local_path: media/flags/fr.svg
+    source_url: https://raw.githubusercontent.com/lipis/flag-icons/main/flags/4x3/fr.svg
+    source_page: https://github.com/lipis/flag-icons
+    checksum_sha256: a526851c372e3372b1596be71af355ea72b1650bbc4c06e6e2c226900d3de6cc
+    approval_notes: Rectangular flag icon from the flag-icons project (MIT, see docs/licenses/flag-icons-MIT.txt), used as the person-profile nationality badge for France.
+  - local_path: media/flags/rs.svg
+    source_url: https://raw.githubusercontent.com/lipis/flag-icons/main/flags/4x3/rs.svg
+    source_page: https://github.com/lipis/flag-icons
+    checksum_sha256: b6e08e2eca1ec4c287e5d5d7c36d7d4ad9503ad030133b04cf315f95ab49961c
+    approval_notes: Rectangular flag icon from the flag-icons project (MIT, see docs/licenses/flag-icons-MIT.txt), used as the person-profile nationality badge for Serbia.
+  - local_path: media/flags/de.svg
+    source_url: https://raw.githubusercontent.com/lipis/flag-icons/main/flags/4x3/de.svg
+    source_page: https://github.com/lipis/flag-icons
+    checksum_sha256: efd480af5a154a7651f29da23ee0d09dbc892410fb4041898ddf8face336c575
+    approval_notes: Rectangular flag icon from the flag-icons project (MIT, see docs/licenses/flag-icons-MIT.txt), used as the person-profile nationality badge for Germany.
+  - local_path: media/flags/ir.svg
+    source_url: https://raw.githubusercontent.com/lipis/flag-icons/main/flags/4x3/ir.svg
+    source_page: https://github.com/lipis/flag-icons
+    checksum_sha256: cb363e09bafbff6de7c2fba6a002ca33f0563dc83a2328d34adb492cf80ca629
+    approval_notes: Rectangular flag icon from the flag-icons project (MIT, see docs/licenses/flag-icons-MIT.txt), used as the person-profile nationality badge for Iran.
+  - local_path: media/flags/se.svg
+    source_url: https://raw.githubusercontent.com/lipis/flag-icons/main/flags/4x3/se.svg
+    source_page: https://github.com/lipis/flag-icons
+    checksum_sha256: b3b5071e6c1d4a0e3db828bab5c7dfd68d0e90fcf3b25b15e9a2c4f96c1f79c9
+    approval_notes: Rectangular flag icon from the flag-icons project (MIT, see docs/licenses/flag-icons-MIT.txt), used as the person-profile nationality badge for Sweden.
+  - local_path: media/flags/sg.svg
+    source_url: https://raw.githubusercontent.com/lipis/flag-icons/main/flags/4x3/sg.svg
+    source_page: https://github.com/lipis/flag-icons
+    checksum_sha256: 25de9044c2e2775f7ccf9c1df02dd02342f915715b22c43248452b7ae24079a5
+    approval_notes: Rectangular flag icon from the flag-icons project (MIT, see docs/licenses/flag-icons-MIT.txt), used as the person-profile nationality badge for Singapore.
 blockers:
   - kind: missing-portraits
     source_page: https://csml.iit.it/people
     note: IIT currently publishes its generic logo instead of a portrait for the other listed people; the new site uses text initials rather than mislabelling that logo as a portrait.
-  - kind: project-logos
-    source_page: https://csml.iit.it/funded-projects
-    note: The four verified project records do not expose approved reusable project/funder logo files; cards therefore use text identities without invented logos.
   - kind: missing-portraits
     source_page: http://www.andreas-maurer.eu/
     note: The only photo on Andreas Maurer's personal site is a distant mountaineering snapshot ("on the summit"), not a usable headshot; his profile uses the text-initials fallback rather than publishing an unrelated image.

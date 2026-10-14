@@ -15,15 +15,15 @@ end_date: '2026-08-31'
 # Verified project destination
 project_url: https://www.elsa-ai.eu/
 # Path under media/
-project_logo: null
+project_logo: /media/projects/elsa-logo.png
 # Verified funder list
 funders:
   # Official funder name
   - name: European Union
     # Path under media/
-    logo: null
+    logo: /media/logos/eu-funded.jpg
     # Required when logo is set
-    logo_alt: null
+    logo_alt: Funded by the European Union
     # Funder's official site
     url: https://european-union.europa.eu/
 # Sort position in strip

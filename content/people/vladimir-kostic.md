@@ -19,6 +19,8 @@ email: vladimir.slk@gmail.com
 photo: /media/people/vladimir-kostic.png
 # Required when photo is set
 photo_alt: Vladimir R. Kostić
+# Optional ISO 3166-1 alpha-2 nationality code; see src/lib/nationality.ts
+nationality: RS
 # Profile meta description
 research_summary: Numerical linear algebra and statistical tools for machine learning, dynamical systems, and AI for science.
 # Topic tags on profile

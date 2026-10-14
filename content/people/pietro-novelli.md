@@ -19,6 +19,8 @@ email: pietro.novelli@iit.it
 photo: /media/people/pietro-novelli.jpeg
 # Required when photo is set
 photo_alt: Pietro Novelli
+# Optional ISO 3166-1 alpha-2 nationality code; see src/lib/nationality.ts
+nationality: IT
 # Profile meta description
 research_summary: Learning dynamical systems and developing machine-learning tools for the physical sciences.
 # Topic tags on profile

@@ -19,6 +19,8 @@ email: saverio.salzo@uniroma1.it
 photo: /media/people/saverio-salzo.jpg
 # Required when photo is set
 photo_alt: Saverio Salzo
+# Optional ISO 3166-1 alpha-2 nationality code; see src/lib/nationality.ts
+nationality: IT
 # Profile meta description
 research_summary: Nonsmooth optimization, proximal splitting and stochastic algorithms for machine learning.
 # Topic tags on profile

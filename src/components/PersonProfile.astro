@@ -1,7 +1,9 @@
 ---
 import { render, type CollectionEntry } from 'astro:content';
 import { mediaUrl } from '@/lib/paths';
+import { countryName, flagIconPath } from '@/lib/nationality';
 import { coverageForPerson, publicationsForPerson } from '@/lib/publications';
+import { readableEmailFallback, splitEmail } from '@/lib/obfuscate';
 import PublicationList from '@/components/PublicationList.astro';
 import SocialIcon from '@/components/SocialIcon.astro';
 
@@ -18,6 +20,9 @@ const iconPlatformFor = (label: string): 'github' | 'linkedin' | 'scholar' | 'x'
 const { Content } = await render(person);
 const photo = mediaUrl(person.data.photo);
 const initials = person.data.name.split(/\s+/).slice(0, 2).map((word) => word[0]).join('');
+const nationality = person.data.nationality;
+const nationalityName = nationality ? countryName(nationality) ?? nationality : null;
+const flagSrc = nationality ? mediaUrl(flagIconPath(nationality)) : null;
 const website = person.data.personal_website ?? person.data.iit_profile;
 const publications = publicationsForPerson(person.data.id);
 const coverage = coverageForPerson(person.data.id);
@@ -26,6 +31,12 @@ const relationship = person.data.status === 'alumni'
   : person.data.status === 'affiliated'
     ? 'Affiliated researcher'
     : 'CSML member';
+// Split rather than a plain mailto: href so the address never appears as a literal
+// string in the static HTML scrapers crawl; the inline script below upgrades this
+// to a real mailto link once JS runs, and the fallback text stays human-readable.
+const email = person.data.email;
+const emailParts = email ? splitEmail(email) : null;
+const emailFallback = email ? readableEmailFallback(email) : null;
 ---
 
 <article class="profile">
@@ -34,6 +45,9 @@ const relationship = person.data.status === 'alumni'
       {photo
         ? <img src={photo} alt={person.data.photo_alt ?? `Portrait of ${person.data.name}`} />
         : <span aria-hidden="true">{initials}</span>}
+      {flagSrc && (
+        <img class="nationality-flag" src={flagSrc} alt={`${nationalityName} flag`} title={nationalityName} />
+      )}
     </div>
     <div>
       {showRelationship && <p class="eyebrow">{relationship}</p>}
@@ -46,7 +60,11 @@ const relationship = person.data.status === 'alumni'
       )}
       <div class="profile-links" aria-label={`${person.data.name} links`}>
         {website && <a class="button secondary" href={website}>Website</a>}
-        {person.data.email && <a class="button secondary" href={`mailto:${person.data.email}`}>Email</a>}
+        {emailParts && (
+          <span class="email-link" data-email-user={emailParts.user} data-email-domain={emailParts.domain}>
+            {emailFallback}
+          </span>
+        )}
         {person.data.orcid && <SocialIcon platform="orcid" href={`https://orcid.org/${person.data.orcid}`} />}
         {person.data.scholar_url && <SocialIcon platform="scholar" href={person.data.scholar_url} />}
         {person.data.github_url && <SocialIcon platform="github" href={person.data.github_url} />}
@@ -90,3 +108,16 @@ const relationship = person.data.status === 'alumni'
     </section>
   )}
 </article>
+
+<script>
+  for (const el of document.querySelectorAll<HTMLElement>('.email-link[data-email-user]')) {
+    const user = el.dataset.emailUser;
+    const domain = el.dataset.emailDomain;
+    if (!user || !domain) continue;
+    const link = document.createElement('a');
+    link.className = 'button secondary';
+    link.href = `mailto:${user}@${domain}`;
+    link.textContent = 'Email';
+    el.replaceWith(link);
+  }
+</script>

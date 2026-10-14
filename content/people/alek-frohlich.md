@@ -19,6 +19,8 @@ email: null
 photo: /media/people/alek-frohlich.jpg
 # Required when photo is set
 photo_alt: Alek Frohlich
+# Optional ISO 3166-1 alpha-2 nationality code; see src/lib/nationality.ts
+nationality: BR
 # Profile meta description
 research_summary: null
 # Topic tags on profile

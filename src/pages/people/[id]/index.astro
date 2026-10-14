@@ -2,7 +2,7 @@
 import { getCollection, type CollectionEntry } from 'astro:content';
 import PersonProfile from '@/components/PersonProfile.astro';
 import BaseLayout from '@/layouts/BaseLayout.astro';
-import { withBase } from '@/lib/paths';
+import { mediaUrl, withBase } from '@/lib/paths';
 
 export async function getStaticPaths() {
   const people = await getCollection('people', ({ data }) => !data.draft);
@@ -11,9 +11,41 @@ export async function getStaticPaths() {
 
 interface Props { person: CollectionEntry<'people'> }
 const { person } = Astro.props;
+const description = person.data.research_summary ?? `${person.data.name} at CSML, IIT.`;
+const photoUrl = mediaUrl(person.data.photo);
+
+// Email is deliberately left out: it's obfuscated in the rendered page (see
+// src/lib/obfuscate.ts) and shouldn't be re-exposed as plain text here.
+const sameAs = [
+  person.data.personal_website,
+  person.data.iit_profile,
+  person.data.scholar_url,
+  person.data.github_url,
+  person.data.linkedin_url,
+  person.data.x_url,
+  person.data.bluesky_url,
+  person.data.orcid ? `https://orcid.org/${person.data.orcid}` : null,
+  ...person.data.openalex_ids.map((authorId) => `https://openalex.org/${authorId}`),
+  ...person.data.media_links.map((item) => item.url),
+].filter((url): url is string => Boolean(url));
+
+const structuredData = {
+  '@context': 'https://schema.org',
+  '@type': 'Person',
+  name: person.data.name,
+  jobTitle: person.data.role_label,
+  description,
+  ...(photoUrl ? { image: new URL(photoUrl, Astro.site).toString() } : {}),
+  worksFor: {
+    '@type': 'Organization',
+    name: 'Computational Statistics and Machine Learning, Istituto Italiano di Tecnologia',
+    url: 'https://csml.iit.it/home',
+  },
+  ...(sameAs.length > 0 ? { sameAs } : {}),
+};
 ---
 
-<BaseLayout title={person.data.name} description={person.data.research_summary ?? `${person.data.name} at CSML, IIT.`}>
+<BaseLayout title={person.data.name} description={description} ogType="profile" ogImage={photoUrl} structuredData={structuredData}>
   <div class="page-shell shell">
     <a class="back-link" href={`${withBase()}#people`}><span aria-hidden="true">←</span> Back to people</a>
     <PersonProfile person={person} />

@@ -14,29 +14,36 @@ status: active
 # Sort position within group
 order: 90
 # Public contact address
-email: null
+email: erfunmirzaei@gmail.com
 # Portrait path under media/
-photo: null
+photo: /media/people/erfan-mirzaei.jpg
 # Required when photo is set
-photo_alt: null
+photo_alt: Portrait of Erfan Mirzaei
+# Optional ISO 3166-1 alpha-2 nationality code; see src/lib/nationality.ts
+nationality: IR
 # Profile meta description
-research_summary: null
+research_summary: Machine and deep learning theory, using tools from high-dimensional probability, information theory, optimization, and statistical physics.
 # Topic tags on profile
-research_interests: []
+research_interests:
+  - Learning theory
+  - High-dimensional probability
+  - Information theory
+  - Statistical physics
+  - PAC-Bayesian analysis
 # Official IIT profile link
 iit_profile: https://csml.iit.it/people-details/-/people/erfan-mirzaei
 # Primary site (falls back to iit_profile)
-personal_website: null
+personal_website: https://erfunmirzaei.github.io/
 # Bare ORCID iD
 orcid: null
 # Google Scholar profile
-scholar_url: null
+scholar_url: https://scholar.google.com/citations?user=mi-UCzUAAAAJ
 # GitHub profile
-github_url: null
+github_url: https://github.com/erfunmirzaei
 # LinkedIn profile
-linkedin_url: null
+linkedin_url: https://www.linkedin.com/in/erfunmirzaei
 # X (Twitter) profile
-x_url: null
+x_url: https://twitter.com/erfunmirzaei
 # Bluesky profile
 bluesky_url: null
 # Current employer (alumni only)
@@ -56,3 +63,4 @@ publications:
   # Last year counted in team pool
   end_of_affiliation: null
 ---
+Erfan is an ELLIS PhD student in Applied Mathematics and Machine Learning at IIT, École Polytechnique, and the University of Genoa, advised by Massimiliano Pontil, Karim Lounici, and Andreas Maurer. His research studies why overparameterized and stochastic models generalize near the interpolation regime, using PAC-Bayesian theory and statistical physics to analyze Gibbs and Langevin algorithms. He co-organizes the Learning Theory Circle, an online community for learning theory discussions in Persian.
