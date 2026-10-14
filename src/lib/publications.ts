@@ -1,4 +1,7 @@
+import * as yaml from 'js-yaml';
 import publicationData from '../../data/publications.json';
+import overridesYaml from '../../content/publication-overrides.yaml?raw';
+import { applyExclusions, publicationOverridesSchema } from './publication-overrides';
 
 export interface PublicationRecord {
   id: string;
@@ -15,6 +18,8 @@ export interface PublicationRecord {
   landing_page_url: string | null;
   open_access_url: string | null;
   is_retracted: boolean;
+  // Internal ordering signal only; never rendered (OpenAlex undercounts).
+  cited_by_count?: number | null;
 }
 
 interface PublicationEnvelope {
@@ -28,7 +33,13 @@ interface PublicationEnvelope {
   records: PublicationRecord[];
 }
 
-const publications = publicationData as PublicationEnvelope;
+const overrides = publicationOverridesSchema.parse(yaml.load(overridesYaml));
+const rawPublications = publicationData as PublicationEnvelope;
+// Reviewed exclusions apply here, once, so every view shares the same records.
+const publications: PublicationEnvelope = {
+  ...rawPublications,
+  records: applyExclusions(rawPublications.records, overrides.exclusions),
+};
 
 export function publicationsForPerson(personId: string): PublicationRecord[] {
   return sortRecords(publications.records.filter((record) => record.member_ids.includes(personId)));

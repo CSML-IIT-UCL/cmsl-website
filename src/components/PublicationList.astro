@@ -8,8 +8,8 @@ const openAlexIcon = mediaUrl('/media/logos/openalex-mark.png')!;
 ---
 
 <ol class="publication-list" data-publication-list>
-  {publications.map((publication) => (
-    <li data-year={publication.publication_year ?? ''}>
+  {publications.map((publication, index) => (
+    <li data-year={publication.publication_year ?? ''} data-date-rank={index} data-citations={publication.cited_by_count ?? ''}>
       <div class="publication-heading">
         <a href={publication.landing_page_url ?? publication.source_url}>{publication.title}</a>
         {publication.is_retracted && <span class="status retracted">Retracted</span>}

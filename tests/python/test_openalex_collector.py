@@ -53,6 +53,12 @@ class OpenAlexCollectorTest(unittest.TestCase):
         self.assertEqual(query["per-page"], ["100"])
         self.assertEqual(len(results), 1)
 
+    def test_normalize_keeps_only_valid_citation_counts(self):
+        self.assertEqual(collector.normalize_work({**work("W1", "Cited"), "cited_by_count": 42}, "p")["cited_by_count"], 42)
+        self.assertIsNone(collector.normalize_work(work("W2", "Missing"), "p")["cited_by_count"])
+        self.assertIsNone(collector.normalize_work({**work("W3", "Bad"), "cited_by_count": -1}, "p")["cited_by_count"])
+        self.assertIsNone(collector.normalize_work({**work("W4", "Bool"), "cited_by_count": True}, "p")["cited_by_count"])
+
     def test_selected_author_requires_verified_ids_before_http(self):
         registry = {
             "authors": [

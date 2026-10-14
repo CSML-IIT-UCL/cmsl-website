@@ -1,0 +1,17 @@
+---
+// Client-side ordering for the team bibliography. Citation counts stay internal
+// (data attributes only): OpenAlex counts trail other indexes, so none are shown.
+// Hidden until the script runs; without JavaScript the static date order remains.
+---
+
+<div class="publication-sort" data-publication-sort hidden>
+  <span id="publication-sort-label">Sort by</span>
+  <div class="publication-sort-options" role="group" aria-labelledby="publication-sort-label">
+    <button type="button" data-sort="date" aria-pressed="true">Date</button>
+    <button type="button" data-sort="citations" aria-pressed="false">Citations</button>
+  </div>
+</div>
+
+<script>
+  import '@/scripts/publication-sort';
+</script>

@@ -3,6 +3,7 @@ import path from 'node:path';
 import { z } from 'zod';
 import { filesUnder, readMarkdown, readYaml } from './content-utils.ts';
 import { NATIONALITIES } from '../src/lib/nationality.ts';
+import { publicationOverridesSchema } from '../src/lib/publication-overrides.ts';
 
 const personSchema = z.object({
   id: z.string().regex(/^[a-z0-9]+(?:-[a-z0-9]+)*$/),
@@ -125,6 +126,26 @@ for (const file of filesUnder('content/projects', ['.yaml', '.yml'])) {
     if (project.draft === false) {
       if (typeof project.project_url !== 'string' || !project.project_url.startsWith('https://')) addError(file, 'project_url', 'published projects require an HTTPS destination');
       if (!Array.isArray(project.funders) || project.funders.length === 0) addError(file, 'funders', 'published projects require at least one named funder');
+    }
+  } catch (error) {
+    addError(file, 'document', error instanceof Error ? error.message : String(error));
+  }
+}
+
+{
+  const file = 'content/publication-overrides.yaml';
+  try {
+    const parsed = publicationOverridesSchema.safeParse(readYaml(file));
+    if (!parsed.success) {
+      for (const issue of parsed.error.issues) addError(file, issue.path.join('.') || 'document', issue.message);
+    } else {
+      const seen = new Set<string>();
+      parsed.data.exclusions.forEach((exclusion, index) => {
+        if (!people.has(exclusion.person_id)) addError(file, `exclusions.${index}.person_id`, `unknown person '${exclusion.person_id}'`);
+        const key = `${exclusion.work_id}:${exclusion.person_id}`;
+        if (seen.has(key)) addError(file, `exclusions.${index}`, `duplicate exclusion ${key}`);
+        seen.add(key);
+      });
     }
   } catch (error) {
     addError(file, 'document', error instanceof Error ? error.message : String(error));

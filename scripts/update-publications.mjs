@@ -23,7 +23,7 @@ if (!args.includes('--all') && !args.includes('--person')) {
   args = answer === 'all'
     ? ['--all']
     : answer.split(',').map((value) => value.trim()).filter(Boolean).flatMap((value) => ['--person', value]);
-  if (originalArgs.includes('--dry-run')) args.push('--dry-run');
+  for (const flag of ['--dry-run', '--anonymous']) if (originalArgs.includes(flag)) args.push(flag);
 }
 
 const dryRun = args.includes('--dry-run');

@@ -6,6 +6,7 @@ import BaseLayout from '@/layouts/BaseLayout.astro';
 import { publicationData, teamPublications } from '@/lib/publications';
 import PublicationList from '@/components/PublicationList.astro';
 import PublicationYearFilter from '@/components/PublicationYearFilter.astro';
+import PublicationSort from '@/components/PublicationSort.astro';
 import { mediaUrl } from '@/lib/paths';
 
 const people = await getCollection('people', ({ data }) => !data.draft);
@@ -37,6 +38,7 @@ const openAlexLogo = mediaUrl('/media/logos/openalex-logo.png')!;
     {records.length > 0 ? (
       <div data-publications-root>
         <PublicationYearFilter publications={records} />
+        <PublicationSort />
         <PublicationList publications={records} />
       </div>
     ) : <EmptyState title="Publications not available yet" message="Check back soon." />}
