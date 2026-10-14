@@ -3,7 +3,35 @@ version: 1
 # their works in OpenAlex, then request an explicit cache refresh. These lists
 # are maintainer-only escape hatches for exceptional source errors, retractions,
 # or reviewed records that OpenAlex cannot represent; they are not profile-editing tools.
+#
+# exclusions: remove one person's link to one OpenAlex work (bare W... ID). The
+# exclusion applies at build time to every view; no cache refresh is needed.
+# additions/patches/aliases are not supported yet and must stay empty.
 additions: []
-exclusions: []
+exclusions:
+  # Vinculación con la Sociedad (Convergence Tech, 2020)
+  - work_id: W3185363497
+    person_id: daniel-rodrigues
+    reason: OpenAlex author A5025124468 merges an unrelated namesake (Ecuador/Mexico education research)
+  # Análisis Comparativo desde la Gestión Universitaria (Convergence Tech, 2020)
+  - work_id: W3134886360
+    person_id: daniel-rodrigues
+    reason: OpenAlex author A5025124468 merges an unrelated namesake (Ecuador/Mexico education research)
+  # Quiet Book: Aula Sensorial Digital (Convergence Tech, 2020)
+  - work_id: W3167471483
+    person_id: daniel-rodrigues
+    reason: OpenAlex author A5025124468 merges an unrelated namesake (Ecuador/Mexico education research)
+  # Epistemología de la Investigación Cualitativa (Convergence Tech, 2020)
+  - work_id: W3186794405
+    person_id: daniel-rodrigues
+    reason: OpenAlex author A5025124468 merges an unrelated namesake (Ecuador/Mexico education research)
+  # La búsqueda del tesoro (2008)
+  - work_id: W749229220
+    person_id: daniel-rodrigues
+    reason: OpenAlex author A5025124468 merges an unrelated namesake (Ecuador/Mexico education research)
+  # El Modelo Educativo para las Instituciones de Educación Tecnológica (Convergence Tech, 2019)
+  - work_id: W3185451999
+    person_id: daniel-rodrigues
+    reason: OpenAlex author A5025124468 merges an unrelated namesake (Ecuador/Mexico education research)
 patches: []
 aliases: []

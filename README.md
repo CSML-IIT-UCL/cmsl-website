@@ -174,7 +174,9 @@ A manual refresh is also available in **Actions -> Refresh blog entries -> Run w
 
 The group list and personal profiles use a tracked cache sourced directly from each person's verified OpenAlex author ID. The collector queries that author ID, never a name search. Viewing pages, starting the local server, editing an author ID, or rebuilding does not call OpenAlex; an explicit refresh updates the cache. This keeps GitHub Pages static and repeatable and preserves working pages during an API outage.
 
-OpenAlex is the publication source of record. Team members should correct their publication list in OpenAlex and then request a refresh; they should not maintain a second bibliography in this repository. `content/publication-overrides.yaml` is reserved for exceptional, reviewed source errors or exclusions that cannot be corrected normally in OpenAlex.
+OpenAlex is the publication source of record. Team members should correct their publication list in OpenAlex and then request a refresh; they should not maintain a second bibliography in this repository. `content/publication-overrides.yaml` is reserved for exceptional, reviewed source errors or exclusions that cannot be corrected normally in OpenAlex. Today only `exclusions` are supported: each entry unlinks one person from one OpenAlex work (for example when OpenAlex merged an unrelated namesake into a member's author profile) and takes effect at the next build, on every page, without a cache refresh.
+
+The team publications page can be sorted by date or by citation count. Citation counts come from OpenAlex and are used only for ordering; they are never displayed because OpenAlex undercounts compared with other indexes.
 
 The shared `/publications/` page only counts a person's works toward that common pool within their `start_of_affiliation`/`end_of_affiliation` window (see "Edit or add a profile" above); their own `/people/<id>/` profile always shows their complete history regardless of that window.
 
@@ -199,7 +201,7 @@ npm ci
 npm run publications:setup
 ```
 
-The setup command creates `.venv/` and installs pinned collector dependencies. It does not fetch publications. Configure `OPENALEX_API_KEY` in ignored `.env.local` (or your shell environment). Use a free lab-controlled OpenAlex key; never commit a key, put it in YAML, or expose it with a `PUBLIC_` name. No billing or prepaid credits are needed for the intended OpenAlex setup. Other applications sharing the key also use its allowance.
+The setup command creates `.venv/` and installs pinned collector dependencies. It does not fetch publications. Configure `OPENALEX_API_KEY` in ignored `.env.local` (or your shell environment). Use a free lab-controlled OpenAlex key; never commit a key, put it in YAML, or expose it with a `PUBLIC_` name. No billing or prepaid credits are needed for the intended OpenAlex setup. Other applications sharing the key also use its allowance. Without a key, add `--anonymous` to an update command to use OpenAlex's small free keyless daily allowance (no billing); a full `--all` refresh needs only a few dozen requests.
 
 The helper validates these prerequisites and reports what to fix. It must not silently install packages just because you opened the workspace.
 

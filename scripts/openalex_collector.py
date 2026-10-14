@@ -29,7 +29,7 @@ TIMEOUT_SECONDS = 30
 MIN_REQUEST_INTERVAL_SECONDS = 0.12
 SELECT_FIELDS = (
     "id,doi,display_name,publication_date,publication_year,type,authorships,"
-    "primary_location,best_oa_location,is_retracted"
+    "primary_location,best_oa_location,is_retracted,cited_by_count"
 )
 
 
@@ -67,7 +67,7 @@ def load_env_key() -> str:
                 return value.strip().strip("\"'")
     raise CollectorError(
         "OPENALEX_API_KEY is not configured. Add the free key to the environment "
-        "or ignored .env.local; no request was sent."
+        "or ignored .env.local, or pass --anonymous for the small keyless allowance; no request was sent."
     )
 
 
@@ -77,6 +77,11 @@ def parse_args() -> argparse.Namespace:
     scope.add_argument("--all", action="store_true")
     scope.add_argument("--person", action="append", default=[], help="stable person ID; repeatable")
     parser.add_argument("--dry-run", action="store_true", help="query and validate without replacing the cache")
+    parser.add_argument(
+        "--anonymous",
+        action="store_true",
+        help="send no API key and use OpenAlex's small free keyless daily allowance (never billing)",
+    )
     return parser.parse_args()
 
 
@@ -133,17 +138,13 @@ def retry_delay(headers: Any, attempt_index: int) -> float:
     return min(30.0, (2**attempt_index) + random.random())
 
 
-def request_json(url: str, key: str, budget: RequestBudget) -> dict[str, Any]:
+def request_json(url: str, key: str | None, budget: RequestBudget) -> dict[str, Any]:
+    headers = {"Accept": "application/json", "User-Agent": "CSML-IIT-publication-collector/1.0"}
+    if key:
+        headers["Authorization"] = f"Bearer {key}"
     for retry_index in range(MAX_RETRIES):
         budget.claim()
-        request = urllib.request.Request(
-            url,
-            headers={
-                "Authorization": f"Bearer {key}",
-                "Accept": "application/json",
-                "User-Agent": "CSML-IIT-publication-collector/1.0",
-            },
-        )
+        request = urllib.request.Request(url, headers=headers)
         try:
             with urllib.request.urlopen(request, timeout=TIMEOUT_SECONDS) as response:
                 payload = json.loads(response.read().decode("utf-8"))
@@ -165,7 +166,7 @@ def request_json(url: str, key: str, budget: RequestBudget) -> dict[str, Any]:
     raise CollectorError("OpenAlex request failed unexpectedly.")
 
 
-def fetch_author_works(author_id: str, key: str, budget: RequestBudget) -> list[dict[str, Any]]:
+def fetch_author_works(author_id: str, key: str | None, budget: RequestBudget) -> list[dict[str, Any]]:
     cursor = "*"
     seen_cursors: set[str] = set()
     works: list[dict[str, Any]] = []
@@ -217,6 +218,7 @@ def normalize_work(work: dict[str, Any], member_id: str) -> dict[str, Any]:
     if doi:
         doi = doi.removeprefix("https://doi.org/").removeprefix("http://doi.org/").lower()
     year = work.get("publication_year")
+    cited_by = work.get("cited_by_count")
     return {
         "id": work["id"],
         "source": "OpenAlex",
@@ -232,6 +234,8 @@ def normalize_work(work: dict[str, Any], member_id: str) -> dict[str, Any]:
         "landing_page_url": optional_string(primary.get("landing_page_url")),
         "open_access_url": open_access_url,
         "is_retracted": bool(work.get("is_retracted", False)),
+        # Used only to order the team list; OpenAlex counts trail other indexes, so it is never displayed.
+        "cited_by_count": cited_by if isinstance(cited_by, int) and not isinstance(cited_by, bool) and cited_by >= 0 else None,
     }
 
 
@@ -340,7 +344,7 @@ def main() -> int:
     args = parse_args()
     registry = load_json(REGISTRY_PATH)
     selected = selected_authors(registry, args)
-    key = load_env_key()
+    key = None if args.anonymous else load_env_key()
     budget = RequestBudget()
     fetched: dict[str, list[dict[str, Any]]] = {}
     for author in selected:
