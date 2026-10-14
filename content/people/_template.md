@@ -22,6 +22,9 @@ email: null
 photo: null
 # Required when photo is set
 photo_alt: null
+# Optional ISO 3166-1 alpha-2 nationality code (e.g. IT, CO); must already be listed in
+# src/lib/nationality.ts. Shown as a small flag on the portrait when set.
+nationality: null
 # Profile meta description
 research_summary: null
 # Topic tags on profile

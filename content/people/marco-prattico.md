@@ -2,7 +2,7 @@
 # Stable slug, matches filename
 id: marco-prattico
 # Full display name
-name: Marco Prattico'
+name: Marco Pratticò
 # Hide until reviewed
 draft: false
 # Homepage group (ignored for alumni): senior_academic | postdoc | phd_student | research_engineer | affiliated_researcher | research_support
@@ -16,27 +16,32 @@ order: 100
 # Public contact address
 email: null
 # Portrait path under media/
-photo: null
+photo: /media/people/marco-prattico.jpg
 # Required when photo is set
-photo_alt: null
+photo_alt: Portrait of Marco Pratticò
+# Optional ISO 3166-1 alpha-2 nationality code; see src/lib/nationality.ts
+nationality: IT
 # Profile meta description
-research_summary: null
+research_summary: Improving sample efficiency in reinforcement learning through transfer learning, applied to robotics.
 # Topic tags on profile
-research_interests: []
+research_interests:
+  - Reinforcement learning
+  - Transfer learning
+  - Robotics
 # Official IIT profile link
 iit_profile: https://csml.iit.it/people-details/-/people/marco-prattico
 # Primary site (falls back to iit_profile)
-personal_website: null
+personal_website: https://marcopra.github.io/
 # Bare ORCID iD
 orcid: null
 # Google Scholar profile
-scholar_url: null
+scholar_url: https://scholar.google.com/citations?user=gC9M9AkAAAAJ
 # GitHub profile
-github_url: null
+github_url: https://github.com/marcopra
 # LinkedIn profile
-linkedin_url: null
+linkedin_url: https://www.linkedin.com/in/marco-prattic%C3%B2-538498245/
 # X (Twitter) profile
-x_url: null
+x_url: https://x.com/marcopra99
 # Bluesky profile
 bluesky_url: null
 # Current employer (alumni only)
@@ -56,3 +61,4 @@ publications:
   # Last year counted in team pool
   end_of_affiliation: null
 ---
+Marco is an ELLIS PhD student in the CSML group at IIT and the University of Genoa, supervised by Massimiliano Pontil and co-supervised by Carlo Ciliberto. His research focuses on improving sample efficiency in reinforcement learning through transfer learning, with applications to robotics. He holds a Master's degree in Artificial Intelligence and Data Analytics from Politecnico di Torino.

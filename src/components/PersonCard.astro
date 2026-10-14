@@ -1,11 +1,15 @@
 ---
 import type { CollectionEntry } from 'astro:content';
 import { mediaUrl, withBase } from '@/lib/paths';
+import { countryName, flagIconPath } from '@/lib/nationality';
 
 interface Props { person: CollectionEntry<'people'> }
 const { person } = Astro.props;
 const photo = mediaUrl(person.data.photo);
 const initials = person.data.name.split(/\s+/).slice(0, 2).map((word) => word[0]).join('');
+const nationality = person.data.nationality;
+const nationalityName = nationality ? countryName(nationality) ?? nationality : null;
+const flagSrc = nationality ? mediaUrl(flagIconPath(nationality)) : null;
 ---
 
 <article class="person-card">
@@ -26,5 +30,8 @@ const initials = person.data.name.split(/\s+/).slice(0, 2).map((word) => word[0]
         <p class="role-label">{person.data.role_label}</p>
       )}
     </div>
+    {flagSrc && (
+      <img class="nationality-flag" src={flagSrc} alt={`${nationalityName} flag`} title={nationalityName} loading="lazy" />
+    )}
   </a>
 </article>

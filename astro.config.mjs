@@ -1,7 +1,11 @@
 import { defineConfig } from 'astro/config';
+import sitemap from '@astrojs/sitemap';
 
 const site = process.env.SITE_ORIGIN ?? 'https://danfoa.github.io';
 const base = process.env.SITE_BASE_PATH ?? '/cmsl-website/';
+// The staging (dev preview) build is noindex and disallowed in robots.txt; it gets
+// no sitemap of its own so a sitemap never advertises pages search engines must skip.
+const isStaging = process.env.PUBLIC_SITE_ENV === 'staging';
 
 export default defineConfig({
   site,
@@ -9,6 +13,7 @@ export default defineConfig({
   output: 'static',
   trailingSlash: 'always',
   outDir: process.env.BUILD_OUT_DIR ?? './dist',
+  integrations: isStaging ? [] : [sitemap()],
   build: {
     format: 'directory',
   },

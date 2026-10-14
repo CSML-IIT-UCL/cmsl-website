@@ -19,6 +19,8 @@ email: null
 photo: /media/people/karim-lounici.jpg
 # Required when photo is set
 photo_alt: Karim Lounici
+# Optional ISO 3166-1 alpha-2 nationality code; see src/lib/nationality.ts
+nationality: FR
 # Profile meta description
 research_summary: Theoretical foundations of algorithms and statistical models for complex and structured data.
 # Topic tags on profile

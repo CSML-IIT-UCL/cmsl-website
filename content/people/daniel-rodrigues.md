@@ -19,6 +19,8 @@ email: null
 photo: /media/people/daniel-rodrigues.jpg
 # Required when photo is set
 photo_alt: Daniel Rodrigues Perazzo
+# Optional ISO 3166-1 alpha-2 nationality code; see src/lib/nationality.ts
+nationality: BR
 # Profile meta description
 research_summary: Machine-learning methods for dynamical systems, with experience in computer vision and 3D reconstruction.
 # Topic tags on profile

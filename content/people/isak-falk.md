@@ -19,6 +19,8 @@ email: null
 photo: /media/people/isak_falk.jpeg
 # Required when photo is set
 photo_alt: Portrait of Isak Falk
+# Optional ISO 3166-1 alpha-2 nationality code; see src/lib/nationality.ts
+nationality: SE
 # Profile meta description
 research_summary: null
 # Topic tags on profile
@@ -40,7 +42,7 @@ x_url: null
 # Bluesky profile
 bluesky_url: null
 # Current employer (alumni only)
-current_affiliation: Research Engineer, Meta
+current_affiliation: Research Scientist, Meta New York
 # Other verified links
 media_links: []
 # Verified OpenAlex author IDs

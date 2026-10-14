@@ -67,6 +67,7 @@ role: postdoc
 role_label: Postdoctoral Researcher
 status: active
 photo: null
+nationality: null
 iit_profile: null
 personal_website: null
 orcid: null
@@ -91,6 +92,8 @@ Replace the example identity, fill real fields, and set `draft: false` when read
 Valid main role keys are `senior_academic`, `postdoc`, `phd_student`, and `research_engineer`. Additional supported categories are `affiliated_researcher` and `research_support`. `role_label` is your displayed job title; it need not exactly repeat the group label. Membership `status` is `active`, `alumni`, or `affiliated`. Alumni are grouped separately on the homepage under "Alumni", regardless of their former `role`.
 
 The primary external website button uses `personal_website`, or falls back to `iit_profile`. Missing links do not produce empty buttons. `orcid`, `scholar_url`, `github_url`, `linkedin_url`, `x_url`, and `bluesky_url` each render a dedicated app icon when set, and simply do not render when left `null`. Your ORCID, Scholar URL, and OpenAlex IDs serve different purposes: a Scholar link does not import your publications. Have a maintainer verify the OpenAlex identity from ORCID, affiliation, and known publications. Multiple verified IDs are supported when OpenAlex split one person across records.
+
+`nationality` is optional and purely decorative: a two-letter ISO 3166-1 alpha-2 code (e.g. `IT`, `CO`) rendered as a small flag on the bottom-right corner of your portrait, on the homepage card, the in-page panel, and your profile. Leave it `null` to show no flag. The code must already be listed in `src/lib/nationality.ts`; ask a maintainer to add a new country before using its code.
 
 `current_affiliation` only applies to alumni (`status: alumni`): it is the person's current employer/institution, shown on their alumni card and profile above their past CSML `role_label`. Leave it `null` (never guessed) until a maintainer verifies it; the site shows an honest "not yet verified" placeholder instead of fabricating one.
 

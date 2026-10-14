@@ -1,6 +1,7 @@
 import { defineCollection } from 'astro:content';
 import { glob } from 'astro/loaders';
 import { z } from 'astro/zod';
+import { NATIONALITIES } from './lib/nationality';
 
 const nullableUrl = z.string().url().startsWith('https://').nullable().optional();
 const localMediaPath = z.string().regex(/^\/media\/[A-Za-z0-9._~!$&'()*+,;=:@%/ -]+$/).nullable().optional();
@@ -34,6 +35,11 @@ const people = defineCollection({
     email: z.string().email().nullable().optional(),
     photo: localMediaPath,
     photo_alt: z.string().nullable().optional(),
+    // ISO 3166-1 alpha-2 code; must be a verified entry in src/lib/nationality.ts
+    nationality: z.string().regex(/^[A-Z]{2}$/).nullable().optional()
+      .refine((code) => code == null || code in NATIONALITIES, {
+        message: 'unrecognized nationality code; add it to src/lib/nationality.ts first',
+      }),
     research_summary: z.string().nullable().optional(),
     research_interests: z.array(z.string()).default([]),
     iit_profile: nullableUrl,

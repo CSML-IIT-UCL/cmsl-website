@@ -15,16 +15,16 @@ end_date: '2026-04-30'
 # Verified project destination
 project_url: https://future-ai-research.it/
 # Path under media/
-project_logo: null
+project_logo: /media/projects/fair-logo.svg
 # Verified funder list
 funders:
   # Official funder name
   - name: European Union – NextGenerationEU
     # Path under media/
-    logo: null
+    logo: /media/logos/eu-nextgenerationeu.jpg
     # Required when logo is set
-    logo_alt: null
+    logo_alt: Funded by the European Union – NextGenerationEU
     # Funder's official site
     url: https://next-generation-eu.europa.eu/
 # Sort position in strip
-order: 10
+order: 20

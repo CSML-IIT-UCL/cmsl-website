@@ -19,6 +19,8 @@ email: am@andreas-maurer.eu
 photo: null
 # Required when photo is set
 photo_alt: null
+# Optional ISO 3166-1 alpha-2 nationality code; see src/lib/nationality.ts
+nationality: DE
 # Profile meta description
 research_summary: Machine learning and pattern recognition theory.
 # Topic tags on profile
