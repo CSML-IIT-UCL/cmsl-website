@@ -101,6 +101,41 @@ class OpenAlexCollectorTest(unittest.TestCase):
         self.assertEqual(result["last_full_refresh_at"], "2026-01-01T00:00:00Z")
         self.assertEqual(result["coverage_by_person"]["other"], snapshot["coverage_by_person"]["other"])
 
+    def test_full_refresh_drops_records_for_person_who_lost_their_id(self):
+        # A full (--all) refresh must clear a person's old membership edges and
+        # coverage entry once their verified OpenAlex ID is removed from the
+        # registry, even though they're absent from `selected` (no ID -> no
+        # fetch). Otherwise a merged/misattributed OpenAlex profile that was
+        # unlinked for safety would keep publishing its stale, wrong records.
+        snapshot = {
+            "last_full_refresh_at": "2026-01-01T00:00:00Z",
+            "coverage_by_person": {
+                "delinked": {
+                    "author_ids": ["A999"],
+                    "last_successful_refresh_at": "2026-01-01T00:00:00Z",
+                    "works_count": 1,
+                },
+            },
+            "records": [
+                collector.normalize_work(work("W1", "Delinked only"), "delinked"),
+                {**collector.normalize_work(work("W2", "Unrelated"), "other"), "member_ids": ["other"]},
+            ],
+        }
+        selected = [{"person_id": "daniel-ordonez", "openalex_ids": ["A5089972466"]}]
+        result = collector.merge_selected(
+            snapshot,
+            selected,
+            {"daniel-ordonez": [work("W3", "Daniel new")]},
+            "signature",
+            True,
+            {"daniel-ordonez", "delinked"},
+        )
+        by_id = {record["id"]: record for record in result["records"]}
+        self.assertNotIn("https://openalex.org/W1", by_id)
+        self.assertEqual(by_id["https://openalex.org/W2"]["member_ids"], ["other"])
+        self.assertIn("https://openalex.org/W3", by_id)
+        self.assertNotIn("delinked", result["coverage_by_person"])
+
 
 if __name__ == "__main__":
     unittest.main()
