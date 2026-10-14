@@ -241,8 +241,14 @@ def merge_selected(
     fetched: dict[str, list[dict[str, Any]]],
     registry_signature: str,
     full_refresh: bool,
+    prune_ids: set[str] | None = None,
 ) -> dict[str, Any]:
     selected_ids = {author["person_id"] for author in selected}
+    # On a full refresh, drop stale membership edges for every publication-enabled
+    # person re-evaluated this run, including one who no longer has a verified
+    # OpenAlex ID (and so is absent from `selected`) -- otherwise their old,
+    # possibly misattributed works would never be cleared by a later --all run.
+    ids_to_prune = prune_ids if prune_ids is not None else selected_ids
     existing_records = snapshot.get("records")
     if not isinstance(existing_records, list):
         raise CollectorError("data/publications.json has no valid records array.")
@@ -250,7 +256,7 @@ def merge_selected(
     for record in existing_records:
         if not isinstance(record, dict) or not isinstance(record.get("id"), str):
             raise CollectorError("The existing publication cache contains a malformed record.")
-        retained_members = sorted(set(record.get("member_ids", [])) - selected_ids)
+        retained_members = sorted(set(record.get("member_ids", [])) - ids_to_prune)
         if retained_members:
             records[record["id"]] = {**record, "member_ids": retained_members}
 
@@ -286,6 +292,10 @@ def merge_selected(
             "works_count": len(fetched[person_id]),
             "status": "complete",
         }
+    # A person pruned from records (above) but not re-fetched (no verified ID any
+    # more) must not keep claiming stale coverage from their old, now-removed ID.
+    for person_id in ids_to_prune - selected_ids:
+        coverage.pop(person_id, None)
 
     ordered_records = sorted(
         records.values(),
@@ -341,7 +351,11 @@ def main() -> int:
         fetched[author["person_id"]] = list(works_by_id.values())
 
     snapshot = load_json(SNAPSHOT_PATH)
-    candidate = merge_selected(snapshot, selected, fetched, registry["signature"], args.all)
+    prune_ids = None
+    if args.all:
+        authors = registry.get("authors")
+        prune_ids = {author["person_id"] for author in authors if isinstance(author, dict)}
+    candidate = merge_selected(snapshot, selected, fetched, registry["signature"], args.all, prune_ids)
     counts = ", ".join(f"{author['person_id']}={len(fetched[author['person_id']])}" for author in selected)
     if args.dry_run:
         print(f"Dry run valid ({budget.attempts} HTTP attempts; {counts}); cache unchanged.")
