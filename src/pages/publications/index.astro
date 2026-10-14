@@ -5,6 +5,8 @@ import SectionHeading from '@/components/SectionHeading.astro';
 import BaseLayout from '@/layouts/BaseLayout.astro';
 import { publicationData, teamPublications } from '@/lib/publications';
 import PublicationList from '@/components/PublicationList.astro';
+import PublicationYearFilter from '@/components/PublicationYearFilter.astro';
+import { mediaUrl } from '@/lib/paths';
 
 const people = await getCollection('people', ({ data }) => !data.draft);
 const records = teamPublications(people.map((person) => ({
@@ -13,17 +15,30 @@ const records = teamPublications(people.map((person) => ({
   startOfAffiliation: person.data.publications.start_of_affiliation ?? null,
   endOfAffiliation: person.data.publications.end_of_affiliation ?? null,
 })));
+
+const refreshDate = publicationData.last_full_refresh_at
+  ? new Intl.DateTimeFormat('en-GB', { dateStyle: 'long', timeStyle: 'short', timeZone: 'Europe/Rome' }).format(new Date(publicationData.last_full_refresh_at))
+  : null;
+const openAlexLogo = mediaUrl('/media/logos/openalex-logo.png')!;
 ---
 
 <BaseLayout title="Publications" description="Publications by the CSML team at IIT.">
   <div class="page-shell shell">
-    <SectionHeading eyebrow="Publications" title="Combined team bibliography" intro="Includes each team member's publications, covering their full research history unless a join or departure date narrows it." />
+    <SectionHeading eyebrow="Publications" title="Combined team bibliography" />
     <div class="source-note">
-      <span>Source: OpenAlex</span>
-      <span>Last complete refresh: {publicationData.last_full_refresh_at ?? 'Not yet synced'}</span>
+      <a class="source-note-logo" href="https://openalex.org" aria-label="Source: OpenAlex">
+        <span>Source:</span>
+        <img src={openAlexLogo} alt="OpenAlex" width="104" height="19" />
+      </a>
+      {refreshDate
+        ? <span>Last complete refresh: <time datetime={publicationData.last_full_refresh_at!}>{refreshDate}</time></span>
+        : <span>Last complete refresh: Not yet synced</span>}
     </div>
     {records.length > 0 ? (
-      <PublicationList publications={records} />
+      <div data-publications-root>
+        <PublicationYearFilter publications={records} />
+        <PublicationList publications={records} />
+      </div>
     ) : <EmptyState title="Publications not available yet" message="Check back soon." />}
   </div>
 </BaseLayout>

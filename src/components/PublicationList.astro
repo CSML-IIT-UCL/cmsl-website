@@ -1,26 +1,33 @@
 ---
 import type { PublicationRecord } from '@/lib/publications';
+import { mediaUrl } from '@/lib/paths';
 
 interface Props { publications: PublicationRecord[] }
 const { publications } = Astro.props;
+const openAlexIcon = mediaUrl('/media/logos/openalex-mark.png')!;
 ---
 
-<ol class="publication-list">
+<ol class="publication-list" data-publication-list>
   {publications.map((publication) => (
-    <li>
+    <li data-year={publication.publication_year ?? ''}>
       <div class="publication-heading">
         <a href={publication.landing_page_url ?? publication.source_url}>{publication.title}</a>
         {publication.is_retracted && <span class="status retracted">Retracted</span>}
       </div>
       {publication.authors.length > 0 && <p class="publication-authors">{publication.authors.join(', ')}</p>}
-      <p>
-        {[publication.publication_year ?? 'Undated', publication.venue, publication.type].filter(Boolean).join(' · ')}
-      </p>
-      <div class="publication-links">
-        {publication.doi && <a href={`https://doi.org/${publication.doi}`}>DOI</a>}
-        {publication.open_access_url && <a href={publication.open_access_url}>Open access</a>}
-        <a href={publication.source_url}>OpenAlex</a>
+      <div class="publication-meta-row">
+        <span class="publication-meta">
+          {[publication.publication_year ?? 'Undated', publication.venue, publication.type].filter(Boolean).join(' · ')}
+        </span>
+        <div class="publication-links">
+          {publication.doi && <a href={`https://doi.org/${publication.doi}`}>DOI</a>}
+          {publication.open_access_url && <a href={publication.open_access_url}>Open access</a>}
+          <a href={publication.source_url} class="publication-link-icon" aria-label="View on OpenAlex">
+            <img src={openAlexIcon} alt="" width="14" height="14" />
+          </a>
+        </div>
       </div>
     </li>
   ))}
 </ol>
+<p class="publication-list-empty" data-publication-list-empty hidden>No publications in the selected year range.</p>
