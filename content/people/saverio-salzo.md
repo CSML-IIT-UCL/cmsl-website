@@ -52,7 +52,7 @@ current_affiliation: null
 # Other verified links
 media_links: []
 # Verified OpenAlex author IDs
-openalex_ids: []
+openalex_ids: [A5017463552]
 # Publication collection settings
 publications:
   # Included in publication collection
