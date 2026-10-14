@@ -1,5 +1,6 @@
 ---
 import { getCollection, getEntry, render } from 'astro:content';
+import CollaborationCard from '@/components/CollaborationCard.astro';
 import EmptyState from '@/components/EmptyState.astro';
 import NewsItem from '@/components/NewsItem.astro';
 import PersonCard from '@/components/PersonCard.astro';
@@ -28,6 +29,7 @@ const alumni = allPeople.filter((person) => person.data.status === 'alumni');
 const pi = allPeople.find((person) => person.data.id === site.principal_investigator_id);
 if (!pi) throw new Error(`Configured PI '${site.principal_investigator_id}' is not a published person.`);
 const research = (await getCollection('research', ({ data }) => !data.draft)).sort((a, b) => a.data.order - b.data.order);
+const collaborations = (await getCollection('collaborations', ({ data }) => !data.draft)).sort((a, b) => a.data.order - b.data.order);
 const news = (await getCollection('news', ({ data }) => !data.draft && data.published_at <= new Date())).sort((a, b) => b.data.published_at.getTime() - a.data.published_at.getTime());
 const projects = (await getCollection('projects', ({ data }) => !data.draft)).sort((a, b) => a.data.order - b.data.order);
 const projectPages = Array.from({ length: Math.ceil(projects.length / 4) }, (_, i) => projects.slice(i * 4, i * 4 + 4));
@@ -63,8 +65,25 @@ const { Content: AboutContent } = await render(about);
       <div class="research-grid">
         {research.map((item, index) => <ResearchCard item={item} index={index} />)}
       </div>
+
+      <div class="collab-subsection">
+        <SectionHeading eyebrow="Applications" title="From theory to practice" intro="From theoretical development to practical implementations, via collaborations with experts applying machine learning across disciplines." />
+        {collaborations.length > 0 ? (
+          <div class="collab-pager" data-collab-pager>
+            <button type="button" class="pager-btn" data-collab-prev aria-label="Scroll collaborations left"><span aria-hidden="true">←</span></button>
+            <div class="collab-scroll" data-collab-scroll tabindex="0" role="group" aria-label="Collaborations applying CSML research">
+              {collaborations.map((item) => <CollaborationCard item={item} />)}
+            </div>
+            <button type="button" class="pager-btn" data-collab-next aria-label="Scroll collaborations right"><span aria-hidden="true">→</span></button>
+          </div>
+        ) : <EmptyState title="Collaborations coming soon" message="Applied collaborations will appear here once reviewed." />}
+      </div>
     </div>
   </section>
+
+  <script>
+    import '@/scripts/collab-scroll';
+  </script>
 
   <section id="updates" class="section shell">
     <SectionHeading title="Updates" />

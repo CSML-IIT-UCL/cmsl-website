@@ -221,7 +221,41 @@ assets:
     source_page: https://github.com/lipis/flag-icons
     checksum_sha256: 25de9044c2e2775f7ccf9c1df02dd02342f915715b22c43248452b7ae24079a5
     approval_notes: Rectangular flag icon from the flag-icons project (MIT, see docs/licenses/flag-icons-MIT.txt), used as the person-profile nationality badge for Singapore.
+  - local_path: media/collaborations/michele-parrinello.jpg
+    source_url: https://scientilla.iit.it/api/v1/users/username/michele.parrinello@iit.it/profile-image
+    source_page: https://www.iit.it/people/michele-parrinello
+    checksum_sha256: 328296c622684c9d93218909ec964b9d73e16935219870cffe3a6faf4f1cf347
+    approval_notes: Portrait currently published by IIT for the Atomistic Simulations PI, used to credit an applied-ML collaboration partner; sourced via the same IIT staff-profile pattern already used for CSML team portraits.
+  - local_path: media/collaborations/giuseppe-vicidomini.jpg
+    source_url: https://scientilla.iit.it/api/v1/users/username/giuseppe.vicidomini@iit.it/profile-image
+    source_page: https://www.iit.it/people/giuseppe-vicidomini
+    checksum_sha256: d3288adb86673869704916abffbda71b15ce4ba03ad81fa6373d6718115c5468
+    approval_notes: Portrait currently published by IIT for the Molecular Microscopy and Spectroscopy (MMS) group PI, used to credit an applied-ML collaboration partner.
+  - local_path: media/collaborations/claudio-semini.jpg
+    source_url: https://scientilla.iit.it/api/v1/users/username/claudio.semini@iit.it/profile-image
+    source_page: https://dls.iit.it/people/claudio-semini
+    checksum_sha256: b1c89233ebf927e426784031a24efbbfbfdbe810d93855b85cfcfe5d9192a680
+    approval_notes: Portrait currently published by IIT for the Dynamic Legged Systems (DLS) lab PI, used to credit an applied-ML collaboration partner.
+  - local_path: media/collaborations/carlos-mastalli.png
+    source_url: https://www.edinburgh-robotics.org/sites/default/files/styles/profile_image/public/profile/carlos.mastalli.png?itok=WGGdi4MC
+    source_page: https://www.edinburgh-robotics.org/node/2127
+    checksum_sha256: babe73008189ef47107c9926ee3695e8d7827e05ac1c760c260af659d2902944
+    approval_notes: Only portrait found of Carlos Mastalli (Robot Motor Intelligence / RoMI Lab PI, Heriot-Watt University) on an official institutional directory; low resolution (150x180) is the source's native size, no higher-resolution official photo was located on his Heriot-Watt or lab pages.
+  - local_path: media/collaborations/romi-lab-logo.png
+    source_url: https://romilab.org/images/logo/lab-logo.png
+    source_page: https://romilab.org
+    checksum_sha256: d052896ca68e25c7890040f34e5625f638c908426358ea653d96365d17095c85
+    approval_notes: Official Robot Motor Intelligence (RoMI) Lab logo, used unmodified to credit the external collaboration and link to the lab's homepage.
 blockers:
+  - kind: missing-logo
+    source_page: https://atsim.iit.it
+    note: The Atomistic Simulations research unit (Michele Parrinello's lab) has no distinct group logo, only the generic IIT wordmark; its collaboration card uses the text-fallback pattern already used by ProjectCard for funders without a logo.
+  - kind: missing-logo
+    source_page: https://mms.iit.it
+    note: The Molecular Microscopy and Spectroscopy (MMS) group has no distinct group logo beyond the generic IIT wordmark; its collaboration card uses the same text-fallback pattern.
+  - kind: missing-logo
+    source_page: https://dls.iit.it
+    note: The Dynamic Legged Systems (DLS) lab page shows only the generic IIT and RINA logos, no DLS-specific mark; its collaboration card uses the same text-fallback pattern.
   - kind: missing-portraits
     source_page: https://csml.iit.it/people
     note: IIT currently publishes its generic logo instead of a portrait for the other listed people; the new site uses text initials rather than mislabelling that logo as a portrait.

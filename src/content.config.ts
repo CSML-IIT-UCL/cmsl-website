@@ -124,6 +124,24 @@ const projects = defineCollection({
   }),
 });
 
+const collaborations = defineCollection({
+  loader: glob({ base: './content/collaborations', pattern: ['**/*.{yaml,yml}', '!_*.{yaml,yml}'] }),
+  schema: z.object({
+    id: z.string().regex(/^[a-z0-9]+(?:-[a-z0-9]+)*$/),
+    draft: z.boolean().default(true),
+    speciality: z.string().min(1),
+    lab_name: z.string().min(1),
+    institution: z.string().nullable().optional(),
+    lab_logo: localMediaPath,
+    lab_logo_alt: z.string().nullable().optional(),
+    lab_url: nullableUrl,
+    pi_name: z.string().min(1),
+    pi_photo: localMediaPath,
+    pi_photo_alt: z.string().nullable().optional(),
+    order: z.number().int().default(100),
+  }),
+});
+
 const openings = defineCollection({
   loader: glob({ base: './content/openings', pattern: ['**/*.md', '!_*.md'] }),
   schema: z.object({
@@ -155,4 +173,4 @@ const blogEntries = defineCollection({
   }),
 });
 
-export const collections = { about, people, research, news, projects, openings, blogEntries };
+export const collections = { about, people, research, news, projects, collaborations, openings, blogEntries };

@@ -14,6 +14,7 @@ Most changes require only plain text and a few fields. The website applies its o
 | Team description | `content/about.md` |
 | Research area | Copy `content/research/_template.md` into `content/research/<id>.md` |
 | Funded project and funding logos | Copy `content/projects/_template.yaml` into `content/projects/<id>.yaml` |
+| Applied-ML collaboration card | Copy `content/collaborations/_template.yaml` into `content/collaborations/<id>.yaml` |
 | Open or close a position | Copy `content/openings/_template.md` into `content/openings/<id>.md` |
 | Add an external article card manually | Copy `content/blog-entries/_template.yaml` into `content/blog-entries/` |
 | Add a blog to automatic discovery | `content/blog-sources.yaml`; see `templates/blog-source.yaml` |
@@ -262,6 +263,8 @@ For an unknown person ID, fix the selection before retrying. For a missing key, 
 For a research area, copy `content/research/_template.md` (or `templates/research.md`), fill the title/body, and optionally set media/alt text. Images use a common frame; choose `contain` for a diagram whose labels would be cropped. Animated media needs a static poster and motion controls supplied by the UI.
 
 For a project, copy `content/projects/_template.yaml` (or `templates/project.yaml`), fill its real project link, status, and funder identity. Use approved funder logos. Mark completed projects accurately. For an opening, copy `content/openings/_template.md` (or `templates/opening.md`) and use the official call/application URL. Set status to closed or use the actual deadline. A general email expression of interest is not a substitute for a formal recruitment portal.
+
+For an applied-ML collaboration card (the horizontally scrolling strip under Research), copy `content/collaborations/_template.yaml` (or `templates/collaboration.yaml`). Fill in the real PI name, lab name, and a verified `lab_url` — published entries require it. `lab_logo` is optional; omit it to fall back to the lab's name as text, as several partner groups have no distinct logo beyond their host institution's own mark. Never invent a PI, lab, or link; leave `draft: true` until a maintainer verifies the collaboration.
 
 All these edits use dev, preview, and a main PR. Do not change the application service/recipient as an ordinary content edit without the responsible maintainer's review.
 

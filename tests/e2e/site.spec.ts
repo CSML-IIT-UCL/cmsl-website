@@ -8,6 +8,14 @@ test('homepage has primary sections and no horizontal overflow', async ({ page }
   expect(overflow).toBe(false);
 });
 
+test('applied collaborations strip links out to each lab', async ({ page }) => {
+  await page.goto('/');
+  await expect(page.getByRole('heading', { name: 'From theory to practice' })).toBeVisible();
+  const firstCard = page.locator('.collab-card-link').first();
+  await expect(firstCard).toBeVisible();
+  await expect(firstCard).toHaveAttribute('href', /^https:\/\//);
+});
+
 test('a person profile is a real route', async ({ page }) => {
   await page.goto('/people/massimiliano-pontil/');
   await expect(page.getByRole('heading', { level: 1, name: 'Massimiliano Pontil' })).toBeVisible();

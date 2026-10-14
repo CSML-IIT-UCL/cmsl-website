@@ -1,0 +1,33 @@
+---
+import type { CollectionEntry } from 'astro:content';
+import { mediaUrl } from '@/lib/paths';
+
+interface Props { item: CollectionEntry<'collaborations'> }
+const { item } = Astro.props;
+const piPhoto = mediaUrl(item.data.pi_photo);
+const labLogo = mediaUrl(item.data.lab_logo);
+const initials = item.data.pi_name.split(/\s+/).slice(0, 2).map((word) => word[0]).join('');
+---
+
+<article class="collab-card">
+  <a class="collab-card-link" href={item.data.lab_url ?? undefined} aria-label={`${item.data.lab_name}, led by ${item.data.pi_name} — opens the lab's website`}>
+    <p class="collab-speciality">{item.data.speciality}</p>
+    <div class="collab-pi">
+      <div class="collab-pi-portrait">
+        {piPhoto
+          ? <img src={piPhoto} alt={item.data.pi_photo_alt ?? `Portrait of ${item.data.pi_name}`} loading="lazy" />
+          : <span aria-hidden="true">{initials}</span>}
+      </div>
+      <div>
+        <p class="collab-pi-name">{item.data.pi_name}</p>
+        {item.data.institution && <p class="collab-institution">{item.data.institution}</p>}
+      </div>
+    </div>
+    <div class="collab-lab">
+      {labLogo
+        ? <img class="collab-lab-logo" src={labLogo} alt={item.data.lab_logo_alt ?? `${item.data.lab_name} logo`} loading="lazy" />
+        : <span class="collab-lab-name">{item.data.lab_name}</span>}
+      {item.data.lab_url && <span class="text-link">Visit lab <span aria-hidden="true">↗</span></span>}
+    </div>
+  </a>
+</article>

@@ -132,6 +132,21 @@ for (const file of filesUnder('content/projects', ['.yaml', '.yml'])) {
   }
 }
 
+for (const file of filesUnder('content/collaborations', ['.yaml', '.yml'])) {
+  try {
+    const collaboration = readYaml<Record<string, unknown>>(file);
+    validateLocalMedia(file, 'pi_photo', collaboration.pi_photo as string | null | undefined);
+    if (collaboration.pi_photo && !collaboration.pi_photo_alt) addError(file, 'pi_photo_alt', 'required when pi_photo is set');
+    validateLocalMedia(file, 'lab_logo', collaboration.lab_logo as string | null | undefined);
+    if (collaboration.lab_logo && !collaboration.lab_logo_alt) addError(file, 'lab_logo_alt', 'required when lab_logo is set');
+    if (collaboration.draft === false) {
+      if (typeof collaboration.lab_url !== 'string' || !collaboration.lab_url.startsWith('https://')) addError(file, 'lab_url', 'published collaborations require an HTTPS destination');
+    }
+  } catch (error) {
+    addError(file, 'document', error instanceof Error ? error.message : String(error));
+  }
+}
+
 {
   const file = 'content/publication-overrides.yaml';
   try {

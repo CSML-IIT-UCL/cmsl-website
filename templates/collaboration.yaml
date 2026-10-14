@@ -1,0 +1,27 @@
+# Copy into content/collaborations/, or copy content/collaborations/_template.yaml
+# directly. Rename to your-collaboration-id.yaml; id must match the filename.
+# Keep draft: true until the entry is reviewed.
+# Stable slug, matches filename
+id: example-collaboration
+# Hide until reviewed
+draft: true
+# Short applied-ML speciality shown on the card, e.g. "Molecular dynamics"
+speciality: Example speciality
+# Official lab/group name
+lab_name: Example Lab
+# Optional institution/university shown under the lab name
+institution: null
+# Path under media/; omit for a text-fallback mark (see ProjectCard pattern)
+lab_logo: null
+# Required when lab_logo is set
+lab_logo_alt: null
+# Verified destination for the card link (required for published entries)
+lab_url: null
+# PI / team lead full name
+pi_name: Example Name
+# Path under media/
+pi_photo: null
+# Required when pi_photo is set
+pi_photo_alt: null
+# Sort position in the horizontal strip
+order: 10
