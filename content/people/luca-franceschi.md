@@ -50,7 +50,7 @@ current_affiliation: Research Scientist, Amazon
 # Other verified links
 media_links: []
 # Verified OpenAlex author IDs
-openalex_ids: []
+openalex_ids: [A5074874504]
 # Publication collection settings
 publications:
   # Included in publication collection

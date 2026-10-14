@@ -51,7 +51,7 @@ current_affiliation: Technical Coordinator, Trustworthy AI, Leonardo
 # Other verified links
 media_links: []
 # Verified OpenAlex author IDs
-openalex_ids: []
+openalex_ids: [A5037096925]
 # Publication collection settings
 publications:
   # Included in publication collection

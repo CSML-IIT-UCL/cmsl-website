@@ -46,7 +46,7 @@ current_affiliation: Research Scientist, Microsoft Research Cambridge
 # Other verified links
 media_links: []
 # Verified OpenAlex author IDs
-openalex_ids: []
+openalex_ids: [A5034665821]
 # Publication collection settings
 publications:
   # Included in publication collection
