@@ -117,6 +117,8 @@ Thumbs.db
 !.env.example
 !.github/
 !.github/**
+!.githooks/
+!.githooks/**
 !.git-blame-ignore-revs
 !.gitignore
 !.nvmrc

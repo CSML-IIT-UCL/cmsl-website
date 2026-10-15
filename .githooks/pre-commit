@@ -1,0 +1,6 @@
+#!/bin/sh
+# Bare-minimum guardrail: catch broken content/data before it's committed.
+# Installed automatically via `npm install` (see package.json "prepare").
+# Skip with `git commit --no-verify` if you know what you're doing.
+
+npm run --silent content:validate

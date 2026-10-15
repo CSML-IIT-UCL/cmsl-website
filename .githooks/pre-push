@@ -1,0 +1,6 @@
+#!/bin/sh
+# Bare-minimum guardrail: don't push something that fails to build.
+# Installed automatically via `npm install` (see package.json "prepare").
+# Skip with `git push --no-verify` if you know what you're doing.
+
+npm run --silent check && npm run --silent build

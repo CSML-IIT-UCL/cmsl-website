@@ -334,6 +334,53 @@ VS Code will not automatically execute tasks in an untrusted workspace. Do not d
 
 The task runs only the local server. It never installs dependencies, refreshes publications, switches branches, or deploys. A separate **CSML: Update one person's publications** task asks for the person ID and runs only when you explicitly select it.
 
+## Local guardrails (automatic)
+
+`npm install` wires up the hooks in `.githooks/` via `git config core.hooksPath` — no extra setup, no new dependency to install or remember. This applies the same way whether a person or a coding agent is committing.
+
+**On every `git commit`:** `npm run content:validate` runs and blocks the commit if any YAML/Markdown content fails its schema (bad frontmatter field, wrong role key, broken link, etc.). It only checks `content/`, so it stays fast (well under a second).
+
+**On every `git push`:** `npm run check` (content validation + `astro check`) and a full production `npm run build` run and block the push if the site doesn't typecheck or doesn't actually build. This is the same first step CI runs, just caught before you leave your machine instead of a few minutes later in Actions.
+
+These hooks are a courtesy, not a security boundary: anyone can skip one with `git commit --no-verify` / `git push --no-verify`, and CI runs the same checks again regardless. **CI is the real gate** — a local hook passing does not mean anything was merged or deployed, and skipping a hook does not skip CI.
+
+### If a hook blocks you, debug it visually
+
+A failing `content:validate` error names the file and field directly — fix that field and retry the commit.
+
+A failing `astro check`/`build` on push is more easily understood by looking at the page, not just the error text:
+
+```bash
+npm run dev
+```
+
+Open `http://127.0.0.1:4321/` and navigate to the page you changed; most layout/type issues are obvious once rendered. Astro's dev server shows the same error overlay the hook reported, with a clickable source location. If you need to see exactly what the hook built (not just live-edit):
+
+```bash
+npm run build
+npm run preview
+```
+
+This builds and serves the same static output the pre-push hook and CI both check — if it looks right here, the push will pass. Fix the reported file, re-run `npm run dev` to confirm, then retry the push.
+
+### Ruleset for commits and pushes
+
+- **Right now (bootstrap phase, pre-v1.0):** direct commits and pushes to `main` are explicitly allowed by the maintainer (see `docs/operations.md`). The hooks above still apply on every commit/push regardless of branch — bootstrap relaxes *where* you can push, not whether content validates or the site builds.
+- **Once routine editorial use begins** (per `AGENTS.md`): `main` only receives changes through a reviewed PR from `dev`; direct pushes to `main` stop being allowed, and a GitHub ruleset enforces that server-side. The local hooks don't change — they run on `dev` commits/pushes exactly as they do today.
+- Neither phase allows `--force`, rewriting published history, or disabling/skipping CI to land a change.
+- If you must bypass a local hook (e.g. a WIP commit you'll fix before pushing), use `--no-verify` explicitly and say so — don't treat a hook failure as something to silence permanently by editing the hook itself.
+
+### Recommended workflow: develop locally, confirm visually, then commit
+
+The hooks above only catch what a script can check (schema, types, build). They cannot tell you a page actually looks and works right. Before committing:
+
+1. Run `npm run dev` and keep it running while you edit.
+2. Open the affected page(s) in the browser and check them at both desktop and mobile widths. For anything interactive (a dialog, filter, carousel), actually use it — a page that builds is not the same as a page that works.
+3. If someone else asked for the change (a teammate, a maintainer), show them the running page or a screenshot and get their confirmation it looks/behaves as expected **before** committing — not after. A quick look at a live server catches things the hooks structurally cannot: wrong content, a broken layout, a feature that silently does nothing.
+4. Only then `git commit`/`git push`. Treat a passing hook as "didn't break the build," not as "this is correct" — those are different claims.
+
+This applies equally to a coding agent making the change: run the dev server and look at the rendered result, and when the task came from a person, wait for their explicit confirmation that it works before committing — don't commit on the strength of "the build passed."
+
 ## Validation and common fixes
 
 Run `npm run content:validate` to check fields before committing. Validation errors must name the file and field. Use spaces, not tabs, for YAML indentation; keep frontmatter between `---` markers; quote dates and values containing YAML punctuation when needed. `null` means absent, `[]` means an empty list, and `draft: false` permits public rendering.
