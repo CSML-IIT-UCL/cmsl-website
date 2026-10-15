@@ -1,57 +1,42 @@
 # CSML website - team editing guide
 
-**Implementation handoff, revision 2 - 13 October 2026.** This is the README to install with the new website. The documents, content templates, and VS Code task example are supplied here; the application commands and GitHub workflows described below must still be implemented and tested in the real repository. This package alone does not run a website. Remove this notice only after those checks pass.
+Most changes only need plain text in a content file - no HTML, CSS, or JavaScript. The website applies its own layout, fonts, colors, and card styles automatically.
 
 ## Which file do I edit?
-
-Most changes require only plain text and a few fields. The website applies its own layout, fonts, colors, and card styles automatically. You do not need to write HTML, CSS, or JavaScript.
 
 | Change | File or folder |
 |---|---|
 | My profile, links, portrait, role, biography | `content/people/<my-person-id>.md` |
-| Add a person | Copy `content/people/_template.md` (or `templates/person.md`) into `content/people/` |
-| Add a news item | Copy `content/news/_template.md` (or `templates/news.md`) into `content/news/` |
+| Add a person | Copy `content/people/_template.md` into `content/people/` |
+| Add a news item | Copy `content/news/_template.md` into `content/news/` |
+| Add or edit an applied-ML collaboration card | Copy `content/collaborations/_template.yaml` into `content/collaborations/` |
 | Team description | `content/about.md` |
 | Research area | Copy `content/research/_template.md` into `content/research/<id>.md` |
 | Funded project and funding logos | Copy `content/projects/_template.yaml` into `content/projects/<id>.yaml` |
-| Applied-ML collaboration card | Copy `content/collaborations/_template.yaml` into `content/collaborations/<id>.yaml` |
 | Open or close a position | Copy `content/openings/_template.md` into `content/openings/<id>.md` |
 | Add an external article card manually | Copy `content/blog-entries/_template.yaml` into `content/blog-entries/` |
-| Add a blog to automatic discovery | `content/blog-sources.yaml`; see `templates/blog-source.yaml` |
-| Exceptional publication-source correction (maintainers only) | `content/publication-overrides.yaml` |
-| Correct/exclude an imported blog entry | `content/blog-overrides.yaml` |
+| Add a blog to automatic discovery | `content/blog-sources.yaml` |
 | Site contacts, navigation, PI selection | `content/site.yaml` |
-| Public social account/API-proxy settings | `content/social.yaml` |
-| Approved original images | `media/people/`, `media/research/`, `media/funders/`, etc. |
+| Exceptional publication-source correction (maintainers only) | `content/publication-overrides.yaml` |
 
-Every `content/<type>/` folder also keeps its own `_template.*` file (e.g. `content/people/_template.md`) with every field commented. Files starting with `_` are never built or validated as real content, so you can copy one in place without hunting through `templates/` first; `templates/` holds the same files for reference.
+Every `content/<type>/` folder keeps its own `_template.*` file (e.g. `content/people/_template.md`) with every field commented. Files starting with `_` are never built or validated as real content, so you can copy one in place directly; `templates/` holds the same files for reference.
 
-Do **not** edit `data/publications.json` or `data/blog.json` by hand. They are generated caches. Do not edit `src/` just to change a biography or announcement. The principal investigator uses the same person record as their normal profile.
+Do **not** edit `data/publications.json` or `data/blog.json` by hand - they are generated caches. Do not edit `src/` just to change a biography or announcement.
 
-## The publishing rule: dev, preview, then PR
+## How a change goes live
 
 ```text
-Edit -> commit to dev -> automatic build -> inspect /dev/
-     -> pull request dev to main -> checks/review -> merge -> production
+Edit a content file -> preview locally -> commit -> push -> CI builds/checks it -> it deploys
 ```
 
-`main` is the default repository branch, but **it is not the editing branch**. Never push directly to it. This includes generated publication updates. Main is protected and accepts changes through PRs only.
-
-A development preview is published at the website base plus `/dev/`. For example, a custom root domain uses `https://<host>/dev/`; a project Pages site uses `https://<owner>.github.io/<repository>/dev/`. The actual links must be filled in by the maintainer during setup and appear in deployment summaries. Production has no added `/dev/` segment.
-
-The preview is public. Its banner/noindex setting does not make confidential content safe to upload. Do not put applicant CVs, private drafts, access keys, or other sensitive files in the repository. Draft entries are excluded from both public builds by default.
+There's currently no separate preview branch: once you push, CI builds and deploys it. So **preview locally first** (see "Preview your change locally" below) and, if someone else asked for the change, show them the running page before you push - see the [recommended workflow](#recommended-workflow-develop-locally-confirm-visually-then-commit) under "Local guardrails." A failed build keeps the previous version online; fix the reported error and push again.
 
 ### Edit through the GitHub website
 
-1. Open the repository and change the branch selector from **main** to **dev** before editing. Check the branch shown above the file.
-2. Open your content file and choose the pencil/edit action. For a new entry, copy the appropriate template into its content folder and choose a unique filename/ID.
-3. Change the fields and text; keep the YAML delimiters/indentation intact. Commit to **dev** with a descriptive message. With no direct write access, create a branch/PR targeting **dev**, not main.
-4. Open **Actions** and check the `CI` and subsequent deployment result. Every dev push schedules a build, including image-only, data-only, and documentation changes. A failed build leaves the previous preview online; fix the stated error and push again.
-5. Open `/dev/`, check the revision shown in the preview banner, and inspect the affected content on desktop and mobile. A page that still shows an older revision is not evidence your latest change worked.
-6. Open a pull request with **base: main** and **compare: dev**. List what changed and confirm preview verification. The maintainer checks the whole diff, waits for required checks/review, and merges with a merge commit. Do not delete the shared dev branch after release.
-7. The merge updates main and automatically builds/deploys production. Check its deployment summary. Do not assume production changed merely because a PR was opened or an Action refreshed dev data.
-
-The shared dev branch may contain other people's changes. Do not merge the entire release without reviewing them. A local change or dev commit is not a production change.
+1. Open the file you want to change and use the pencil (edit) icon. For a new entry, copy the matching `_template.*` file into its content folder first and give it a unique filename/ID.
+2. Edit the fields and text; keep the YAML delimiters and indentation intact. Commit with a short, descriptive message (or open a pull request if you don't have write access).
+3. Open the **Actions** tab and check the `CI` run for your commit, then the deploy run. A failed build leaves the previous version live - fix the stated error and push again.
+4. Open the live site and check your change on desktop and mobile.
 
 ## Edit or add a profile
 
@@ -88,30 +73,30 @@ publications:
 Write a short research biography here.
 ```
 
-Replace the example identity, fill real fields, and set `draft: false` when ready for public preview/review. Leave absent optional fields `null` or omit them as shown in the full template. Use `[]` for empty lists. Never paste placeholder author IDs into a real record.
+Replace the example identity, fill real fields, and set `draft: false` when ready to go public. Leave absent optional fields `null` or omit them as shown in the full template. Use `[]` for empty lists. Never paste placeholder author IDs into a real record.
 
 Valid main role keys are `senior_academic`, `postdoc`, `phd_student`, and `research_engineer`. Additional supported categories are `affiliated_researcher` and `research_support`. `role_label` is your displayed job title; it need not exactly repeat the group label. Membership `status` is `active`, `alumni`, or `affiliated`. Alumni are grouped separately on the homepage under "Alumni", regardless of their former `role`.
 
 The primary external website button uses `personal_website`, or falls back to `iit_profile`. Missing links do not produce empty buttons. `orcid`, `scholar_url`, `github_url`, `linkedin_url`, `x_url`, and `bluesky_url` each render a dedicated app icon when set, and simply do not render when left `null`. Your ORCID, Scholar URL, and OpenAlex IDs serve different purposes: a Scholar link does not import your publications. Have a maintainer verify the OpenAlex identity from ORCID, affiliation, and known publications. Multiple verified IDs are supported when OpenAlex split one person across records.
 
-`nationality` is optional and purely decorative: a two-letter ISO 3166-1 alpha-2 code (e.g. `IT`, `CO`) rendered as a small flag on the bottom-right corner of your portrait, on the homepage card, the in-page panel, and your profile. Leave it `null` to show no flag. The code must already be listed in `src/lib/nationality.ts`; ask a maintainer to add a new country before using its code.
+`nationality` is optional and purely decorative: a two-letter ISO 3166-1 alpha-2 code (e.g. `IT`, `CO`) rendered as a small flag on the bottom-right corner of your portrait. Leave it `null` to show no flag. The code must already be listed in `src/lib/nationality.ts`; ask a maintainer to add a new country before using its code.
 
-`current_affiliation` only applies to alumni (`status: alumni`): it is the person's current employer/institution, shown on their alumni card and profile above their past CSML `role_label`. Leave it `null` (never guessed) until a maintainer verifies it; the site shows an honest "not yet verified" placeholder instead of fabricating one.
+`current_affiliation` only applies to alumni (`status: alumni`): it is the person's current employer/institution, shown on their alumni card and profile. Leave it `null` (never guessed) until a maintainer verifies it.
 
-For an alumnus, explicitly decide whether publications remain collected (`publications.enabled`) and whether they count toward the shared team bibliography (`include_in_team_list`), unless the team has agreed otherwise. `start_of_affiliation` and `end_of_affiliation` (plain years, e.g. `2022`/`2025`) scope *which* of a person's works count toward the shared `/publications/` team pool: only works published inside that window are included there. Leaving both `null` means no restriction. This never affects the person's own `/people/<id>/` profile, which always shows their complete publication history regardless of these bounds.
+For an alumnus, explicitly decide whether publications remain collected (`publications.enabled`) and whether they count toward the shared team bibliography (`include_in_team_list`). `start_of_affiliation` and `end_of_affiliation` (plain years, e.g. `2022`/`2025`) scope *which* of a person's works count toward the shared `/publications/` team pool; leaving both `null` means no restriction. This never affects the person's own `/people/<id>/` profile, which always shows their complete publication history.
 
 ### Add a portrait
 
-Upload an approved picture to `media/people/<my-person-id>.jpg` on dev, then set:
+Upload an approved picture to `media/people/<my-person-id>.jpg`, then set:
 
 ```yaml
 photo: /media/people/example-researcher.jpg
 photo_alt: Portrait of Example Researcher
 ```
 
-The website resolves that path correctly in production and under `/dev/`; do not prepend `/dev` yourself. Keep existing official IIT/CSML logos unchanged. Missing portraits have a neutral fallback. Do not upload an image without permission to republish it.
+Keep existing official IIT/CSML logos unchanged. Missing portraits get a neutral fallback. Do not upload an image without permission to republish it.
 
-Saving a profile automatically updates its group card, dedicated profile, and in-page panel from the same content record. Publication records do not refresh merely because you changed the profile or an author ID; use the explicit workflow below when needed.
+Saving a profile automatically updates its group card, dedicated profile page, and in-page panel from the same content record. Publication records do not refresh merely because you changed the profile or an author ID - see "Publications" below.
 
 ## Add a news item
 
@@ -132,13 +117,42 @@ image_alt: null
 Write the short announcement here. No HTML or layout code is needed.
 ```
 
-Use a unique ID, an actual date/time with offset, and `draft: false` when ready. A future `published_at` means not yet published. `event_date` describes when an event happens; it does not replace the date the news should appear. Add an optional HTTPS link for details. `image` is an optional `/media/...` path (for example a funder or award logo) shown above the announcement; set `image_alt` whenever `image` is set. The shared news component handles formatting and scrolling.
+Use a unique ID, an actual date/time with offset, and `draft: false` when ready. A future `published_at` means not yet published. `event_date` describes when an event happens; it does not replace the date the news should appear. Add an optional HTTPS link for details. `image` is an optional `/media/...` path (e.g. a funder or award logo) shown above the announcement; set `image_alt` whenever `image` is set.
+
+## Add or edit an applied-ML collaboration
+
+This is the horizontally scrolling strip of partner-lab cards under Research. Copy `content/collaborations/_template.yaml` into `content/collaborations/<id>.yaml`:
+
+```yaml
+id: example-collaboration
+draft: true
+speciality: Example speciality
+lab_name: Example Lab
+institution: null
+lab_logo: null
+lab_logo_alt: null
+lab_url: null
+pi_name: Example Name
+pi_photo: null
+pi_photo_alt: null
+order: 10
+```
+
+Fill in the real `pi_name`, `lab_name`, and a verified `lab_url` - published entries require it. `lab_logo`/`pi_photo` are optional; omit a logo to fall back to showing the lab's name as text, since several partner groups have no distinct logo beyond their host institution's own mark. Never invent a PI, lab, or link; leave `draft: true` until it's verified.
+
+## Other content: research areas, projects, openings
+
+**Research area** - copy `content/research/_template.md`, fill the title/body, and optionally set `media` (image/GIF path, `fit: cover|contain`, focal `position`, and a `poster` for animated media).
+
+**Funded project** - copy `content/projects/_template.yaml`, fill the real `project_url`, `status` (`active`/`completed`), and a verified `funders` list with official logos. Mark completed projects accurately - never imply ongoing funding that has ended.
+
+**Opening** - copy `content/openings/_template.md` and use the official call/`apply_url`. Set `status: closed` or an actual `deadline_at` once a position closes. A general email expression of interest is not a substitute for a formal application portal.
 
 ## Blog Posts: links to externally hosted articles
 
 This tab is a **list of individual articles**, each with its title, author name, optional image, and a direct link to the original externally hosted article. It does not host full copies of articles or just link to authors' blog homepages.
 
-Initial sources are Vladimir R. Kostić's listing at `https://vladi-slk.github.io/blog.html` and Pietro Novelli's archive at `https://pietronvll.github.io/archive.html`. The seeded source example keeps feed URLs unset until verified; the collector must use a verified feed or a tested listing adapter. The source pages and author attribution were inspected for the implementation plan. See its references S20-S22.
+Initial sources are Vladimir R. Kostić's listing at `https://vladi-slk.github.io/blog.html` and Pietro Novelli's archive at `https://pietronvll.github.io/archive.html`.
 
 ### Add one article manually
 
@@ -156,117 +170,28 @@ image: null
 image_alt: null
 ```
 
-Replace `url` with the **article URL**, not the archive/homepage. Fill a real title and author and set `draft: false`. The date and image are optional; no image produces a text-only card. A `person_id` can connect the byline to an existing team profile. Do not copy the article body into this file.
+Replace `url` with the **article URL**, not the archive/homepage. Fill a real title and author and set `draft: false`. The date and image are optional; no image produces a text-only card. `person_id` can connect the byline to an existing team profile. Do not copy the article body into this file.
 
 ### Automatic discovery
 
-Add a source through `content/blog-sources.yaml`, following `templates/blog-source.yaml`. A verified RSS/Atom feed is preferred. When none is available, the source needs a supported, tested HTML adapter; ask the maintainer rather than guessing a feed address.
+Add a source through `content/blog-sources.yaml` (see `templates/blog-source.yaml`). A verified RSS/Atom feed is preferred; otherwise ask a maintainer to add a tested HTML adapter rather than guessing a feed address.
 
-The daily blog Action updates the cached article index on dev. An explicit local refresh is:
+The cached article index refreshes automatically on a schedule, or a maintainer can trigger it manually in **Actions -> Refresh blog entries -> Run workflow**, or locally with `npm run blogs:update`. A failed source import keeps its prior entries. Normal page builds never fetch these websites directly, so a newly discoverable post only appears after the next refresh.
 
-```bash
-npm run blogs:update
-npm run blogs:update -- --source vladimir-kostic
-```
+## Publications
 
-A manual refresh is also available in **Actions -> Refresh blog entries -> Run workflow**. Run its trusted workflow from main; it reads/writes dev content and never commits to main. Preview and release the changes by PR as usual. A failed source import preserves its prior entries. Normal page builds do not fetch these websites.
+The group list and personal profiles show a cached bibliography built from each person's verified OpenAlex author ID - never edit `data/publications.json` by hand. Fix your publication list in OpenAlex itself, then ask for a refresh; don't maintain a second bibliography in this repository. `content/publication-overrides.yaml` is reserved for the rare case OpenAlex can't be corrected directly (e.g. unlinking a work OpenAlex wrongly merged from a namesake).
 
-## Publications: cached, with explicit refresh commands
+**Refresh via GitHub Actions:** **Actions -> Refresh publications -> Run workflow**, scope `selected` with one or more person IDs, or `all`. A failed refresh keeps the previous cache, so nothing breaks if OpenAlex is briefly unreachable.
 
-The group list and personal profiles use a tracked cache sourced directly from each person's verified OpenAlex author ID. The collector queries that author ID, never a name search. Viewing pages, starting the local server, editing an author ID, or rebuilding does not call OpenAlex; an explicit refresh updates the cache. This keeps GitHub Pages static and repeatable and preserves working pages during an API outage.
-
-OpenAlex is the publication source of record. Team members should correct their publication list in OpenAlex and then request a refresh; they should not maintain a second bibliography in this repository. `content/publication-overrides.yaml` is reserved for exceptional, reviewed source errors or exclusions that cannot be corrected normally in OpenAlex. Today only `exclusions` are supported: each entry unlinks one person from one OpenAlex work (for example when OpenAlex merged an unrelated namesake into a member's author profile) and takes effect at the next build, on every page, without a cache refresh.
-
-The team publications page can be sorted by date or by citation count. Citation counts come from OpenAlex and are used only for ordering; they are never displayed because OpenAlex undercounts compared with other indexes.
-
-The shared `/publications/` page only counts a person's works toward that common pool within their `start_of_affiliation`/`end_of_affiliation` window (see "Edit or add a profile" above); their own `/people/<id>/` profile always shows their complete history regardless of that window.
-
-The weekly Action performs a full refresh using the configured verified author IDs and free API plan. It writes to **dev**; a release PR is still needed for production. The implementation follows the supplied [OpenAlex guide](docs/openalex-free-tier-guide.md), with the stricter release/cache rules in [the plan](IMPLEMENTATION_PLAN.md).
-
-### Refresh through GitHub Actions (no local installation)
-
-1. Open **Actions -> Refresh publications -> Run workflow**. Choose **main** for the trusted workflow definition; the workflow itself always targets **dev** for data.
-2. Choose scope **selected** and enter one or more stable person IDs, or deliberately choose **all**. The form must not accept an ambiguous name as an author identity. The implementation accepts comma-separated person IDs and validates them before querying.
-3. Leave unusual drop-acceptance overrides disabled unless a maintainer has investigated a known correction. Run the workflow and read its summary.
-4. On success, the Action commits the validated cache to dev and explicitly starts dev CI. Check `/dev/publications/` or `/dev/people/<id>/`, including the actual refresh time and source revision.
-5. Release through the normal dev-to-main PR. API/validation failure preserves the previous cache. No direct main write is permitted.
-
-A bot push made with GitHub's default workflow token does not itself trigger normal push CI; the explicit dispatch is intentional. See implementation-plan reference S18.
-
-### Set up local publication refresh once
-
-Normal content editing requires Node dependencies only. Publication collection additionally needs the supported Python version recorded in `.python-version`.
-
-```bash
-npm ci
-npm run publications:setup
-```
-
-The setup command creates `.venv/` and installs pinned collector dependencies. It does not fetch publications. Configure `OPENALEX_API_KEY` in ignored `.env.local` (or your shell environment). Use a free lab-controlled OpenAlex key; never commit a key, put it in YAML, or expose it with a `PUBLIC_` name. No billing or prepaid credits are needed for the intended OpenAlex setup. Other applications sharing the key also use its allowance. Without a key, add `--anonymous` to an update command to use OpenAlex's small free keyless daily allowance (no billing); a full `--all` refresh needs only a few dozen requests.
-
-The helper validates these prerequisites and reports what to fix. It must not silently install packages just because you opened the workspace.
-
-### Refresh one person or a selected group locally
-
-Start on dev. List the real person IDs without an API call:
+**Refresh locally** (needs the Python version pinned in `.python-version`, set up once with `npm run publications:setup`):
 
 ```bash
 npm run publications:list
-```
-
-Then use the ID from that output, not a guessed name:
-
-```bash
 npm run publications:update -- --person example-researcher
-npm run publications:update -- --person first-id --person second-id
 ```
 
-For the complete roster, deliberately choose:
-
-```bash
-npm run publications:update -- --all
-```
-
-The easy-to-launch file exposes the same interface:
-
-```bash
-node scripts/update-publications.mjs --person example-researcher
-```
-
-Running that helper with no arguments in an interactive terminal opens a person selector. Noninteractive use requires an explicit selection. A validation-only candidate can be fetched with:
-
-```bash
-npm run publications:update -- --person example-researcher --dry-run
-```
-
-**Dry-run still calls the API and uses quota; it only prevents cache replacement.** A targeted refresh keeps other people's memberships and freshness unchanged. A shared paper remains deduplicated, though source metadata for that shared paper can improve. The global full-refresh timestamp advances only after a successful full refresh.
-
-The local helper does not commit or push. Inspect the summary and diff, check your local profile, then explicitly commit the generated file to dev:
-
-```bash
-git diff -- data/publications.json
-git add data/publications.json
-git commit -m "Refresh publications for selected members"
-git push origin dev
-```
-
-These commands assume you are already on dev with only the intended change staged. Do not use `git add .` blindly or overwrite other work. The helper refuses tracked-cache replacement on main and warns before overwriting uncommitted generated changes. Keep identity corrections and approved overrides in the editable configuration files, not generated JSON.
-
-### Interpreting freshness and errors
-
-A profile reports its own last successful refresh. The group page distinguishes a complete-lab refresh from a partial update. No verified OpenAlex ID means "not linked", not "this person has no publications". Changing IDs marks coverage stale until explicitly refreshed.
-
-For an unknown person ID, fix the selection before retrying. For a missing key, configure the local environment/protected automation-environment secret. For rate-limit, quota, timeout, suspicious deletion, or malformed-data errors, retain the last-good cache and read the report. Never bypass the drop guard by deleting the old cache. Maintainers can investigate and explicitly authorize a legitimate correction.
-
-## Other content updates
-
-For a research area, copy `content/research/_template.md` (or `templates/research.md`), fill the title/body, and optionally set media/alt text. Images use a common frame; choose `contain` for a diagram whose labels would be cropped. Animated media needs a static poster and motion controls supplied by the UI.
-
-For a project, copy `content/projects/_template.yaml` (or `templates/project.yaml`), fill its real project link, status, and funder identity. Use approved funder logos. Mark completed projects accurately. For an opening, copy `content/openings/_template.md` (or `templates/opening.md`) and use the official call/application URL. Set status to closed or use the actual deadline. A general email expression of interest is not a substitute for a formal recruitment portal.
-
-For an applied-ML collaboration card (the horizontally scrolling strip under Research), copy `content/collaborations/_template.yaml` (or `templates/collaboration.yaml`). Fill in the real PI name, lab name, and a verified `lab_url` — published entries require it. `lab_logo` is optional; omit it to fall back to the lab's name as text, as several partner groups have no distinct logo beyond their host institution's own mark. Never invent a PI, lab, or link; leave `draft: true` until a maintainer verifies the collaboration.
-
-All these edits use dev, preview, and a main PR. Do not change the application service/recipient as an ordinary content edit without the responsible maintainer's review.
+Review the diff, then commit and push `data/publications.json` like any other change. A targeted refresh only touches the selected people's membership edges; everyone else's freshness is untouched.
 
 ## Live social feeds
 
@@ -280,33 +205,16 @@ bluesky:
   session_cache_seconds: 300
 ```
 
-It calls the public `app.bsky.feed.getAuthorFeed` API directly (no credentials, no proxy), filters out replies/reposts, caches results in the visitor's session for `session_cache_seconds`, and renders through the shared social-card list. If the feed can't be reached, the panel shows a retry button and a direct link to the profile; the rest of the page is unaffected.
+If the feed can't be reached, the panel shows a retry button and a direct link to the profile; the rest of the page is unaffected. There is no live X feed - the homepage links directly to the X profile instead.
 
-There is no live X feed. X's read API has no free tier, and a static GitHub Pages site can't keep a paid API's bearer token secret without a separately hosted proxy service - that's a bigger, costed decision than a content edit, so the homepage only links directly to the X profile instead. API credentials never belong in content files or browser code. Local/CI builds and tests never need live credentials.
-
-## Start a live local server
-
-After cloning the real implemented repository, use its pinned Node version. Check that you have no uncommitted work before switching branches:
+## Preview your change locally
 
 ```bash
-git status
-git switch dev
-git pull --ff-only origin dev
 npm ci
 npm run dev
 ```
 
-If the local dev branch does not yet exist, use `git switch --track origin/dev`. If the pull cannot fast-forward, stop and resolve it with the maintainer; do not force-reset shared work.
-
-Open the URL printed in the terminal, normally **`http://127.0.0.1:4321/`**. Edits to content, local media, and source code should reload automatically. Successful explicit publication updates should also appear without manually restarting. Stop with **Ctrl+C**. Opening this server never publishes changes or refreshes publications.
-
-Use the same site under the staging prefix when checking links/assets:
-
-```bash
-npm run dev:staging
-```
-
-Its normal local URL is **`http://127.0.0.1:4321/dev/`**. Do not run both servers on the same port. A port-conflict error is not permission to kill an unrelated process; stop your previous server or use the documented port override.
+Open the URL printed in the terminal, normally **`http://127.0.0.1:4321/`**. Edits to content, local media, and source code reload automatically. Stop with **Ctrl+C**. Opening this server never publishes changes or refreshes publications.
 
 To inspect a built static site instead of live-editing it:
 
@@ -315,38 +223,27 @@ npm run build
 npm run preview
 ```
 
-Or test the staging build:
-
-```bash
-npm run build:staging
-npm run preview:staging
-```
-
-Use the URL printed by the preview command. Static preview serves the last build; rebuild after edits. Neither command downloads new publications/blog posts. Internet access may still be needed for the initial explicit dependency installation, and optional live social widgets may make runtime requests.
+Static preview serves the last build; rebuild after edits. Neither command downloads new publications/blog posts.
 
 ## VS Code: start the server when opening the project
 
-The repository includes `.vscode/tasks.json`.
+The repository includes `.vscode/tasks.json`. After an initial `npm ci`, open the **project folder** in VS Code (not just a single file) and allow automatic tasks when prompted. The **CSML: Start live preview** task then starts the server in a dedicated terminal on later folder opens.
 
-After initial `npm ci`, open the **project folder** in VS Code, not just a single file. Trust the workspace only after checking the repository. When VS Code asks whether automatic tasks are allowed, allow them for this project. The **CSML: Start live preview** task then starts the server in a dedicated terminal on later folder opens.
-
-VS Code will not automatically execute tasks in an untrusted workspace. Do not disable Workspace Trust or globally loosen security to bypass this. Use **Tasks: Manage Automatic Tasks** to change permission, **Tasks: Run Task -> CSML: Start live preview** to start manually, and **Tasks: Terminate Task** or Ctrl+C to stop it. Task behavior is documented in implementation-plan references S32-S33.
-
-The task runs only the local server. It never installs dependencies, refreshes publications, switches branches, or deploys. A separate **CSML: Update one person's publications** task asks for the person ID and runs only when you explicitly select it.
+Use **Tasks: Manage Automatic Tasks** to change permission, **Tasks: Run Task -> CSML: Start live preview** to start manually, and **Tasks: Terminate Task** or Ctrl+C to stop it. The task only runs the local server - it never installs dependencies, refreshes publications, or deploys.
 
 ## Local guardrails (automatic)
 
-`npm install` wires up the hooks in `.githooks/` via `git config core.hooksPath` — no extra setup, no new dependency to install or remember. This applies the same way whether a person or a coding agent is committing.
+`npm install` wires up the hooks in `.githooks/` via `git config core.hooksPath` - no extra setup, no new dependency to install or remember. This applies the same way whether a person or a coding agent is committing.
 
 **On every `git commit`:** `npm run content:validate` runs and blocks the commit if any YAML/Markdown content fails its schema (bad frontmatter field, wrong role key, broken link, etc.). It only checks `content/`, so it stays fast (well under a second).
 
 **On every `git push`:** `npm run check` (content validation + `astro check`) and a full production `npm run build` run and block the push if the site doesn't typecheck or doesn't actually build. This is the same first step CI runs, just caught before you leave your machine instead of a few minutes later in Actions.
 
-These hooks are a courtesy, not a security boundary: anyone can skip one with `git commit --no-verify` / `git push --no-verify`, and CI runs the same checks again regardless. **CI is the real gate** — a local hook passing does not mean anything was merged or deployed, and skipping a hook does not skip CI.
+These hooks are a courtesy, not a security boundary: anyone can skip one with `git commit --no-verify` / `git push --no-verify`, and CI runs the same checks again regardless. **CI is the real gate** - a local hook passing does not mean anything was merged or deployed, and skipping a hook does not skip CI.
 
 ### If a hook blocks you, debug it visually
 
-A failing `content:validate` error names the file and field directly — fix that field and retry the commit.
+A failing `content:validate` error names the file and field directly - fix that field and retry the commit.
 
 A failing `astro check`/`build` on push is more easily understood by looking at the page, not just the error text:
 
@@ -361,42 +258,25 @@ npm run build
 npm run preview
 ```
 
-This builds and serves the same static output the pre-push hook and CI both check — if it looks right here, the push will pass. Fix the reported file, re-run `npm run dev` to confirm, then retry the push.
-
-### Ruleset for commits and pushes
-
-- **Right now (bootstrap phase, pre-v1.0):** direct commits and pushes to `main` are explicitly allowed by the maintainer (see `docs/operations.md`). The hooks above still apply on every commit/push regardless of branch — bootstrap relaxes *where* you can push, not whether content validates or the site builds.
-- **Once routine editorial use begins** (per `AGENTS.md`): `main` only receives changes through a reviewed PR from `dev`; direct pushes to `main` stop being allowed, and a GitHub ruleset enforces that server-side. The local hooks don't change — they run on `dev` commits/pushes exactly as they do today.
-- Neither phase allows `--force`, rewriting published history, or disabling/skipping CI to land a change.
-- If you must bypass a local hook (e.g. a WIP commit you'll fix before pushing), use `--no-verify` explicitly and say so — don't treat a hook failure as something to silence permanently by editing the hook itself.
+This builds and serves the same static output the pre-push hook and CI both check - if it looks right here, the push will pass. Fix the reported file, re-run `npm run dev` to confirm, then retry the push.
 
 ### Recommended workflow: develop locally, confirm visually, then commit
 
 The hooks above only catch what a script can check (schema, types, build). They cannot tell you a page actually looks and works right. Before committing:
 
 1. Run `npm run dev` and keep it running while you edit.
-2. Open the affected page(s) in the browser and check them at both desktop and mobile widths. For anything interactive (a dialog, filter, carousel), actually use it — a page that builds is not the same as a page that works.
-3. If someone else asked for the change (a teammate, a maintainer), show them the running page or a screenshot and get their confirmation it looks/behaves as expected **before** committing — not after. A quick look at a live server catches things the hooks structurally cannot: wrong content, a broken layout, a feature that silently does nothing.
-4. Only then `git commit`/`git push`. Treat a passing hook as "didn't break the build," not as "this is correct" — those are different claims.
+2. Open the affected page(s) in the browser and check them at both desktop and mobile widths. For anything interactive (a dialog, filter, carousel), actually use it - a page that builds is not the same as a page that works.
+3. If someone else asked for the change, show them the running page or a screenshot and get their confirmation it looks/behaves as expected **before** committing, not after. A quick look at a live server catches things the hooks structurally cannot: wrong content, a broken layout, a feature that silently does nothing.
+4. Only then `git commit`/`git push`. Treat a passing hook as "didn't break the build," not as "this is correct" - those are different claims.
 
-This applies equally to a coding agent making the change: run the dev server and look at the rendered result, and when the task came from a person, wait for their explicit confirmation that it works before committing — don't commit on the strength of "the build passed."
+This applies equally to a coding agent making the change: run the dev server and look at the rendered result, and when the task came from a person, wait for their explicit confirmation that it works before committing.
 
 ## Validation and common fixes
 
-Run `npm run content:validate` to check fields before committing. Validation errors must name the file and field. Use spaces, not tabs, for YAML indentation; keep frontmatter between `---` markers; quote dates and values containing YAML punctuation when needed. `null` means absent, `[]` means an empty list, and `draft: false` permits public rendering.
+Run `npm run content:validate` to check fields before committing. Validation errors name the file and field. Use spaces, not tabs, for YAML indentation; keep frontmatter between `---` markers; quote dates and values containing YAML punctuation when needed. `null` means absent, `[]` means an empty list, and `draft: false` permits public rendering.
 
-A missing image error means the source path/filename or case does not match. A correct localhost page with broken `/dev/` links is a base-path bug, not something to work around by hardcoding production URLs. A successful CI result with an old preview can mean deployment is pending/failed; check the deployment summary and displayed revision.
+A missing image error means the source path/filename or case does not match. Never commit a test CV or any file containing real personal data.
 
-Do not test real CV submission on dev. It is disabled or uses an explicitly configured sandbox. Never commit a test CV containing personal information.
+## For maintainers
 
-## Maintainer setup and recovery
-
-Implement the exact package commands and workflow names used in this README. Fill in the real production/preview links and supported Node/Python versions; install/test the example tasks. Keep `main` default, enforce PR-only changes, require the dev source/checks/review, preserve the long-lived dev branch, and protect workflow paths.
-
-Configure the OpenAlex secret in a protected automation environment restricted to main, an approved host/base, the combined Pages deployment, daily/weekly schedules, and the separately approved X/CV services. Do not give untrusted PR code secrets or deployment rights. A failed dev build must not erase production, and a broken latest dev head must not prevent a validated main release from retaining the last good preview.
-
-Scheduled jobs may be delayed or disabled by GitHub; check the Actions tab when freshness is unexpectedly old, re-enable where necessary, then run the dedicated refresh workflow. Never add live OpenAlex collection to a build as a recovery shortcut. A new cache still goes through dev and PR review.
-
-Rollback by reverting the unwanted change through dev and a PR into main, or use the controlled redeployment procedure for a previously validated main/dev revision pair. Never force-push main or replace only half of the combined site. Record approvals and the exact deployed revisions.
-
-Detailed architecture, source references, required tests, and unresolved service dependencies are in [IMPLEMENTATION_PLAN.md](IMPLEMENTATION_PLAN.md). Coding-agent requirements are in [AGENTS.md](AGENTS.md). The implementation must add `docs/operations.md` with the actual settings, owners, deployment record/recovery commands, and secret rotation procedure once configured.
+Deployment, branching policy, secrets, and recovery procedures are documented in [`AGENTS.md`](AGENTS.md) and [`docs/operations.md`](docs/operations.md), not here. Detailed architecture, source references, and acceptance tests are in [`IMPLEMENTATION_PLAN.md`](IMPLEMENTATION_PLAN.md).
