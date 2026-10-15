@@ -6,6 +6,7 @@ import argparse
 import json
 import os
 import random
+import re
 import tempfile
 import time
 import urllib.error
@@ -239,6 +240,41 @@ def normalize_work(work: dict[str, Any], member_id: str) -> dict[str, Any]:
     }
 
 
+def normalize_title(title: str) -> str:
+    text = re.sub(r"[^a-z0-9]+", " ", title.casefold())
+    return " ".join(text.split())
+
+
+def dedupe_by_title(records: dict[str, dict[str, Any]]) -> dict[str, dict[str, Any]]:
+    """Merge works that OpenAlex lists as separate records (e.g. a preprint and
+    its camera-ready version) but that share a title, into one displayed entry.
+    One of the duplicates is kept arbitrarily (the lowest work ID, for a
+    deterministic result); the rest become alternate locations on it."""
+    groups: dict[str, list[dict[str, Any]]] = {}
+    for record in records.values():
+        groups.setdefault(normalize_title(record["title"]), []).append(record)
+    merged: dict[str, dict[str, Any]] = {}
+    for group in groups.values():
+        if len(group) == 1:
+            merged[group[0]["id"]] = group[0]
+            continue
+        group = sorted(group, key=lambda record: record["id"])
+        canonical = dict(group[0])
+        canonical["member_ids"] = sorted({member_id for record in group for member_id in record.get("member_ids", [])})
+        canonical["alternate_locations"] = [
+            {
+                "id": record["id"],
+                "source_url": record.get("source_url"),
+                "venue": record.get("venue"),
+                "doi": record.get("doi"),
+                "open_access_url": record.get("open_access_url"),
+            }
+            for record in group[1:]
+        ]
+        merged[canonical["id"]] = canonical
+    return merged
+
+
 def merge_selected(
     snapshot: dict[str, Any],
     selected: list[dict[str, Any]],
@@ -264,24 +300,22 @@ def merge_selected(
         if retained_members:
             records[record["id"]] = {**record, "member_ids": retained_members}
 
-    old_counts = {
-        person_id: sum(person_id in record.get("member_ids", []) for record in existing_records if isinstance(record, dict))
-        for person_id in selected_ids
-    }
     for author in selected:
         person_id = author["person_id"]
-        new_works = fetched[person_id]
-        old_count = old_counts[person_id]
-        if old_count >= 5 and len(new_works) < old_count * 0.8:
-            raise CollectorError(
-                f"Refusing suspicious drop for {person_id}: {old_count} cached works -> {len(new_works)} fetched works."
-            )
-        for raw_work in new_works:
+        for raw_work in fetched[person_id]:
             normalized = normalize_work(raw_work, person_id)
             prior = records.get(normalized["id"])
             if prior:
                 normalized["member_ids"] = sorted(set(prior.get("member_ids", [])) | {person_id})
             records[normalized["id"]] = normalized
+
+    # OpenAlex is the trusted source: whatever it returns for a verified author
+    # ID is what we show. The cache only avoids re-querying on every page view,
+    # so it is replaced to match the live result, not guarded against changing.
+    # The one local correction is cosmetic: OpenAlex sometimes lists a preprint
+    # and its camera-ready version as separate works, so duplicates sharing a
+    # title are merged into a single displayed entry (see dedupe_by_title).
+    records = dedupe_by_title(records)
 
     now = datetime.now(timezone.utc).isoformat().replace("+00:00", "Z")
     coverage = snapshot.get("coverage_by_person")

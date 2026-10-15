@@ -20,6 +20,16 @@ export interface PublicationRecord {
   is_retracted: boolean;
   // Internal ordering signal only; never rendered (OpenAlex undercounts).
   cited_by_count?: number | null;
+  // OpenAlex sometimes lists a preprint and its camera-ready version as
+  // separate works; those sharing a title are merged, and the non-canonical
+  // ones are kept here so the alternate venue/link stays visible.
+  alternate_locations?: Array<{
+    id: string;
+    source_url: string | null;
+    venue: string | null;
+    doi: string | null;
+    open_access_url: string | null;
+  }>;
 }
 
 interface PublicationEnvelope {

@@ -27,6 +27,17 @@ const openAlexIcon = mediaUrl('/media/logos/openalex-mark.png')!;
           </a>
         </div>
       </div>
+      {publication.alternate_locations && publication.alternate_locations.length > 0 && (
+        <p class="publication-alternates">
+          Also found via{' '}
+          {publication.alternate_locations.map((alternate, altIndex) => (
+            <>
+              {altIndex > 0 && ', '}
+              <a href={alternate.open_access_url ?? alternate.source_url ?? '#'}>{alternate.venue ?? 'another source'}</a>
+            </>
+          ))}
+        </p>
+      )}
     </li>
   ))}
 </ol>
