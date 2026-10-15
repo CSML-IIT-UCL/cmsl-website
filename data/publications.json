@@ -1,7 +1,7 @@
 {
   "version": 1,
   "source": "OpenAlex",
-  "last_full_refresh_at": "2026-10-15T09:24:26.879485Z",
+  "last_full_refresh_at": "2026-10-15T09:32:52.267850Z",
   "author_roster_signature": "accd738bc659d3c39419569e4c210a33e230a7c7a068861a312219282119b862",
   "queried_author_ids": [
     "A5003851001",
@@ -25,7 +25,7 @@
       "author_ids": [
         "A5089972466"
       ],
-      "last_successful_refresh_at": "2026-10-15T09:24:26.879485Z",
+      "last_successful_refresh_at": "2026-10-15T09:32:52.267850Z",
       "works_count": 10,
       "status": "complete"
     },
@@ -33,7 +33,7 @@
       "author_ids": [
         "A5069560062"
       ],
-      "last_successful_refresh_at": "2026-10-15T09:24:26.879485Z",
+      "last_successful_refresh_at": "2026-10-15T09:32:52.267850Z",
       "works_count": 3,
       "status": "complete"
     },
@@ -41,7 +41,7 @@
       "author_ids": [
         "A5104181387"
       ],
-      "last_successful_refresh_at": "2026-10-15T09:24:26.879485Z",
+      "last_successful_refresh_at": "2026-10-15T09:32:52.267850Z",
       "works_count": 7,
       "status": "complete"
     },
@@ -49,7 +49,7 @@
       "author_ids": [
         "A5122991001"
       ],
-      "last_successful_refresh_at": "2026-10-15T09:24:26.879485Z",
+      "last_successful_refresh_at": "2026-10-15T09:32:52.267850Z",
       "works_count": 7,
       "status": "complete"
     },
@@ -57,7 +57,7 @@
       "author_ids": [
         "A5035003258"
       ],
-      "last_successful_refresh_at": "2026-10-15T09:24:26.879485Z",
+      "last_successful_refresh_at": "2026-10-15T09:32:52.267850Z",
       "works_count": 17,
       "status": "complete"
     },
@@ -65,7 +65,7 @@
       "author_ids": [
         "A5003851001"
       ],
-      "last_successful_refresh_at": "2026-10-15T09:24:26.879485Z",
+      "last_successful_refresh_at": "2026-10-15T09:32:52.267850Z",
       "works_count": 59,
       "status": "complete"
     },
@@ -73,7 +73,7 @@
       "author_ids": [
         "A5021345394"
       ],
-      "last_successful_refresh_at": "2026-10-15T09:24:26.879485Z",
+      "last_successful_refresh_at": "2026-10-15T09:32:52.267850Z",
       "works_count": 23,
       "status": "complete"
     },
@@ -81,7 +81,7 @@
       "author_ids": [
         "A5083456765"
       ],
-      "last_successful_refresh_at": "2026-10-15T09:24:26.879485Z",
+      "last_successful_refresh_at": "2026-10-15T09:32:52.267850Z",
       "works_count": 95,
       "status": "complete"
     },
@@ -89,7 +89,7 @@
       "author_ids": [
         "A5099860126"
       ],
-      "last_successful_refresh_at": "2026-10-15T09:24:26.879485Z",
+      "last_successful_refresh_at": "2026-10-15T09:32:52.267850Z",
       "works_count": 2,
       "status": "complete"
     },
@@ -97,7 +97,7 @@
       "author_ids": [
         "A5034260726"
       ],
-      "last_successful_refresh_at": "2026-10-15T09:24:26.879485Z",
+      "last_successful_refresh_at": "2026-10-15T09:32:52.267850Z",
       "works_count": 276,
       "status": "complete"
     },
@@ -105,7 +105,7 @@
       "author_ids": [
         "A5050747663"
       ],
-      "last_successful_refresh_at": "2026-10-15T09:24:26.879485Z",
+      "last_successful_refresh_at": "2026-10-15T09:32:52.267850Z",
       "works_count": 24,
       "status": "complete"
     },
@@ -113,7 +113,7 @@
       "author_ids": [
         "A5017463552"
       ],
-      "last_successful_refresh_at": "2026-10-15T09:24:26.879485Z",
+      "last_successful_refresh_at": "2026-10-15T09:32:52.267850Z",
       "works_count": 46,
       "status": "complete"
     },
@@ -121,7 +121,7 @@
       "author_ids": [
         "A5109598009"
       ],
-      "last_successful_refresh_at": "2026-10-15T09:24:26.879485Z",
+      "last_successful_refresh_at": "2026-10-15T09:32:52.267850Z",
       "works_count": 7,
       "status": "complete"
     },
@@ -129,7 +129,7 @@
       "author_ids": [
         "A5025124468"
       ],
-      "last_successful_refresh_at": "2026-10-15T09:24:26.879485Z",
+      "last_successful_refresh_at": "2026-10-15T09:32:52.267850Z",
       "works_count": 20,
       "status": "complete"
     },
@@ -137,7 +137,7 @@
       "author_ids": [
         "A5126083601"
       ],
-      "last_successful_refresh_at": "2026-10-15T09:24:26.879485Z",
+      "last_successful_refresh_at": "2026-10-15T09:32:52.267850Z",
       "works_count": 2,
       "status": "complete"
     }
@@ -2679,7 +2679,7 @@
       "landing_page_url": "http://arxiv.org/abs/2405.12940",
       "open_access_url": "http://arxiv.org/abs/2405.12940",
       "is_retracted": false,
-      "cited_by_count": 1,
+      "cited_by_count": 2,
       "alternate_locations": [
         {
           "id": "https://openalex.org/W4406923191",
@@ -2799,7 +2799,7 @@
       "landing_page_url": "http://arxiv.org/abs/2407.01171",
       "open_access_url": "http://arxiv.org/abs/2407.01171",
       "is_retracted": false,
-      "cited_by_count": 0,
+      "cited_by_count": 5,
       "alternate_locations": [
         {
           "id": "https://openalex.org/W4415797473",
@@ -5938,7 +5938,7 @@
       "landing_page_url": "https://doi.org/10.22331/q-2020-02-20-234",
       "open_access_url": "https://doi.org/10.22331/q-2020-02-20-234",
       "is_retracted": false,
-      "cited_by_count": 5,
+      "cited_by_count": 7,
       "alternate_locations": [
         {
           "id": "https://openalex.org/W3102422861",
@@ -9175,7 +9175,7 @@
       "landing_page_url": "http://arxiv.org/abs/1601.00449",
       "open_access_url": "http://arxiv.org/abs/1601.00449",
       "is_retracted": false,
-      "cited_by_count": 0,
+      "cited_by_count": 4,
       "alternate_locations": [
         {
           "id": "https://openalex.org/W4294368577",
@@ -9330,7 +9330,7 @@
       "landing_page_url": "https://doi.org/10.1142/s0219530516500202",
       "open_access_url": "http://arxiv.org/abs/1410.6847",
       "is_retracted": false,
-      "cited_by_count": 3,
+      "cited_by_count": 18,
       "alternate_locations": [
         {
           "id": "https://openalex.org/W2963099468",
@@ -9889,7 +9889,7 @@
       "landing_page_url": "http://arxiv.org/abs/1403.1481",
       "open_access_url": "http://arxiv.org/abs/1403.1481",
       "is_retracted": false,
-      "cited_by_count": 3,
+      "cited_by_count": 31,
       "alternate_locations": [
         {
           "id": "https://openalex.org/W2964308881",
@@ -10780,7 +10780,7 @@
       "landing_page_url": "https://doi.org/10.1214/11-aos894",
       "open_access_url": "https://doi.org/10.1214/11-aos894",
       "is_retracted": false,
-      "cited_by_count": 54,
+      "cited_by_count": 598,
       "alternate_locations": [
         {
           "id": "https://openalex.org/W2962769133",
@@ -11204,7 +11204,7 @@
       "landing_page_url": "http://arxiv.org/abs/0903.1468",
       "open_access_url": "http://arxiv.org/abs/0903.1468",
       "is_retracted": false,
-      "cited_by_count": 114,
+      "cited_by_count": 144,
       "alternate_locations": [
         {
           "id": "https://openalex.org/W2964036110",
@@ -11402,7 +11402,7 @@
       "landing_page_url": "http://arxiv.org/abs/0811.2281",
       "open_access_url": "http://arxiv.org/abs/0811.2281",
       "is_retracted": false,
-      "cited_by_count": 0,
+      "cited_by_count": 4,
       "alternate_locations": [
         {
           "id": "https://openalex.org/W4375842777",
@@ -11498,7 +11498,7 @@
       "landing_page_url": "https://doi.org/10.1214/08-ejs177",
       "open_access_url": "https://doi.org/10.1214/08-ejs177",
       "is_retracted": false,
-      "cited_by_count": 127,
+      "cited_by_count": 153,
       "alternate_locations": [
         {
           "id": "https://openalex.org/W3100190044",
