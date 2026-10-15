@@ -11,7 +11,7 @@ export const publicationOverridesSchema = z.object({
   // left with no members disappears from every view.
   exclusions: z.array(z.object({
     work_id: z.string().regex(/^W\d+$/, 'must be a bare OpenAlex work ID such as W1234567890'),
-    person_id: z.string().regex(/^[a-z0-9]+(?:-[a-z0-9]+)*$/),
+    person_id: z.string().regex(/^[a-z0-9]+(?:-[a-z0-9]+)*$/, 'must be the lowercase hyphenated id of an existing content/people/<id>.md file'),
     reason: z.string().trim().min(1),
   })).default([]),
   additions: notYetSupported('additions').default([]),
