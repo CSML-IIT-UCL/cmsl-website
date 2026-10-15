@@ -1,0 +1,109 @@
+name: Refresh Publications
+
+on:
+  schedule:
+    - cron: '0 3 * * 0' # Sunday 03:00 UTC
+  workflow_dispatch:
+    inputs:
+      person:
+        description: 'Person ID(s) to refresh, comma-separated (blank = everyone)'
+        required: false
+        type: string
+      dry_run:
+        description: 'Query and validate only; do not write or commit the cache'
+        required: false
+        type: boolean
+        default: false
+
+permissions:
+  contents: read
+
+concurrency:
+  group: refresh-publications
+  cancel-in-progress: false
+
+jobs:
+  refresh:
+    runs-on: ubuntu-latest
+    timeout-minutes: 20
+    permissions:
+      contents: write
+      actions: write
+    steps:
+      - name: Check out main
+        uses: actions/checkout@11d5960a326750d5838078e36cf38b85af677262 # v4
+        with:
+          ref: main
+
+      - name: Set up Node.js
+        uses: actions/setup-node@49933ea5288caeca8642d1e84afbd3f7d6820020 # v4
+        with:
+          node-version-file: .node-version
+          cache: npm
+
+      - name: Install locked dependencies
+        run: npm ci
+
+      - name: Build collector arguments
+        id: collector
+        env:
+          PERSON_INPUT: ${{ github.event.inputs.person }}
+          DRY_RUN_INPUT: ${{ github.event.inputs.dry_run }}
+        run: |
+          args=()
+          if [ -n "$PERSON_INPUT" ]; then
+            IFS=',' read -ra ids <<< "$PERSON_INPUT"
+            for id in "${ids[@]}"; do
+              trimmed="$(echo "$id" | xargs)"
+              [ -n "$trimmed" ] && args+=(--person "$trimmed")
+            done
+          fi
+          if [ "${#args[@]}" -eq 0 ]; then
+            args+=(--all)
+          fi
+          if [ "$DRY_RUN_INPUT" = "true" ]; then
+            args+=(--dry-run)
+          fi
+          {
+            echo "args<<EOF"
+            printf '%s\n' "${args[@]}"
+            echo "EOF"
+          } >> "$GITHUB_OUTPUT"
+          echo "dry_run=$([ "$DRY_RUN_INPUT" = "true" ] && echo true || echo false)" >> "$GITHUB_OUTPUT"
+
+      - name: Refresh publications from OpenAlex
+        env:
+          OPENALEX_API_KEY: ${{ secrets.OPENALEX_API_KEY }}
+        run: |
+          mapfile -t args <<< "${{ steps.collector.outputs.args }}"
+          npm run publications:update -- "${args[@]}"
+
+      - name: Commit refreshed cache
+        id: commit
+        if: ${{ steps.collector.outputs.dry_run != 'true' }}
+        run: |
+          if git diff --quiet -- data/publications.json; then
+            echo "No publication changes to commit."
+            echo "committed=false" >> "$GITHUB_OUTPUT"
+            exit 0
+          fi
+          git config user.name 'github-actions[bot]'
+          git config user.email '41898282+github-actions[bot]@users.noreply.github.com'
+          git add data/publications.json
+          git commit -m "Refresh publications cache [automated]"
+          for attempt in 1 2 3; do
+            if git pull --rebase origin main && git push origin HEAD:main; then
+              echo "committed=true" >> "$GITHUB_OUTPUT"
+              exit 0
+            fi
+            echo "Push attempt $attempt failed; retrying..."
+            sleep 5
+          done
+          echo "Unable to push the refreshed publication cache after 3 attempts." >&2
+          exit 1
+
+      - name: Dispatch CI for the new commit
+        if: ${{ steps.commit.outputs.committed == 'true' }}
+        env:
+          GH_TOKEN: ${{ github.token }}
+        run: gh workflow run ci.yml --ref main

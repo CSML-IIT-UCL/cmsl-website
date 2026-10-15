@@ -26,13 +26,6 @@ if (!args.includes('--all') && !args.includes('--person')) {
   for (const flag of ['--dry-run', '--anonymous']) if (originalArgs.includes(flag)) args.push(flag);
 }
 
-const dryRun = args.includes('--dry-run');
-const branch = execFileSync('git', ['branch', '--show-current'], { encoding: 'utf8' }).trim();
-if (branch === 'main' && !dryRun) {
-  console.error('Refusing to replace the tracked publication cache on main. Switch to dev, or use --dry-run.');
-  process.exit(1);
-}
-
 execFileSync(process.execPath, ['--experimental-strip-types', 'scripts/validate-content.ts'], { stdio: 'inherit' });
 execFileSync(process.execPath, ['--experimental-strip-types', 'scripts/export-authors.ts'], { stdio: 'inherit' });
 
