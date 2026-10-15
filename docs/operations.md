@@ -2,7 +2,7 @@
 
 ## Current hosting contract
 
-The initial GitHub Pages target is `https://danfoa.github.io/cmsl-website/`; the shared preview target is `https://danfoa.github.io/cmsl-website/dev/`. The repository is currently private, so Pages availability depends on the owner's GitHub plan. `SITE_ORIGIN` and `SITE_BASE_PATH` remain configurable for a future IIT domain.
+The initial GitHub Pages target is `https://csml-iit-ucl.github.io/csml-website/`; the shared preview target is `https://csml-iit-ucl.github.io/csml-website/dev/`. The repository is currently private, so Pages availability depends on the owner's GitHub plan. `deploy.yml` reads the actual origin/base path from `actions/configure-pages` at build time, so this target tracks the repository's current name and the org's real Pages settings automatically — including a future rename or custom domain — rather than being hardcoded. `SITE_ORIGIN` and `SITE_BASE_PATH` remain available as manual overrides (e.g. for local testing) and would need to be revisited if a custom domain for a future IIT domain is configured.
 
 This Phase 1 implementation is cache-only. Builds do not contact OpenAlex or blog sources. The live Bluesky feed reads the public API directly from the visitor's browser (no proxy, no credentials) and is enabled. There is no live X feed - the homepage links directly to the X profile instead (see `README.md#live-social-feeds`). CV submission is not enabled; it needs an approved hosted form.
 

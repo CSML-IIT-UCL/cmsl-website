@@ -38,12 +38,15 @@ jobs:
           node-version-file: .node-version
           cache: npm
       - name: Configure Pages
+        id: pages
         uses: actions/configure-pages@983d7736d9b0ae728b81ab479565c72886d7745b # v5
       - name: Install locked dependencies
         run: npm ci
       - name: Build exact production revision
         env:
           PUBLIC_COMMIT_SHA: ${{ github.event_name == 'workflow_run' && github.event.workflow_run.head_sha || github.sha }}
+          SITE_ORIGIN: ${{ steps.pages.outputs.origin }}
+          SITE_BASE_PATH: ${{ steps.pages.outputs.base_path }}/
         run: npm run build
       - name: Validate deployment files
         run: npm run validate:production
