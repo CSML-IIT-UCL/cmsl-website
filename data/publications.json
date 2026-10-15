@@ -1,7 +1,7 @@
 {
   "version": 1,
   "source": "OpenAlex",
-  "last_full_refresh_at": "2026-10-14T10:00:11.931243Z",
+  "last_full_refresh_at": "2026-10-15T09:24:26.879485Z",
   "author_roster_signature": "accd738bc659d3c39419569e4c210a33e230a7c7a068861a312219282119b862",
   "queried_author_ids": [
     "A5003851001",
@@ -25,23 +25,23 @@
       "author_ids": [
         "A5089972466"
       ],
-      "last_successful_refresh_at": "2026-10-14T10:00:11.931243Z",
-      "works_count": 13,
+      "last_successful_refresh_at": "2026-10-15T09:24:26.879485Z",
+      "works_count": 10,
       "status": "complete"
     },
     "erfan-mirzaei": {
       "author_ids": [
         "A5069560062"
       ],
-      "last_successful_refresh_at": "2026-10-14T10:00:11.931243Z",
-      "works_count": 10,
+      "last_successful_refresh_at": "2026-10-15T09:24:26.879485Z",
+      "works_count": 3,
       "status": "complete"
     },
     "alek-frohlich": {
       "author_ids": [
         "A5104181387"
       ],
-      "last_successful_refresh_at": "2026-10-14T10:00:11.931243Z",
+      "last_successful_refresh_at": "2026-10-15T09:24:26.879485Z",
       "works_count": 7,
       "status": "complete"
     },
@@ -49,15 +49,15 @@
       "author_ids": [
         "A5122991001"
       ],
-      "last_successful_refresh_at": "2026-10-14T10:00:11.931243Z",
-      "works_count": 7,
+      "last_successful_refresh_at": "2026-10-15T09:24:26.879485Z",
+      "works_count": 9,
       "status": "complete"
     },
     "giacomo-turri": {
       "author_ids": [
         "A5035003258"
       ],
-      "last_successful_refresh_at": "2026-10-14T10:00:11.931243Z",
+      "last_successful_refresh_at": "2026-10-15T09:24:26.879485Z",
       "works_count": 22,
       "status": "complete"
     },
@@ -65,7 +65,7 @@
       "author_ids": [
         "A5003851001"
       ],
-      "last_successful_refresh_at": "2026-10-14T10:00:11.931243Z",
+      "last_successful_refresh_at": "2026-10-15T09:24:26.879485Z",
       "works_count": 72,
       "status": "complete"
     },
@@ -73,7 +73,7 @@
       "author_ids": [
         "A5021345394"
       ],
-      "last_successful_refresh_at": "2026-10-14T10:00:11.931243Z",
+      "last_successful_refresh_at": "2026-10-15T09:24:26.879485Z",
       "works_count": 24,
       "status": "complete"
     },
@@ -81,7 +81,7 @@
       "author_ids": [
         "A5083456765"
       ],
-      "last_successful_refresh_at": "2026-10-14T10:00:11.931243Z",
+      "last_successful_refresh_at": "2026-10-15T09:24:26.879485Z",
       "works_count": 96,
       "status": "complete"
     },
@@ -89,7 +89,7 @@
       "author_ids": [
         "A5099860126"
       ],
-      "last_successful_refresh_at": "2026-10-15T09:11:42.624145Z",
+      "last_successful_refresh_at": "2026-10-15T09:24:26.879485Z",
       "works_count": 2,
       "status": "complete"
     },
@@ -97,15 +97,15 @@
       "author_ids": [
         "A5034260726"
       ],
-      "last_successful_refresh_at": "2026-10-14T10:00:11.931243Z",
-      "works_count": 297,
+      "last_successful_refresh_at": "2026-10-15T09:24:26.879485Z",
+      "works_count": 309,
       "status": "complete"
     },
     "pietro-novelli": {
       "author_ids": [
         "A5050747663"
       ],
-      "last_successful_refresh_at": "2026-10-14T10:00:11.931243Z",
+      "last_successful_refresh_at": "2026-10-15T09:24:26.879485Z",
       "works_count": 32,
       "status": "complete"
     },
@@ -113,15 +113,15 @@
       "author_ids": [
         "A5017463552"
       ],
-      "last_successful_refresh_at": "2026-10-14T10:00:11.931243Z",
-      "works_count": 49,
+      "last_successful_refresh_at": "2026-10-15T09:24:26.879485Z",
+      "works_count": 51,
       "status": "complete"
     },
     "vladimir-kostic": {
       "author_ids": [
         "A5109598009"
       ],
-      "last_successful_refresh_at": "2026-10-14T10:00:11.931243Z",
+      "last_successful_refresh_at": "2026-10-15T09:24:26.879485Z",
       "works_count": 7,
       "status": "complete"
     },
@@ -129,7 +129,7 @@
       "author_ids": [
         "A5025124468"
       ],
-      "last_successful_refresh_at": "2026-10-14T10:00:11.931243Z",
+      "last_successful_refresh_at": "2026-10-15T09:24:26.879485Z",
       "works_count": 20,
       "status": "complete"
     },
@@ -137,7 +137,7 @@
       "author_ids": [
         "A5126083601"
       ],
-      "last_successful_refresh_at": "2026-10-14T10:00:11.931243Z",
+      "last_successful_refresh_at": "2026-10-15T09:24:26.879485Z",
       "works_count": 2,
       "status": "complete"
     }
@@ -656,78 +656,6 @@
       "cited_by_count": 0
     },
     {
-      "id": "https://openalex.org/W7161064952",
-      "source": "OpenAlex",
-      "source_url": "https://openalex.org/W7161064952",
-      "doi": "10.5281/zenodo.20139774",
-      "title": "kooplearn: A scikit-learn compatible library of algorithms for evolution operator learning",
-      "publication_year": 2026,
-      "publication_date": "2026-05-12",
-      "type": "software",
-      "authors": [
-        "Giacomo Turri",
-        "Grégoire Pacreau",
-        "Giacomo Meanti",
-        "Timothée Devergne",
-        "Daniel Ordoñez-Apraez",
-        "Erfan Mirzaei",
-        "Bruno Belucci",
-        "Karim Lounici",
-        "Vladimir R. Kostić",
-        "Massimiliano Pontil",
-        "Pietro Novelli"
-      ],
-      "member_ids": [
-        "daniel-ordonez",
-        "erfan-mirzaei",
-        "giacomo-turri",
-        "karim-lounici",
-        "massimiliano-pontil",
-        "pietro-novelli"
-      ],
-      "venue": "Zenodo (CERN European Organization for Nuclear Research)",
-      "landing_page_url": "https://doi.org/10.5281/zenodo.20139774",
-      "open_access_url": "https://doi.org/10.5281/zenodo.20139774",
-      "is_retracted": false,
-      "cited_by_count": 0
-    },
-    {
-      "id": "https://openalex.org/W7165927878",
-      "source": "OpenAlex",
-      "source_url": "https://openalex.org/W7165927878",
-      "doi": "10.21105/joss.10342",
-      "title": "kooplearn: A scikit-learn compatible library of algorithms for evolution operator learning",
-      "publication_year": 2026,
-      "publication_date": "2026-06-25",
-      "type": "article",
-      "authors": [
-        "Giacomo Turri",
-        "Grégoire Pacreau",
-        "Giacomo Meanti",
-        "Timothée Devergne",
-        "Daniel Ordoñez-Apraez",
-        "Erfan Mirzaei",
-        "Bruno Belucci",
-        "Karim Lounici",
-        "Vladimir Kostić",
-        "Massimiliano Pontil",
-        "Pietro Novelli"
-      ],
-      "member_ids": [
-        "daniel-ordonez",
-        "erfan-mirzaei",
-        "giacomo-turri",
-        "karim-lounici",
-        "massimiliano-pontil",
-        "pietro-novelli"
-      ],
-      "venue": "The Journal of Open Source Software",
-      "landing_page_url": "https://doi.org/10.21105/joss.10342",
-      "open_access_url": "https://doi.org/10.21105/joss.10342",
-      "is_retracted": false,
-      "cited_by_count": 0
-    },
-    {
       "id": "https://openalex.org/W7216343143",
       "source": "OpenAlex",
       "source_url": "https://openalex.org/W7216343143",
@@ -1146,30 +1074,6 @@
       "cited_by_count": 0
     },
     {
-      "id": "https://openalex.org/W7125910376",
-      "source": "OpenAlex",
-      "source_url": "https://openalex.org/W7125910376",
-      "doi": "10.1073/pnas.2524602123",
-      "title": "The seeds of the future are in the present: A blind exploration of metastable states",
-      "publication_year": 2026,
-      "publication_date": "2026-01-28",
-      "type": "article",
-      "authors": [
-        "Timothée Devergne",
-        "Vladimir Kostić",
-        "Massimiliano Pontil",
-        "Michele Parrinello"
-      ],
-      "member_ids": [
-        "massimiliano-pontil"
-      ],
-      "venue": "Proceedings of the National Academy of Sciences",
-      "landing_page_url": "https://doi.org/10.1073/pnas.2524602123",
-      "open_access_url": "https://doi.org/10.1073/pnas.2524602123",
-      "is_retracted": false,
-      "cited_by_count": 0
-    },
-    {
       "id": "https://openalex.org/W7128633739",
       "source": "OpenAlex",
       "source_url": "https://openalex.org/W7128633739",
@@ -1242,59 +1146,23 @@
       "landing_page_url": "https://doi.org/10.48550/arxiv.2601.06597",
       "open_access_url": "https://doi.org/10.48550/arxiv.2601.06597",
       "is_retracted": false,
-      "cited_by_count": 0
-    },
-    {
-      "id": "https://openalex.org/W7124118760",
-      "source": "OpenAlex",
-      "source_url": "https://openalex.org/W7124118760",
-      "doi": null,
-      "title": "Understanding and inverse design of implicit bias in stochastic learning: a geometric perspective",
-      "publication_year": 2026,
-      "publication_date": "2026-01-10",
-      "type": "preprint",
-      "authors": [
-        "Nicola Aladrah",
-        "Emanuele Ballarin",
-        "Matteo Biagetti",
-        "Alessio Ansuini",
-        "Alberto d’Onofrio",
-        "Fabio Anselmi"
-      ],
-      "member_ids": [
-        "emanuele-ballarin"
-      ],
-      "venue": "arXiv (Cornell University)",
-      "landing_page_url": "https://arxiv.org/abs/2601.06597",
-      "open_access_url": "https://arxiv.org/abs/2601.06597",
-      "is_retracted": false,
-      "cited_by_count": 0
-    },
-    {
-      "id": "https://openalex.org/W7153621101",
-      "source": "OpenAlex",
-      "source_url": "https://openalex.org/W7153621101",
-      "doi": "10.13140/rg.2.2.15362.64964",
-      "title": "Understanding and inverse design of implicit bias in stochastic learning: a geometric perspective",
-      "publication_year": 2026,
-      "publication_date": "2026-04-11",
-      "type": "article",
-      "authors": [
-        "Nicola Aladrah",
-        "Emanuele Ballarin",
-        "Matteo Biagetti",
-        "Alessio Ansuini",
-        "Alberto d’Onofrio",
-        "Fabio Anselmi"
-      ],
-      "member_ids": [
-        "emanuele-ballarin"
-      ],
-      "venue": null,
-      "landing_page_url": "https://doi.org/10.13140/rg.2.2.15362.64964",
-      "open_access_url": "https://doi.org/10.13140/rg.2.2.15362.64964",
-      "is_retracted": false,
-      "cited_by_count": 0
+      "cited_by_count": 0,
+      "alternate_locations": [
+        {
+          "id": "https://openalex.org/W7124118760",
+          "source_url": "https://openalex.org/W7124118760",
+          "venue": "arXiv (Cornell University)",
+          "doi": null,
+          "open_access_url": "https://arxiv.org/abs/2601.06597"
+        },
+        {
+          "id": "https://openalex.org/W7153621101",
+          "source_url": "https://openalex.org/W7153621101",
+          "venue": null,
+          "doi": "10.13140/rg.2.2.15362.64964",
+          "open_access_url": "https://doi.org/10.13140/rg.2.2.15362.64964"
+        }
+      ]
     },
     {
       "id": "https://openalex.org/W7128500758",
@@ -1317,34 +1185,6 @@
       "venue": "arXiv (Cornell University)",
       "landing_page_url": "http://arxiv.org/abs/2602.07279",
       "open_access_url": "http://arxiv.org/abs/2602.07279",
-      "is_retracted": false,
-      "cited_by_count": 0
-    },
-    {
-      "id": "https://openalex.org/W7212416237",
-      "source": "OpenAlex",
-      "source_url": "https://openalex.org/W7212416237",
-      "doi": null,
-      "title": "A Bregman Proximal Viewpoint on Neural Operators",
-      "publication_year": 2025,
-      "publication_date": "2025-01-01",
-      "type": "conference-paper",
-      "authors": [
-        "Abdel-Rahim Mezidi",
-        "Jordan Patracone",
-        "Saverio Salzo",
-        "Amaury Habrard",
-        "Massimiliano Pontil",
-        "Rémi Emonet",
-        "Marc Sebban"
-      ],
-      "member_ids": [
-        "massimiliano-pontil",
-        "saverio-salzo"
-      ],
-      "venue": "IRIS Research product catalog (Sapienza University of Rome)",
-      "landing_page_url": "https://hdl.handle.net/11573/1774289",
-      "open_access_url": null,
       "is_retracted": false,
       "cited_by_count": 0
     },
@@ -1557,6 +1397,30 @@
       "cited_by_count": 4
     },
     {
+      "id": "https://openalex.org/W7112165090",
+      "source": "OpenAlex",
+      "source_url": "https://openalex.org/W7112165090",
+      "doi": null,
+      "title": "Demystifying Generative AI: A Pedagogical Approach",
+      "publication_year": 2025,
+      "publication_date": "2025-01-01",
+      "type": "book-chapter",
+      "authors": [
+        "Emanuele Ballarin",
+        "francesco Giacomarra",
+        "Andrea Mecchina",
+        "Nicholas Andrea Pearson"
+      ],
+      "member_ids": [
+        "emanuele-ballarin"
+      ],
+      "venue": "ArTS Archivio della ricerca di Trieste (University of Trieste https://www.units.it/)",
+      "landing_page_url": "https://hdl.handle.net/11368/3119439",
+      "open_access_url": "https://hdl.handle.net/11368/3119439",
+      "is_retracted": false,
+      "cited_by_count": 0
+    },
+    {
       "id": "https://openalex.org/W4409913106",
       "source": "OpenAlex",
       "source_url": "https://openalex.org/W4409913106",
@@ -1581,31 +1445,6 @@
       "open_access_url": "https://doi.org/10.1088/2632-2153/add23b",
       "is_retracted": false,
       "cited_by_count": 1
-    },
-    {
-      "id": "https://openalex.org/W7117141180",
-      "source": "OpenAlex",
-      "source_url": "https://openalex.org/W7117141180",
-      "doi": "10.1109/tcds.2025.3648042",
-      "title": "Exploiting Expertise of Non-Expert and Diverse Agents in Social Bandit Learning: A Free Energy Approach",
-      "publication_year": 2025,
-      "publication_date": "2025-12-24",
-      "type": "article",
-      "authors": [
-        "Erfan Mirzaei",
-        "Seyed Pooya Shariatpanahi",
-        "Alireza Tavakoli",
-        "Reshad Hosseini",
-        "Majid Nili Ahmadabadi"
-      ],
-      "member_ids": [
-        "erfan-mirzaei"
-      ],
-      "venue": "IEEE Transactions on Cognitive and Developmental Systems",
-      "landing_page_url": "https://doi.org/10.1109/tcds.2025.3648042",
-      "open_access_url": "https://doi.org/10.36227/techrxiv.171177240.03554657/v1",
-      "is_retracted": false,
-      "cited_by_count": 0
     },
     {
       "id": "https://openalex.org/W4414514094",
@@ -1809,8 +1648,8 @@
         "Grégoire Pacreau",
         "Giacomo Meanti",
         "Timothée Devergne",
-        "Daniel Ordoñez-Apraez",
-        "Erfan Mirzaei",
+        "Ordonez, Daniel",
+        "Mirzaei, Erfan",
         "Bruno Belucci",
         "Karim Lounici",
         "Vladimir Kostić",
@@ -1829,43 +1668,30 @@
       "landing_page_url": "https://doi.org/10.48550/arxiv.2512.21409",
       "open_access_url": "https://doi.org/10.48550/arxiv.2512.21409",
       "is_retracted": false,
-      "cited_by_count": 0
-    },
-    {
-      "id": "https://openalex.org/W7117631759",
-      "source": "OpenAlex",
-      "source_url": "https://openalex.org/W7117631759",
-      "doi": null,
-      "title": "kooplearn: A Scikit-Learn Compatible Library of Algorithms for Evolution Operator Learning",
-      "publication_year": 2025,
-      "publication_date": "2025-12-24",
-      "type": "preprint",
-      "authors": [
-        "Giacomo Turri",
-        "Grégoire Pacreau",
-        "Giacomo Meanti",
-        "Timothée Devergne",
-        "Daniel Ordoñez-Apraez",
-        "Erfan Mirzaei",
-        "Bruno Belucci",
-        "Karim Lounici",
-        "Vladimir Kostić",
-        "Massimiliano Pontil",
-        "Pietro Novelli"
-      ],
-      "member_ids": [
-        "daniel-ordonez",
-        "erfan-mirzaei",
-        "giacomo-turri",
-        "karim-lounici",
-        "massimiliano-pontil",
-        "pietro-novelli"
-      ],
-      "venue": "arXiv (Cornell University)",
-      "landing_page_url": "http://arxiv.org/abs/2512.21409",
-      "open_access_url": "http://arxiv.org/abs/2512.21409",
-      "is_retracted": false,
-      "cited_by_count": 0
+      "cited_by_count": 0,
+      "alternate_locations": [
+        {
+          "id": "https://openalex.org/W7117631759",
+          "source_url": "https://openalex.org/W7117631759",
+          "venue": "arXiv (Cornell University)",
+          "doi": null,
+          "open_access_url": "http://arxiv.org/abs/2512.21409"
+        },
+        {
+          "id": "https://openalex.org/W7161064952",
+          "source_url": "https://openalex.org/W7161064952",
+          "venue": "Zenodo (CERN European Organization for Nuclear Research)",
+          "doi": "10.5281/zenodo.20139774",
+          "open_access_url": "https://doi.org/10.5281/zenodo.20139774"
+        },
+        {
+          "id": "https://openalex.org/W7165927878",
+          "source_url": "https://openalex.org/W7165927878",
+          "venue": "The Journal of Open Source Software",
+          "doi": "10.21105/joss.10342",
+          "open_access_url": "https://doi.org/10.21105/joss.10342"
+        }
+      ]
     },
     {
       "id": "https://openalex.org/W4414298653",
@@ -2035,28 +1861,6 @@
       "cited_by_count": 0
     },
     {
-      "id": "https://openalex.org/W4410295487",
-      "source": "OpenAlex",
-      "source_url": "https://openalex.org/W4410295487",
-      "doi": "10.1109/isbi60581.2025.10981145",
-      "title": "Real-Time Eeg-Based Epileptic Seizure Detection by One-Class Classification using CNN-LSTM and STFT",
-      "publication_year": 2025,
-      "publication_date": "2025-04-14",
-      "type": "conference-paper",
-      "authors": [
-        "Erfan Mirzaei",
-        "Rahul Singh"
-      ],
-      "member_ids": [
-        "erfan-mirzaei"
-      ],
-      "venue": "IEEE International Symposium on Biomedical Imaging (ISBI)",
-      "landing_page_url": "https://doi.org/10.1109/isbi60581.2025.10981145",
-      "open_access_url": null,
-      "is_retracted": false,
-      "cited_by_count": 2
-    },
-    {
       "id": "https://openalex.org/W4415035561",
       "source": "OpenAlex",
       "source_url": "https://openalex.org/W4415035561",
@@ -2203,7 +2007,16 @@
       "landing_page_url": "http://arxiv.org/abs/2508.01477",
       "open_access_url": "http://arxiv.org/abs/2508.01477",
       "is_retracted": false,
-      "cited_by_count": 0
+      "cited_by_count": 0,
+      "alternate_locations": [
+        {
+          "id": "https://openalex.org/W7125910376",
+          "source_url": "https://openalex.org/W7125910376",
+          "venue": "Proceedings of the National Academy of Sciences",
+          "doi": "10.1073/pnas.2524602123",
+          "open_access_url": "https://doi.org/10.1073/pnas.2524602123"
+        }
+      ]
     },
     {
       "id": "https://openalex.org/W7154606286",
@@ -2320,34 +2133,6 @@
       "cited_by_count": 0
     },
     {
-      "id": "https://openalex.org/W7160586549",
-      "source": "OpenAlex",
-      "source_url": "https://openalex.org/W7160586549",
-      "doi": null,
-      "title": "\"Elucidating The Spatial Distribution of Genomic and Epigenetic Lamina-associated Domains Implicated in Adipocyte Differentiation and Hypertrophy”",
-      "publication_year": 2024,
-      "publication_date": "2024-01-01",
-      "type": "conference-paper",
-      "authors": [
-        "L. Zeaiter",
-        "F. Baldini",
-        "Lisa Cuneo",
-        "F. Diab",
-        "P. Bianchini1",
-        "A. Dabbous",
-        "L. Vergani",
-        "A. Pagano and A. Diaspro"
-      ],
-      "member_ids": [
-        "lisa-cuneo"
-      ],
-      "venue": "CINECA IRIS Institutial Research Information System (University of Genoa)",
-      "landing_page_url": "https://hdl.handle.net/11567/1300316",
-      "open_access_url": null,
-      "is_retracted": false,
-      "cited_by_count": 0
-    },
-    {
       "id": "https://openalex.org/W4398229971",
       "source": "OpenAlex",
       "source_url": "https://openalex.org/W4398229971",
@@ -2373,7 +2158,16 @@
       "landing_page_url": "https://inria.hal.science/hal-04584456",
       "open_access_url": "https://inria.hal.science/hal-04584456",
       "is_retracted": false,
-      "cited_by_count": 0
+      "cited_by_count": 0,
+      "alternate_locations": [
+        {
+          "id": "https://openalex.org/W7212416237",
+          "source_url": "https://openalex.org/W7212416237",
+          "venue": "IRIS Research product catalog (Sapienza University of Rome)",
+          "doi": null,
+          "open_access_url": null
+        }
+      ]
     },
     {
       "id": "https://openalex.org/W4399555060",
@@ -2582,7 +2376,16 @@
       "landing_page_url": "https://doi.org/10.1016/j.bpj.2023.11.1812",
       "open_access_url": "https://doi.org/10.1016/j.bpj.2023.11.1812",
       "is_retracted": false,
-      "cited_by_count": 0
+      "cited_by_count": 0,
+      "alternate_locations": [
+        {
+          "id": "https://openalex.org/W7160586549",
+          "source_url": "https://openalex.org/W7160586549",
+          "venue": "CINECA IRIS Institutial Research Information System (University of Genoa)",
+          "doi": null,
+          "open_access_url": null
+        }
+      ]
     },
     {
       "id": "https://openalex.org/W4390502770",
@@ -2659,30 +2462,6 @@
       "open_access_url": "http://arxiv.org/abs/2511.07206",
       "is_retracted": false,
       "cited_by_count": 10
-    },
-    {
-      "id": "https://openalex.org/W4388512873",
-      "source": "OpenAlex",
-      "source_url": "https://openalex.org/W4388512873",
-      "doi": null,
-      "title": "Gradient-free optimization of highly smooth functions: improved analysis and a new algorithm",
-      "publication_year": 2024,
-      "publication_date": "2024-11-01",
-      "type": "article",
-      "authors": [
-        "Arya Akhavan",
-        "Evgenii Chzhen",
-        "Massimiliano Pontil",
-        "Alexandre B. Tsybakov"
-      ],
-      "member_ids": [
-        "massimiliano-pontil"
-      ],
-      "venue": "HAL (Le Centre pour la Communication Scientifique Directe)",
-      "landing_page_url": "https://hal.science/hal-04275558",
-      "open_access_url": "https://hal.science/hal-04275558",
-      "is_retracted": false,
-      "cited_by_count": 0
     },
     {
       "id": "https://openalex.org/W4403308611",
@@ -2900,32 +2679,16 @@
       "landing_page_url": "http://arxiv.org/abs/2405.12940",
       "open_access_url": "http://arxiv.org/abs/2405.12940",
       "is_retracted": false,
-      "cited_by_count": 1
-    },
-    {
-      "id": "https://openalex.org/W4406923191",
-      "source": "OpenAlex",
-      "source_url": "https://openalex.org/W4406923191",
-      "doi": "10.52202/079017-4377",
-      "title": "Learning the Infinitesimal Generator of Stochastic Diffusion Processes",
-      "publication_year": 2024,
-      "publication_date": "2024-01-01",
-      "type": "conference-paper",
-      "authors": [
-        "Vladimir Kostic",
-        "Karim Lounici",
-        "Hélène Halconruy",
-        "Timothée Devergne",
-        "Massimiliano Pontil"
-      ],
-      "member_ids": [
-        "karim-lounici"
-      ],
-      "venue": "neural information processing systems",
-      "landing_page_url": "https://doi.org/10.52202/079017-4377",
-      "open_access_url": "https://hal.science/hal-04909506v1/document",
-      "is_retracted": false,
-      "cited_by_count": 2
+      "cited_by_count": 1,
+      "alternate_locations": [
+        {
+          "id": "https://openalex.org/W4406923191",
+          "source_url": "https://openalex.org/W4406923191",
+          "venue": "neural information processing systems",
+          "doi": "10.52202/079017-4377",
+          "open_access_url": "https://hal.science/hal-04909506v1/document"
+        }
+      ]
     },
     {
       "id": "https://openalex.org/W4405785545",
@@ -3009,29 +2772,6 @@
       "cited_by_count": 1
     },
     {
-      "id": "https://openalex.org/W4402034372",
-      "source": "OpenAlex",
-      "source_url": "https://openalex.org/W4402034372",
-      "doi": "10.1007/978-3-031-70341-6_14",
-      "title": "Neighborhood Component Feature Selection for Multiple Instance Learning Paradigm",
-      "publication_year": 2024,
-      "publication_date": "2024-01-01",
-      "type": "conference-paper",
-      "authors": [
-        "Giacomo Turri",
-        "Luca Romeo"
-      ],
-      "member_ids": [
-        "giacomo-turri",
-        "luca-romeo"
-      ],
-      "venue": "Lecture notes in computer science",
-      "landing_page_url": "https://doi.org/10.1007/978-3-031-70341-6_14",
-      "open_access_url": null,
-      "is_retracted": false,
-      "cited_by_count": 0
-    },
-    {
       "id": "https://openalex.org/W4400342008",
       "source": "OpenAlex",
       "source_url": "https://openalex.org/W4400342008",
@@ -3052,43 +2792,23 @@
         "giacomo-turri",
         "karim-lounici",
         "massimiliano-pontil",
-        "pietro-novelli"
+        "pietro-novelli",
+        "vladimir-kostic"
       ],
       "venue": "arXiv (Cornell University)",
       "landing_page_url": "http://arxiv.org/abs/2407.01171",
       "open_access_url": "http://arxiv.org/abs/2407.01171",
       "is_retracted": false,
-      "cited_by_count": 0
-    },
-    {
-      "id": "https://openalex.org/W4415797473",
-      "source": "OpenAlex",
-      "source_url": "https://openalex.org/W4415797473",
-      "doi": "10.52202/079017-1950",
-      "title": "Neural Conditional Probability for Uncertainty Quantification",
-      "publication_year": 2024,
-      "publication_date": "2024-01-01",
-      "type": "conference-paper",
-      "authors": [
-        "Vladimir R. Kostic",
-        "Karim Lounici",
-        "Grégoire Pacreau",
-        "Giacomo Turri",
-        "Pietro Novelli",
-        "Massimiliano Pontil"
-      ],
-      "member_ids": [
-        "giacomo-turri",
-        "karim-lounici",
-        "massimiliano-pontil",
-        "pietro-novelli",
-        "vladimir-kostic"
-      ],
-      "venue": "neural information processing systems",
-      "landing_page_url": "https://doi.org/10.52202/079017-1950",
-      "open_access_url": null,
-      "is_retracted": false,
-      "cited_by_count": 5
+      "cited_by_count": 0,
+      "alternate_locations": [
+        {
+          "id": "https://openalex.org/W4415797473",
+          "source_url": "https://openalex.org/W4415797473",
+          "venue": "neural information processing systems",
+          "doi": "10.52202/079017-1950",
+          "open_access_url": null
+        }
+      ]
     },
     {
       "id": "https://openalex.org/W4390480754",
@@ -3464,28 +3184,27 @@
       "cited_by_count": 41
     },
     {
-      "id": "https://openalex.org/W3201103276",
+      "id": "https://openalex.org/W7113065857",
       "source": "OpenAlex",
-      "source_url": "https://openalex.org/W3201103276",
-      "doi": "10.1007/978-3-031-25891-6_42",
-      "title": "BioLCNet: Reward-Modulated Locally Connected Spiking Neural Networks",
+      "source_url": "https://openalex.org/W7113065857",
+      "doi": "10.48550/arxiv.2306.06081",
+      "title": "Blending adversarial training and representation-conditional purification via aggregation improves adversarial robustness",
       "publication_year": 2023,
-      "publication_date": "2023-01-01",
-      "type": "conference-paper",
+      "publication_date": "2023-05-25",
+      "type": "preprint",
       "authors": [
-        "Hafez Ghaemi",
-        "Erfan Mirzaei",
-        "Mahbod Nouri",
-        "Saeed Reza Kheradpisheh"
+        "Emanuele Ballarin",
+        "Ansuini, Alessio",
+        "Bortolussi, Luca"
       ],
       "member_ids": [
-        "erfan-mirzaei"
+        "emanuele-ballarin"
       ],
-      "venue": "Lecture notes in computer science",
-      "landing_page_url": "https://doi.org/10.1007/978-3-031-25891-6_42",
-      "open_access_url": "http://arxiv.org/abs/2109.05539",
+      "venue": "arXiv (Cornell University)",
+      "landing_page_url": "http://arxiv.org/abs/2306.06081",
+      "open_access_url": "http://arxiv.org/abs/2306.06081",
       "is_retracted": false,
-      "cited_by_count": 6
+      "cited_by_count": 0
     },
     {
       "id": "https://openalex.org/W4390136440",
@@ -3726,34 +3445,16 @@
       "landing_page_url": "https://doi.org/10.52202/075280-3378",
       "open_access_url": "http://arxiv.org/abs/2306.04520",
       "is_retracted": false,
-      "cited_by_count": 6
-    },
-    {
-      "id": "https://openalex.org/W7162621162",
-      "source": "OpenAlex",
-      "source_url": "https://openalex.org/W7162621162",
-      "doi": null,
-      "title": "Estimating Koopman operators with sketching to provably learn large scale dynamical systems",
-      "publication_year": 2023,
-      "publication_date": "2023-01-01",
-      "type": "conference-paper",
-      "authors": [
-        "Giacomo Meanti",
-        "Kostic V. R.",
-        "Massimiliano Pontil",
-        "Antoine Chatalic",
-        "Pietro Novelli",
-        "Rosasco L."
-      ],
-      "member_ids": [
-        "massimiliano-pontil",
-        "pietro-novelli"
-      ],
-      "venue": "CINECA IRIS Institutial Research Information System (University of Genoa)",
-      "landing_page_url": "https://hdl.handle.net/11567/1304747",
-      "open_access_url": null,
-      "is_retracted": false,
-      "cited_by_count": 0
+      "cited_by_count": 6,
+      "alternate_locations": [
+        {
+          "id": "https://openalex.org/W7162621162",
+          "source_url": "https://openalex.org/W7162621162",
+          "venue": "CINECA IRIS Institutial Research Information System (University of Genoa)",
+          "doi": null,
+          "open_access_url": null
+        }
+      ]
     },
     {
       "id": "https://openalex.org/W4323668121",
@@ -3803,7 +3504,16 @@
       "landing_page_url": "http://arxiv.org/abs/2306.02159",
       "open_access_url": "http://arxiv.org/abs/2306.02159",
       "is_retracted": false,
-      "cited_by_count": 5
+      "cited_by_count": 5,
+      "alternate_locations": [
+        {
+          "id": "https://openalex.org/W4388512873",
+          "source_url": "https://openalex.org/W4388512873",
+          "venue": "HAL (Le Centre pour la Communication Scientifique Directe)",
+          "doi": null,
+          "open_access_url": "https://hal.science/hal-04275558"
+        }
+      ]
     },
     {
       "id": "https://openalex.org/W4379409699",
@@ -3980,7 +3690,16 @@
       "landing_page_url": "https://doi.org/10.2139/ssrn.4446019",
       "open_access_url": "https://doi.org/10.2139/ssrn.4446019",
       "is_retracted": false,
-      "cited_by_count": 0
+      "cited_by_count": 0,
+      "alternate_locations": [
+        {
+          "id": "https://openalex.org/W4402034372",
+          "source_url": "https://openalex.org/W4402034372",
+          "venue": "Lecture notes in computer science",
+          "doi": "10.1007/978-3-031-70341-6_14",
+          "open_access_url": null
+        }
+      ]
     },
     {
       "id": "https://openalex.org/W4385234842",
@@ -4126,6 +3845,32 @@
       "cited_by_count": 28
     },
     {
+      "id": "https://openalex.org/W6996153154",
+      "source": "OpenAlex",
+      "source_url": "https://openalex.org/W6996153154",
+      "doi": null,
+      "title": "Relax and penalize: a new bilevel approach to mixed-binary hyperparameter optimization",
+      "publication_year": 2023,
+      "publication_date": "2023-08-21",
+      "type": "preprint",
+      "authors": [
+        "de Santis, Marianna",
+        "Jordan Patracone",
+        "Rinaldi, Francesco",
+        "Saverio Salzo",
+        "Schmidt, Martin",
+        "Venturini, Sara"
+      ],
+      "member_ids": [
+        "saverio-salzo"
+      ],
+      "venue": "HAL (Le Centre pour la Communication Scientifique Directe)",
+      "landing_page_url": "https://hal.science/hal-04183917/document",
+      "open_access_url": "https://hal.science/hal-04183917/document",
+      "is_retracted": false,
+      "cited_by_count": 0
+    },
+    {
       "id": "https://openalex.org/W4379261262",
       "source": "OpenAlex",
       "source_url": "https://openalex.org/W4379261262",
@@ -4145,29 +3890,16 @@
       "landing_page_url": "http://arxiv.org/abs/2306.00752",
       "open_access_url": "http://arxiv.org/abs/2306.00752",
       "is_retracted": false,
-      "cited_by_count": 2
-    },
-    {
-      "id": "https://openalex.org/W7133189089",
-      "source": "OpenAlex",
-      "source_url": "https://openalex.org/W7133189089",
-      "doi": "10.52202/075280-3157",
-      "title": "Robust covariance estimation with missing values and cell-wise contamination",
-      "publication_year": 2023,
-      "publication_date": "2023-01-01",
-      "type": "conference-paper",
-      "authors": [
-        "Grégoire Pacreau",
-        "Karim Lounici"
-      ],
-      "member_ids": [
-        "karim-lounici"
-      ],
-      "venue": "neural information processing systems",
-      "landing_page_url": "https://doi.org/10.52202/075280-3157",
-      "open_access_url": null,
-      "is_retracted": false,
-      "cited_by_count": 2
+      "cited_by_count": 2,
+      "alternate_locations": [
+        {
+          "id": "https://openalex.org/W7133189089",
+          "source_url": "https://openalex.org/W7133189089",
+          "venue": "neural information processing systems",
+          "doi": "10.52202/075280-3157",
+          "open_access_url": null
+        }
+      ]
     },
     {
       "id": "https://openalex.org/W4387986678",
@@ -4227,7 +3959,7 @@
       "type": "preprint",
       "authors": [
         "Isak Falk",
-        "Bonati, Luigi",
+        "Luigi Bonati",
         "Pietro Novelli",
         "Michele Parrinello",
         "Massimiliano Pontil"
@@ -4240,33 +3972,16 @@
       "landing_page_url": "http://arxiv.org/abs/2306.01589",
       "open_access_url": "http://arxiv.org/abs/2306.01589",
       "is_retracted": false,
-      "cited_by_count": 4
-    },
-    {
-      "id": "https://openalex.org/W7133238918",
-      "source": "OpenAlex",
-      "source_url": "https://openalex.org/W7133238918",
-      "doi": "10.52202/075280-1296",
-      "title": "Transfer learning for atomistic simulations using GNNs and kernel mean embeddings",
-      "publication_year": 2023,
-      "publication_date": "2023-01-01",
-      "type": "conference-paper",
-      "authors": [
-        "John Falk",
-        "Luigi Bonati",
-        "Pietro Novelli",
-        "Michele Parrinello",
-        "Massimiliano Pontil"
-      ],
-      "member_ids": [
-        "massimiliano-pontil",
-        "pietro-novelli"
-      ],
-      "venue": "neural information processing systems",
-      "landing_page_url": "https://doi.org/10.52202/075280-1296",
-      "open_access_url": null,
-      "is_retracted": false,
-      "cited_by_count": 1
+      "cited_by_count": 4,
+      "alternate_locations": [
+        {
+          "id": "https://openalex.org/W7133238918",
+          "source_url": "https://openalex.org/W7133238918",
+          "venue": "neural information processing systems",
+          "doi": "10.52202/075280-1296",
+          "open_access_url": null
+        }
+      ]
     },
     {
       "id": "https://openalex.org/W4367627265",
@@ -4314,7 +4029,16 @@
       "landing_page_url": "http://arxiv.org/abs/2205.13910",
       "open_access_url": "http://arxiv.org/abs/2205.13910",
       "is_retracted": false,
-      "cited_by_count": 4
+      "cited_by_count": 4,
+      "alternate_locations": [
+        {
+          "id": "https://openalex.org/W4296548467",
+          "source_url": "https://openalex.org/W4296548467",
+          "venue": "HAL (Le Centre pour la Communication Scientifique Directe)",
+          "doi": null,
+          "open_access_url": "https://hal.science/hal-03782218"
+        }
+      ]
     },
     {
       "id": "https://openalex.org/W4283389038",
@@ -4367,7 +4091,7 @@
       "landing_page_url": "https://doi.org/10.1007/s00521-022-07050-6",
       "open_access_url": "https://doi.org/10.1007/s00521-022-07050-6",
       "is_retracted": false,
-      "cited_by_count": 33
+      "cited_by_count": 34
     },
     {
       "id": "https://openalex.org/W4281758395",
@@ -4383,7 +4107,7 @@
         "Salvatore Scellato",
         "Renaud Lambiotte",
         "Massimiliano Pontil",
-        "Cecilia Mascolo"
+        "Cecilia Mascolo C"
       ],
       "member_ids": [
         "massimiliano-pontil"
@@ -4490,29 +4214,6 @@
       "open_access_url": "http://arxiv.org/abs/2204.07391",
       "is_retracted": false,
       "cited_by_count": 23
-    },
-    {
-      "id": "https://openalex.org/W7133229415",
-      "source": "OpenAlex",
-      "source_url": "https://openalex.org/W7133229415",
-      "doi": "10.52202/068431-0019",
-      "title": "Conditional Meta-Learning of Linear Representations",
-      "publication_year": 2022,
-      "publication_date": "2022-01-01",
-      "type": "conference-paper",
-      "authors": [
-        "Giulia Denevi",
-        "Massimiliano Pontil",
-        "Carlo Ciliberto"
-      ],
-      "member_ids": [
-        "massimiliano-pontil"
-      ],
-      "venue": "neural information processing systems",
-      "landing_page_url": "https://doi.org/10.52202/068431-0019",
-      "open_access_url": null,
-      "is_retracted": false,
-      "cited_by_count": 0
     },
     {
       "id": "https://openalex.org/W4226522719",
@@ -4873,68 +4574,30 @@
       ],
       "member_ids": [
         "massimiliano-pontil",
-        "pietro-novelli"
+        "pietro-novelli",
+        "vladimir-kostic"
       ],
       "venue": "arXiv (Cornell University)",
       "landing_page_url": "http://arxiv.org/abs/2205.14027",
       "open_access_url": "http://arxiv.org/abs/2205.14027",
       "is_retracted": false,
-      "cited_by_count": 16
-    },
-    {
-      "id": "https://openalex.org/W7133211863",
-      "source": "OpenAlex",
-      "source_url": "https://openalex.org/W7133211863",
-      "doi": "10.52202/068431-0290",
-      "title": "Learning Dynamical Systems Via Koopman Operator Regression in Reproducing Kernel Hilbert Spaces",
-      "publication_year": 2022,
-      "publication_date": "2022-01-01",
-      "type": "conference-paper",
-      "authors": [
-        "Vladimir R. Kostic",
-        "Pietro Novelli",
-        "Andreas Maurer",
-        "Carlo Ciliberto",
-        "Lorenzo Rosasco",
-        "Massimiliano Pontil"
-      ],
-      "member_ids": [
-        "massimiliano-pontil",
-        "pietro-novelli",
-        "vladimir-kostic"
-      ],
-      "venue": "neural information processing systems",
-      "landing_page_url": "https://doi.org/10.52202/068431-0290",
-      "open_access_url": null,
-      "is_retracted": false,
-      "cited_by_count": 5
-    },
-    {
-      "id": "https://openalex.org/W7162617460",
-      "source": "OpenAlex",
-      "source_url": "https://openalex.org/W7162617460",
-      "doi": null,
-      "title": "Learning Dynamical Systems via Koopman Operator Regression in Reproducing Kernel Hilbert Spaces",
-      "publication_year": 2022,
-      "publication_date": "2022-01-01",
-      "type": "conference-paper",
-      "authors": [
-        "Kostic V. R.",
-        "Maurer A.",
-        "Rosasco L.",
-        "Pietro Novelli",
-        "Carlo Ciliberto",
-        "Massimiliano Pontil"
-      ],
-      "member_ids": [
-        "massimiliano-pontil",
-        "pietro-novelli"
-      ],
-      "venue": "CINECA IRIS Institutial Research Information System (University of Genoa)",
-      "landing_page_url": "https://hdl.handle.net/11567/1304748",
-      "open_access_url": null,
-      "is_retracted": false,
-      "cited_by_count": 0
+      "cited_by_count": 16,
+      "alternate_locations": [
+        {
+          "id": "https://openalex.org/W7133211863",
+          "source_url": "https://openalex.org/W7133211863",
+          "venue": "neural information processing systems",
+          "doi": "10.52202/068431-0290",
+          "open_access_url": null
+        },
+        {
+          "id": "https://openalex.org/W7162617460",
+          "source_url": "https://openalex.org/W7162617460",
+          "venue": "CINECA IRIS Institutial Research Information System (University of Genoa)",
+          "doi": null,
+          "open_access_url": null
+        }
+      ]
     },
     {
       "id": "https://openalex.org/W4309130069",
@@ -4995,13 +4658,14 @@
       "publication_date": "2022-02-21",
       "type": "preprint",
       "authors": [
-        "Leonardo Cella",
+        "Cella, Leonardo",
         "Karim Lounici",
         "Pacreau, Grégoire",
-        "Pontil, Massimiliano"
+        "Massimiliano Pontil"
       ],
       "member_ids": [
-        "karim-lounici"
+        "karim-lounici",
+        "massimiliano-pontil"
       ],
       "venue": "arXiv (Cornell University)",
       "landing_page_url": "http://arxiv.org/abs/2202.10066",
@@ -5116,28 +4780,6 @@
       "open_access_url": "http://arxiv.org/abs/2210.05561",
       "is_retracted": false,
       "cited_by_count": 1
-    },
-    {
-      "id": "https://openalex.org/W4323021345",
-      "source": "OpenAlex",
-      "source_url": "https://openalex.org/W4323021345",
-      "doi": "10.1109/icbme57741.2022.10052963",
-      "title": "Seizure Prediction in Epileptic Patients Using EEG and Anomaly Detection",
-      "publication_year": 2022,
-      "publication_date": "2022-12-21",
-      "type": "conference-paper",
-      "authors": [
-        "Erfan Mirzaei",
-        "Mohammad Bagher Shamsollahi"
-      ],
-      "member_ids": [
-        "erfan-mirzaei"
-      ],
-      "venue": "National and International Iranian Conference on Biomedical Engineering (ICBME)",
-      "landing_page_url": "https://doi.org/10.1109/icbme57741.2022.10052963",
-      "open_access_url": null,
-      "is_retracted": false,
-      "cited_by_count": 5
     },
     {
       "id": "https://openalex.org/W4280488859",
@@ -5395,7 +5037,7 @@
       "authors": [
         "Anastasios Noulas",
         "Salvatore Scellato",
-        "Cecilia Mascolo",
+        "Cecilia Mascolo C",
         "Massimiliano Pontil"
       ],
       "member_ids": [
@@ -5549,7 +5191,16 @@
       "landing_page_url": "http://arxiv.org/abs/2103.16277",
       "open_access_url": "http://arxiv.org/abs/2103.16277",
       "is_retracted": false,
-      "cited_by_count": 3
+      "cited_by_count": 3,
+      "alternate_locations": [
+        {
+          "id": "https://openalex.org/W7133229415",
+          "source_url": "https://openalex.org/W7133229415",
+          "venue": "neural information processing systems",
+          "doi": "10.52202/068431-0019",
+          "open_access_url": null
+        }
+      ]
     },
     {
       "id": "https://openalex.org/W3215011198",
@@ -5609,7 +5260,7 @@
       "authors": [
         "Anastasios Noulas",
         "Salvatore Scellato",
-        "Cecilia Mascolo",
+        "Cecilia Mascolo C",
         "Massimiliano Pontil"
       ],
       "member_ids": [
@@ -6264,6 +5915,41 @@
       "cited_by_count": 1
     },
     {
+      "id": "https://openalex.org/W2795716956",
+      "source": "OpenAlex",
+      "source_url": "https://openalex.org/W2795716956",
+      "doi": "10.22331/q-2020-02-20-234",
+      "title": "Approximating Hamiltonian dynamics with the Nyström method",
+      "publication_year": 2020,
+      "publication_date": "2020-02-20",
+      "type": "article",
+      "authors": [
+        "Alessandro Rudi",
+        "Leonard Wossnig",
+        "Carlo Ciliberto",
+        "Andrea Rocchetto",
+        "Massimiliano Pontil",
+        "Simone Severini"
+      ],
+      "member_ids": [
+        "massimiliano-pontil"
+      ],
+      "venue": "Quantum",
+      "landing_page_url": "https://doi.org/10.22331/q-2020-02-20-234",
+      "open_access_url": "https://doi.org/10.22331/q-2020-02-20-234",
+      "is_retracted": false,
+      "cited_by_count": 5,
+      "alternate_locations": [
+        {
+          "id": "https://openalex.org/W3102422861",
+          "source_url": "https://openalex.org/W3102422861",
+          "venue": "UCL Discovery (University College London)",
+          "doi": null,
+          "open_access_url": null
+        }
+      ]
+    },
+    {
       "id": "https://openalex.org/W3159451937",
       "source": "OpenAlex",
       "source_url": "https://openalex.org/W3159451937",
@@ -6526,7 +6212,7 @@
       "landing_page_url": "https://doi.org/10.1016/j.compbiomed.2020.103912",
       "open_access_url": null,
       "is_retracted": false,
-      "cited_by_count": 44
+      "cited_by_count": 43
     },
     {
       "id": "https://openalex.org/W3102837403",
@@ -6603,28 +6289,6 @@
       "cited_by_count": 8
     },
     {
-      "id": "https://openalex.org/W2982336121",
-      "source": "OpenAlex",
-      "source_url": "https://openalex.org/W2982336121",
-      "doi": "10.1142/s0219530519410069",
-      "title": "Generalized support vector regression: Duality and tensor-kernel representation",
-      "publication_year": 2020,
-      "publication_date": "2020-01-01",
-      "type": "article",
-      "authors": [
-        "Saverio Salzo",
-        "Johan A. K. Suykens"
-      ],
-      "member_ids": [
-        "saverio-salzo"
-      ],
-      "venue": "IRIS Research product catalog (Sapienza University of Rome)",
-      "landing_page_url": "https://hdl.handle.net/11573/1654460",
-      "open_access_url": "https://hdl.handle.net/11573/1654460",
-      "is_retracted": false,
-      "cited_by_count": 4
-    },
-    {
       "id": "https://openalex.org/W3089471696",
       "source": "OpenAlex",
       "source_url": "https://openalex.org/W3089471696",
@@ -6672,7 +6336,7 @@
       "landing_page_url": "https://doi.org/10.1016/j.patrec.2020.02.017",
       "open_access_url": "https://doi.org/10.1016/j.patrec.2020.02.017",
       "is_retracted": false,
-      "cited_by_count": 364
+      "cited_by_count": 365
     },
     {
       "id": "https://openalex.org/W3035736507",
@@ -6762,7 +6426,7 @@
       "publication_date": "2020-05-18",
       "type": "preprint",
       "authors": [
-        "Leonardo Cella",
+        "Cella, Leonardo",
         "Alessandro Lazaric",
         "Massimiliano Pontil"
       ],
@@ -6797,31 +6461,16 @@
       "landing_page_url": "http://arxiv.org/abs/2006.12938",
       "open_access_url": "http://arxiv.org/abs/2006.12938",
       "is_retracted": false,
-      "cited_by_count": 8
-    },
-    {
-      "id": "https://openalex.org/W4309088539",
-      "source": "OpenAlex",
-      "source_url": "https://openalex.org/W4309088539",
-      "doi": "10.48550/arxiv.2006.12938",
-      "title": "Multi-source Domain Adaptation via Weighted Joint Distributions Optimal Transport",
-      "publication_year": 2020,
-      "publication_date": "2020-06-23",
-      "type": "preprint",
-      "authors": [
-        "Rosanna Turrisi",
-        "Rémi Flamary",
-        "Alain Rakotomamonjy",
-        "Massimiliano Pontil"
-      ],
-      "member_ids": [
-        "massimiliano-pontil"
-      ],
-      "venue": "arXiv (Cornell University)",
-      "landing_page_url": "https://doi.org/10.48550/arxiv.2006.12938",
-      "open_access_url": "https://doi.org/10.48550/arxiv.2006.12938",
-      "is_retracted": false,
-      "cited_by_count": 4
+      "cited_by_count": 8,
+      "alternate_locations": [
+        {
+          "id": "https://openalex.org/W4309088539",
+          "source_url": "https://openalex.org/W4309088539",
+          "venue": "arXiv (Cornell University)",
+          "doi": "10.48550/arxiv.2006.12938",
+          "open_access_url": "https://doi.org/10.48550/arxiv.2006.12938"
+        }
+      ]
     },
     {
       "id": "https://openalex.org/W3037674050",
@@ -6883,7 +6532,7 @@
       "publication_date": "2020-12-07",
       "type": "preprint",
       "authors": [
-        "Leonardo Cella",
+        "Cella, Leonardo",
         "Gentile, Claudio",
         "Massimiliano Pontil"
       ],
@@ -7404,7 +7053,7 @@
         "Luca Franceschi",
         "Michele Focchi",
         "Massimiliano Pontil",
-        "Darwin  Gordon Caldwell",
+        "Darwin G. Caldwell",
         "Claudio Semini"
       ],
       "member_ids": [
@@ -7436,7 +7085,16 @@
       "landing_page_url": "https://doi.org/10.1142/s0219530519410069",
       "open_access_url": "http://arxiv.org/abs/1603.05876",
       "is_retracted": false,
-      "cited_by_count": 5
+      "cited_by_count": 5,
+      "alternate_locations": [
+        {
+          "id": "https://openalex.org/W2982336121",
+          "source_url": "https://openalex.org/W2982336121",
+          "venue": "IRIS Research product catalog (Sapienza University of Rome)",
+          "doi": "10.1142/s0219530519410069",
+          "open_access_url": "https://hdl.handle.net/11573/1654460"
+        }
+      ]
     },
     {
       "id": "https://openalex.org/W4233882229",
@@ -7499,7 +7157,7 @@
         "Luca Franceschi",
         "Mathias Niepert",
         "Massimiliano Pontil",
-        "Xiao Yang He"
+        "Xiao He"
       ],
       "member_ids": [
         "massimiliano-pontil"
@@ -7594,7 +7252,7 @@
       "type": "preprint",
       "authors": [
         "Giulia Luise",
-        "Stamos, Dimitris",
+        "Dimitris Stamos",
         "Massimiliano Pontil",
         "Carlo Ciliberto"
       ],
@@ -8316,7 +7974,7 @@
         "Michele Focchi",
         "Luca Franceschi",
         "Massimiliano Pontil",
-        "Darwin  Gordon Caldwell",
+        "Darwin G. Caldwell",
         "Claudio Semini"
       ],
       "member_ids": [
@@ -8353,6 +8011,135 @@
       "cited_by_count": 1
     },
     {
+      "id": "https://openalex.org/W2948341355",
+      "source": "OpenAlex",
+      "source_url": "https://openalex.org/W2948341355",
+      "doi": null,
+      "title": "Il Futuro della Cybersecurity in Italia: Ambiti Progettuali Strategici",
+      "publication_year": 2018,
+      "publication_date": "2018-01-01",
+      "type": "article",
+      "authors": [
+        "Cosimo Anglano A",
+        "Leonardo Aniello",
+        "Arije Antinori",
+        "Alessandro Armando",
+        "Rocco Aversa",
+        "Baldi Marco",
+        "Roberto Baldoni",
+        "Barili Antonio",
+        "Massimo Bartoletti",
+        "Basile Cataldo",
+        "M. Bellini",
+        "Francesco Bergadano",
+        "Cinzia Bernardeschi",
+        "Bertino Elisa",
+        "Giuseppe Bianchi",
+        "Claudia Biancotti",
+        "Stefano Bistarelli",
+        "Nicola Bléfari-Melazzi",
+        "Milena Boetti",
+        "Bondavalli Andrea",
+        "Bonomi Silvia",
+        "Francesco Buccafurri",
+        "Enrico Cambiaso",
+        "Caputo Barbara",
+        "Barbara Carminati",
+        "F. S. Cataliotti",
+        "Tiziana Catarci",
+        "Ceccarelli Andrea",
+        "Nicolò Cesa‐Bianchi",
+        "Chiaraluce Franco",
+        "Michele Colajanni",
+        "Conti Marco",
+        "Mauro Conti",
+        "Luigi Coppolino",
+        "Gabriele Sousa Costa",
+        "Valerio Costamagna",
+        "Domenico Cotroneo",
+        "Crispo Bruno",
+        "Rita Cucchiara",
+        "Salvatore D’Antonio",
+        "Damiani Ernesto",
+        "Rocco De Nicola",
+        "Alfredo De Santis",
+        "Giuseppe Battista",
+        "Beniamino Di Martino",
+        "Ivo Pietro Degiovanni",
+        "Camil Demetrescu",
+        "Arturo Di Corinto",
+        "Giuseppe Antonio Di Luna",
+        "Giorgio Di Natale",
+        "Gianluca Dini",
+        "Evangelisti Marco",
+        "Daniela Falcinelli",
+        "G Figa' Talamanca",
+        "Ferretti Marco",
+        "Massimo FICCO",
+        "Paola Flocchini",
+        "Marie-Lise Flottes",
+        "Riccardo Focardi A",
+        "Luisa Franchina",
+        "Angelo Furfaro",
+        "Giorgio Giacinto",
+        "Roberto Giacobazzi",
+        "Paola Girdinio",
+        "Guida Franco",
+        "Giuseppe Francesco Italiano",
+        "Daniele Lain",
+        "Laurenti Nicola",
+        "Lioy Antonio",
+        "Michele Loreti",
+        "Donato Malerba",
+        "Luigi Vincenzo Mancini",
+        "Alberto Marchetti-Spaccamela",
+        "Marcialis Gianluca",
+        "Margheri Andrea",
+        "Marrella Andrea",
+        "Fabio Martinelli",
+        "Maurizio Martinelli",
+        "Luigi Martino",
+        "Massacci Fabio",
+        "Marco Mayer",
+        "Massimo Mecella",
+        "Maurizio Mensi",
+        "Alessio Merlo",
+        "Marino Miculan A",
+        "Montanari Luca",
+        "Morana Marco",
+        "Gian Domenico Mosco",
+        "Leonardo Mostarda",
+        "Vittorio Murino",
+        "Daniele Nardi",
+        "Roberto Navigli A",
+        "Andrea Palazzi",
+        "Palmieri Francesco",
+        "Ida Claudia Panetta",
+        "Passarella Andrea",
+        "Alessandro Pellegrini",
+        "Pelosi Gerardo",
+        "Giancarlo Pellegrino",
+        "Giuseppe Pirlo"
+      ],
+      "member_ids": [
+        "massimiliano-pontil"
+      ],
+      "venue": null,
+      "landing_page_url": "https://iris.unical.it/handle/20.500.11770/290860",
+      "open_access_url": null,
+      "is_retracted": false,
+      "cited_by_count": 1,
+      "alternate_locations": [
+        {
+          "id": "https://openalex.org/W7217641598",
+          "source_url": "https://openalex.org/W7217641598",
+          "venue": "Archive of Doctoral Theses and Digital Collections (University of Calabria)",
+          "doi": null,
+          "open_access_url": null
+        }
+      ]
+    },
+    {
       "id": "https://openalex.org/W2790068046",
       "source": "OpenAlex",
       "source_url": "https://openalex.org/W2790068046",
@@ -8374,7 +8161,7 @@
       "landing_page_url": "http://arxiv.org/abs/1803.08089",
       "open_access_url": "http://arxiv.org/abs/1803.08089",
       "is_retracted": false,
-      "cited_by_count": 17
+      "cited_by_count": 16
     },
     {
       "id": "https://openalex.org/W2787835268",
@@ -8435,7 +8222,7 @@
       "type": "article",
       "authors": [
         "Patrick L. Combettes",
-        "Andrew Michael McDonald",
+        "Andrew M. McDonald",
         "Charles A. Micchelli",
         "Massimiliano Pontil"
       ],
@@ -8446,7 +8233,16 @@
       "landing_page_url": "https://doi.org/10.1007/s11075-018-0568-1",
       "open_access_url": null,
       "is_retracted": false,
-      "cited_by_count": 4
+      "cited_by_count": 4,
+      "alternate_locations": [
+        {
+          "id": "https://openalex.org/W2952607307",
+          "source_url": "https://openalex.org/W2952607307",
+          "venue": "arXiv (Cornell University)",
+          "doi": "10.48550/arxiv.1603.09273",
+          "open_access_url": "http://arxiv.org/abs/1603.09273"
+        }
+      ]
     },
     {
       "id": "https://openalex.org/W2888844977",
@@ -8609,29 +8405,6 @@
       "open_access_url": "https://doi.org/10.1098/rspa.2017.0551",
       "is_retracted": false,
       "cited_by_count": 512
-    },
-    {
-      "id": "https://openalex.org/W2963099468",
-      "source": "OpenAlex",
-      "source_url": "https://openalex.org/W2963099468",
-      "doi": "10.1142/s0219530516500202",
-      "title": "Regularized learning schemes in feature Banach spaces",
-      "publication_year": 2018,
-      "publication_date": "2018-01-01",
-      "type": "article",
-      "authors": [
-        "Patrick L. Combettes",
-        "Saverio Salzo",
-        "Silvia Villa"
-      ],
-      "member_ids": [
-        "saverio-salzo"
-      ],
-      "venue": "IRIS Research product catalog (Sapienza University of Rome)",
-      "landing_page_url": "https://hdl.handle.net/11573/1654463",
-      "open_access_url": null,
-      "is_retracted": false,
-      "cited_by_count": 18
     },
     {
       "id": "https://openalex.org/W2963363565",
@@ -8860,7 +8633,16 @@
       "landing_page_url": "https://doi.org/10.1007/s10107-017-1133-8",
       "open_access_url": null,
       "is_retracted": false,
-      "cited_by_count": 13
+      "cited_by_count": 13,
+      "alternate_locations": [
+        {
+          "id": "https://openalex.org/W2951074469",
+          "source_url": "https://openalex.org/W2951074469",
+          "venue": "arXiv (Cornell University)",
+          "doi": "10.48550/arxiv.1504.04636",
+          "open_access_url": "http://arxiv.org/abs/1504.04636"
+        }
+      ]
     },
     {
       "id": "https://openalex.org/W2617604721",
@@ -9289,7 +9071,16 @@
       "landing_page_url": "https://doi.org/10.3150/15-bej730",
       "open_access_url": "https://doi.org/10.3150/15-bej730",
       "is_retracted": false,
-      "cited_by_count": 191
+      "cited_by_count": 191,
+      "alternate_locations": [
+        {
+          "id": "https://openalex.org/W2951158675",
+          "source_url": "https://openalex.org/W2951158675",
+          "venue": "arXiv (Cornell University)",
+          "doi": "10.48550/arxiv.1405.2468",
+          "open_access_url": "https://arxiv.org/pdf/1405.2468.pdf"
+        }
+      ]
     },
     {
       "id": "https://openalex.org/W2554146567",
@@ -9373,7 +9164,7 @@
       "publication_date": "2016-01-04",
       "type": "preprint",
       "authors": [
-        "Andrew Michael McDonald",
+        "McDonald, Andrew M.",
         "Massimiliano Pontil",
         "Dimitris Stamos"
       ],
@@ -9384,7 +9175,16 @@
       "landing_page_url": "http://arxiv.org/abs/1601.00449",
       "open_access_url": "http://arxiv.org/abs/1601.00449",
       "is_retracted": false,
-      "cited_by_count": 0
+      "cited_by_count": 0,
+      "alternate_locations": [
+        {
+          "id": "https://openalex.org/W4294368577",
+          "source_url": "https://openalex.org/W4294368577",
+          "venue": "UCL Discovery (University College London)",
+          "doi": null,
+          "open_access_url": "https://discovery.ucl.ac.uk/id/eprint/1503652/"
+        }
+      ]
     },
     {
       "id": "https://openalex.org/W2293273356",
@@ -9412,30 +9212,6 @@
       "cited_by_count": 25
     },
     {
-      "id": "https://openalex.org/W2952607307",
-      "source": "OpenAlex",
-      "source_url": "https://openalex.org/W2952607307",
-      "doi": "10.48550/arxiv.1603.09273",
-      "title": "Learning with Optimal Interpolation Norms",
-      "publication_year": 2016,
-      "publication_date": "2016-03-30",
-      "type": "preprint",
-      "authors": [
-        "Patrick L. Combettes",
-        "McDonald, Andrew M.",
-        "Charles A. Micchelli",
-        "Massimiliano Pontil"
-      ],
-      "member_ids": [
-        "massimiliano-pontil"
-      ],
-      "venue": "arXiv (Cornell University)",
-      "landing_page_url": "http://arxiv.org/abs/1603.09273",
-      "open_access_url": "http://arxiv.org/abs/1603.09273",
-      "is_retracted": false,
-      "cited_by_count": 0
-    },
-    {
       "id": "https://openalex.org/W2329308028",
       "source": "OpenAlex",
       "source_url": "https://openalex.org/W2329308028",
@@ -9446,7 +9222,7 @@
       "type": "preprint",
       "authors": [
         "Patrick L. Combettes",
-        "Andrew Michael McDonald",
+        "Andrew M. McDonald",
         "Charles A. Micchelli",
         "Massimiliano Pontil"
       ],
@@ -9483,29 +9259,6 @@
       "cited_by_count": 7
     },
     {
-      "id": "https://openalex.org/W2964308881",
-      "source": "OpenAlex",
-      "source_url": "https://openalex.org/W2964308881",
-      "doi": "10.5555/2946645.3053437",
-      "title": "New perspectives on k-support and cluster norms",
-      "publication_year": 2016,
-      "publication_date": "2016-01-01",
-      "type": "preprint",
-      "authors": [
-        "Andrew Michael McDonald",
-        "Massimiliano Pontil",
-        "Dimitris Stamos"
-      ],
-      "member_ids": [
-        "massimiliano-pontil"
-      ],
-      "venue": "arXiv (Cornell University)",
-      "landing_page_url": "https://arxiv.org/pdf/1512.08204v1",
-      "open_access_url": "https://arxiv.org/pdf/1512.08204v1",
-      "is_retracted": false,
-      "cited_by_count": 31
-    },
-    {
       "id": "https://openalex.org/W2344933400",
       "source": "OpenAlex",
       "source_url": "https://openalex.org/W2344933400",
@@ -9534,6 +9287,29 @@
       "cited_by_count": 31
     },
     {
+      "id": "https://openalex.org/W2546057486",
+      "source": "OpenAlex",
+      "source_url": "https://openalex.org/W2546057486",
+      "doi": "10.48550/arxiv.1610.08628",
+      "title": "Regret Bounds for Lifelong Learning",
+      "publication_year": 2016,
+      "publication_date": "2016-10-27",
+      "type": "preprint",
+      "authors": [
+        "Pierre Alquier",
+        "Tien Mai",
+        "Massimiliano Pontil"
+      ],
+      "member_ids": [
+        "massimiliano-pontil"
+      ],
+      "venue": "arXiv (Cornell University)",
+      "landing_page_url": "http://arxiv.org/abs/1610.08628",
+      "open_access_url": "http://arxiv.org/abs/1610.08628",
+      "is_retracted": false,
+      "cited_by_count": 3
+    },
+    {
       "id": "https://openalex.org/W2536746867",
       "source": "OpenAlex",
       "source_url": "https://openalex.org/W2536746867",
@@ -9554,7 +9330,16 @@
       "landing_page_url": "https://doi.org/10.1142/s0219530516500202",
       "open_access_url": "http://arxiv.org/abs/1410.6847",
       "is_retracted": false,
-      "cited_by_count": 3
+      "cited_by_count": 3,
+      "alternate_locations": [
+        {
+          "id": "https://openalex.org/W2963099468",
+          "source_url": "https://openalex.org/W2963099468",
+          "venue": "IRIS Research product catalog (Sapienza University of Rome)",
+          "doi": "10.1142/s0219530516500202",
+          "open_access_url": null
+        }
+      ]
     },
     {
       "id": "https://openalex.org/W152374499",
@@ -9685,29 +9470,6 @@
       "cited_by_count": 12
     },
     {
-      "id": "https://openalex.org/W2951074469",
-      "source": "OpenAlex",
-      "source_url": "https://openalex.org/W2951074469",
-      "doi": "10.48550/arxiv.1504.04636",
-      "title": "Consistent Learning by Composite Proximal Thresholding",
-      "publication_year": 2015,
-      "publication_date": "2015-04-17",
-      "type": "preprint",
-      "authors": [
-        "Patrick L. Combettes",
-        "Saverio Salzo",
-        "Silvia Villa"
-      ],
-      "member_ids": [
-        "saverio-salzo"
-      ],
-      "venue": "arXiv (Cornell University)",
-      "landing_page_url": "http://arxiv.org/abs/1504.04636",
-      "open_access_url": "http://arxiv.org/abs/1504.04636",
-      "is_retracted": false,
-      "cited_by_count": 1
-    },
-    {
       "id": "https://openalex.org/W1963076242",
       "source": "OpenAlex",
       "source_url": "https://openalex.org/W1963076242",
@@ -9766,7 +9528,7 @@
       "publication_date": "2015-01-01",
       "type": "article",
       "authors": [
-        "Trevor J. Darrell",
+        "Trevor Jackson Darrell",
         "Marius Kloft",
         "Massimiliano Pontil",
         "Gunnar Rätsch",
@@ -9801,29 +9563,6 @@
       "venue": "arXiv (Cornell University)",
       "landing_page_url": "http://arxiv.org/abs/1506.06941",
       "open_access_url": "http://arxiv.org/abs/1506.06941",
-      "is_retracted": false,
-      "cited_by_count": 1
-    },
-    {
-      "id": "https://openalex.org/W4297683377",
-      "source": "OpenAlex",
-      "source_url": "https://openalex.org/W4297683377",
-      "doi": "10.48550/arxiv.1512.08204",
-      "title": "New Perspectives on $k$-Support and Cluster Norms",
-      "publication_year": 2015,
-      "publication_date": "2015-12-27",
-      "type": "preprint",
-      "authors": [
-        "McDonald, Andrew M.",
-        "Massimiliano Pontil",
-        "Dimitris Stamos"
-      ],
-      "member_ids": [
-        "massimiliano-pontil"
-      ],
-      "venue": "arXiv (Cornell University)",
-      "landing_page_url": "http://arxiv.org/abs/1512.08204",
-      "open_access_url": "http://arxiv.org/abs/1512.08204",
       "is_retracted": false,
       "cited_by_count": 1
     },
@@ -9989,28 +9728,6 @@
       "cited_by_count": 0
     },
     {
-      "id": "https://openalex.org/W2951158675",
-      "source": "OpenAlex",
-      "source_url": "https://openalex.org/W2951158675",
-      "doi": "10.48550/arxiv.1405.2468",
-      "title": "Concentration Inequalities and Moment Bounds for Sample Covariance Operators",
-      "publication_year": 2014,
-      "publication_date": "2014-05-10",
-      "type": "preprint",
-      "authors": [
-        "Vladimir I. Koltchinskii",
-        "Karim Lounici"
-      ],
-      "member_ids": [
-        "karim-lounici"
-      ],
-      "venue": "arXiv (Cornell University)",
-      "landing_page_url": "https://arxiv.org/pdf/1405.2468.pdf",
-      "open_access_url": "https://arxiv.org/pdf/1405.2468.pdf",
-      "is_retracted": false,
-      "cited_by_count": 13
-    },
-    {
       "id": "https://openalex.org/W1846829963",
       "source": "OpenAlex",
       "source_url": "https://openalex.org/W1846829963",
@@ -10043,7 +9760,7 @@
       "publication_date": "2014-01-01",
       "type": "article",
       "authors": [
-        "Ery Arias-Castro",
+        "Ery Arias-castro A",
         "Karim Lounici"
       ],
       "member_ids": [
@@ -10172,7 +9889,23 @@
       "landing_page_url": "http://arxiv.org/abs/1403.1481",
       "open_access_url": "http://arxiv.org/abs/1403.1481",
       "is_retracted": false,
-      "cited_by_count": 3
+      "cited_by_count": 3,
+      "alternate_locations": [
+        {
+          "id": "https://openalex.org/W2964308881",
+          "source_url": "https://openalex.org/W2964308881",
+          "venue": "arXiv (Cornell University)",
+          "doi": "10.5555/2946645.3053437",
+          "open_access_url": "https://arxiv.org/pdf/1512.08204v1"
+        },
+        {
+          "id": "https://openalex.org/W4297683377",
+          "source_url": "https://openalex.org/W4297683377",
+          "venue": "arXiv (Cornell University)",
+          "doi": "10.48550/arxiv.1512.08204",
+          "open_access_url": "http://arxiv.org/abs/1512.08204"
+        }
+      ]
     },
     {
       "id": "https://openalex.org/W2605174074",
@@ -10254,7 +9987,7 @@
       "publication_date": "2014-12-08",
       "type": "conference-paper",
       "authors": [
-        "Andrew Michael McDonald",
+        "Andrew M. McDonald",
         "Massimiliano Pontil",
         "Dimitris Stamos"
       ],
@@ -10385,28 +10118,6 @@
       "cited_by_count": 2
     },
     {
-      "id": "https://openalex.org/W3021371465",
-      "source": "OpenAlex",
-      "source_url": "https://openalex.org/W3021371465",
-      "doi": null,
-      "title": "Excess risk bounds for multitask learning with trace norm regularization",
-      "publication_year": 2013,
-      "publication_date": "2013-06-13",
-      "type": "conference-paper",
-      "authors": [
-        "Massimiliano Pontil",
-        "Andreas Maurer"
-      ],
-      "member_ids": [
-        "massimiliano-pontil"
-      ],
-      "venue": "Conference on Learning Theory",
-      "landing_page_url": "http://proceedings.mlr.press/v30/Pontil13.pdf",
-      "open_access_url": null,
-      "is_retracted": false,
-      "cited_by_count": 6
-    },
-    {
       "id": "https://openalex.org/W2182219774",
       "source": "OpenAlex",
       "source_url": "https://openalex.org/W2182219774",
@@ -10447,29 +10158,16 @@
       "landing_page_url": "https://doi.org/10.1007/978-3-642-39140-8_10",
       "open_access_url": null,
       "is_retracted": false,
-      "cited_by_count": 6
-    },
-    {
-      "id": "https://openalex.org/W2525916546",
-      "source": "OpenAlex",
-      "source_url": "https://openalex.org/W2525916546",
-      "doi": null,
-      "title": "Multi-task averaging via task clustering",
-      "publication_year": 2013,
-      "publication_date": "2013-07-12",
-      "type": "article",
-      "authors": [
-        "David Martínez‐Rego",
-        "Massimiliano Pontil"
-      ],
-      "member_ids": [
-        "massimiliano-pontil"
-      ],
-      "venue": "UCL Discovery (University College London)",
-      "landing_page_url": "http://discovery.ucl.ac.uk/1405443/",
-      "open_access_url": null,
-      "is_retracted": false,
-      "cited_by_count": 0
+      "cited_by_count": 6,
+      "alternate_locations": [
+        {
+          "id": "https://openalex.org/W2525916546",
+          "source_url": "https://openalex.org/W2525916546",
+          "venue": "UCL Discovery (University College London)",
+          "doi": null,
+          "open_access_url": null
+        }
+      ]
     },
     {
       "id": "https://openalex.org/W2187759046",
@@ -10503,7 +10201,7 @@
       "type": "conference-paper",
       "authors": [
         "Bernardino Romera‐Paredes",
-        "Hane Aung",
+        "Min Hane Aung",
         "Nadia Bianchi‐Berthouze",
         "Massimiliano Pontil"
       ],
@@ -10538,31 +10236,16 @@
       "landing_page_url": "https://doi.org/10.1007/978-3-642-41136-6_18",
       "open_access_url": "https://inria.hal.science/hal-00855984",
       "is_retracted": false,
-      "cited_by_count": 6
-    },
-    {
-      "id": "https://openalex.org/W4296406588",
-      "source": "OpenAlex",
-      "source_url": "https://openalex.org/W4296406588",
-      "doi": "10.48550/arxiv.1303.6086",
-      "title": "On Sparsity Inducing Regularization Methods for Machine Learning",
-      "publication_year": 2013,
-      "publication_date": "2013-03-25",
-      "type": "preprint",
-      "authors": [
-        "Argyriou, Andreas",
-        "Luca Baldassarre",
-        "Charles A. Micchelli",
-        "Massimiliano Pontil"
-      ],
-      "member_ids": [
-        "massimiliano-pontil"
-      ],
-      "venue": "arXiv (Cornell University)",
-      "landing_page_url": "https://doi.org/10.48550/arxiv.1303.6086",
-      "open_access_url": "https://doi.org/10.48550/arxiv.1303.6086",
-      "is_retracted": false,
-      "cited_by_count": 0
+      "cited_by_count": 6,
+      "alternate_locations": [
+        {
+          "id": "https://openalex.org/W4296406588",
+          "source_url": "https://openalex.org/W4296406588",
+          "venue": "arXiv (Cornell University)",
+          "doi": "10.48550/arxiv.1303.6086",
+          "open_access_url": "https://doi.org/10.48550/arxiv.1303.6086"
+        }
+      ]
     },
     {
       "id": "https://openalex.org/W1747523053",
@@ -10633,7 +10316,16 @@
       "landing_page_url": "http://citeseerx.ist.psu.edu/viewdoc/summary?doi=10.1.1.417.6125",
       "open_access_url": null,
       "is_retracted": false,
-      "cited_by_count": 14
+      "cited_by_count": 14,
+      "alternate_locations": [
+        {
+          "id": "https://openalex.org/W2528033832",
+          "source_url": "https://openalex.org/W2528033832",
+          "venue": "arXiv (Cornell University)",
+          "doi": "10.48550/arxiv.1106.5236",
+          "open_access_url": "http://arxiv.org/abs/1106.5236"
+        }
+      ]
     },
     {
       "id": "https://openalex.org/W2013598124",
@@ -10649,7 +10341,7 @@
         "Salvatore Scellato",
         "Renaud Lambiotte",
         "Massimiliano Pontil",
-        "Cecilia Mascolo"
+        "Cecilia Mascolo C"
       ],
       "member_ids": [
         "massimiliano-pontil"
@@ -10706,7 +10398,16 @@
       "landing_page_url": "https://doi.org/10.1007/s10589-012-9476-9",
       "open_access_url": null,
       "is_retracted": false,
-      "cited_by_count": 34
+      "cited_by_count": 34,
+      "alternate_locations": [
+        {
+          "id": "https://openalex.org/W2952243047",
+          "source_url": "https://openalex.org/W2952243047",
+          "venue": "arXiv (Cornell University)",
+          "doi": "10.48550/arxiv.1103.0414",
+          "open_access_url": "https://arxiv.org/abs/1103.0414"
+        }
+      ]
     },
     {
       "id": "https://openalex.org/W2017053662",
@@ -10722,7 +10423,7 @@
         "Salvatore Scellato",
         "Renaud Lambiotte",
         "Massimiliano Pontil",
-        "Cecilia Mascolo"
+        "Cecilia Mascolo C"
       ],
       "member_ids": [
         "massimiliano-pontil"
@@ -10753,7 +10454,16 @@
       "landing_page_url": "http://arxiv.org/abs/1212.1496",
       "open_access_url": "http://arxiv.org/abs/1212.1496",
       "is_retracted": false,
-      "cited_by_count": 18
+      "cited_by_count": 18,
+      "alternate_locations": [
+        {
+          "id": "https://openalex.org/W3021371465",
+          "source_url": "https://openalex.org/W3021371465",
+          "venue": "Conference on Learning Theory",
+          "doi": null,
+          "open_access_url": null
+        }
+      ]
     },
     {
       "id": "https://openalex.org/W2188379175",
@@ -10847,32 +10557,16 @@
       "landing_page_url": "https://icml.cc/2012/papers/301.pdf",
       "open_access_url": null,
       "is_retracted": false,
-      "cited_by_count": 58
-    },
-    {
-      "id": "https://openalex.org/W2949361666",
-      "source": "OpenAlex",
-      "source_url": "https://openalex.org/W2949361666",
-      "doi": "10.48550/arxiv.1206.4655",
-      "title": "Modelling transition dynamics in MDPs with RKHS embeddings",
-      "publication_year": 2012,
-      "publication_date": "2012-06-18",
-      "type": "book-chapter",
-      "authors": [
-        "Steffen Grünewälder",
-        "Guy Lever",
-        "Luca Baldassarre",
-        "Massimiliano Pontil",
-        "Arthur Gretton"
-      ],
-      "member_ids": [
-        "massimiliano-pontil"
-      ],
-      "venue": "Lancaster EPrints (Lancaster University)",
-      "landing_page_url": "https://eprints.lancs.ac.uk/id/eprint/85022/",
-      "open_access_url": "http://arxiv.org/abs/1206.4655",
-      "is_retracted": false,
-      "cited_by_count": 41
+      "cited_by_count": 58,
+      "alternate_locations": [
+        {
+          "id": "https://openalex.org/W2949361666",
+          "source_url": "https://openalex.org/W2949361666",
+          "venue": "Lancaster EPrints (Lancaster University)",
+          "doi": "10.48550/arxiv.1206.4655",
+          "open_access_url": "http://arxiv.org/abs/1206.4655"
+        }
+      ]
     },
     {
       "id": "https://openalex.org/W2110097068",
@@ -11003,7 +10697,7 @@
       "publication_date": "2012-08-13",
       "type": "preprint",
       "authors": [
-        "Ery Arias-Castro",
+        "Ery Arias-castro A",
         "Karim Lounici"
       ],
       "member_ids": [
@@ -11014,52 +10708,6 @@
       "open_access_url": "http://arxiv.org/abs/1208.2635",
       "is_retracted": false,
       "cited_by_count": 4
-    },
-    {
-      "id": "https://openalex.org/W2528033832",
-      "source": "OpenAlex",
-      "source_url": "https://openalex.org/W2528033832",
-      "doi": "10.48550/arxiv.1106.5236",
-      "title": "A General Framework for Structured Sparsity via Proximal Optimization",
-      "publication_year": 2011,
-      "publication_date": "2011-06-26",
-      "type": "preprint",
-      "authors": [
-        "Argyriou, Andreas",
-        "Luca Baldassarre",
-        "Jean M. Morales",
-        "Massimiliano Pontil"
-      ],
-      "member_ids": [
-        "massimiliano-pontil"
-      ],
-      "venue": "arXiv (Cornell University)",
-      "landing_page_url": "http://arxiv.org/abs/1106.5236",
-      "open_access_url": "http://arxiv.org/abs/1106.5236",
-      "is_retracted": false,
-      "cited_by_count": 0
-    },
-    {
-      "id": "https://openalex.org/W2952243047",
-      "source": "OpenAlex",
-      "source_url": "https://openalex.org/W2952243047",
-      "doi": "10.48550/arxiv.1103.0414",
-      "title": "Convergence analysis of a proximal Gauss-Newton method",
-      "publication_year": 2011,
-      "publication_date": "2011-03-02",
-      "type": "preprint",
-      "authors": [
-        "Saverio Salzo",
-        "Silvia Villa"
-      ],
-      "member_ids": [
-        "saverio-salzo"
-      ],
-      "venue": "arXiv (Cornell University)",
-      "landing_page_url": "https://arxiv.org/abs/1103.0414",
-      "open_access_url": "https://arxiv.org/abs/1103.0414",
-      "is_retracted": false,
-      "cited_by_count": 3
     },
     {
       "id": "https://openalex.org/W2964102750",
@@ -11132,30 +10780,16 @@
       "landing_page_url": "https://doi.org/10.1214/11-aos894",
       "open_access_url": "https://doi.org/10.1214/11-aos894",
       "is_retracted": false,
-      "cited_by_count": 54
-    },
-    {
-      "id": "https://openalex.org/W2962769133",
-      "source": "OpenAlex",
-      "source_url": "https://openalex.org/W2962769133",
-      "doi": "10.1214/11-aos894",
-      "title": "Nuclear-norm penalization and optimal rates for noisy low-rank matrix completion",
-      "publication_year": 2011,
-      "publication_date": "2011-01-01",
-      "type": "article",
-      "authors": [
-        "Alexandre B. Tsybakov",
-        "V. Koltchinskii",
-        "Karim Lounici"
-      ],
-      "member_ids": [
-        "karim-lounici"
-      ],
-      "venue": "HAL (Le Centre pour la Communication Scientifique Directe)",
-      "landing_page_url": "https://hal.science/hal-00676868",
-      "open_access_url": "https://hal.science/hal-00676868",
-      "is_retracted": false,
-      "cited_by_count": 598
+      "cited_by_count": 54,
+      "alternate_locations": [
+        {
+          "id": "https://openalex.org/W2962769133",
+          "source_url": "https://openalex.org/W2962769133",
+          "venue": "HAL (Le Centre pour la Communication Scientifique Directe)",
+          "doi": "10.1214/11-aos894",
+          "open_access_url": "https://hal.science/hal-00676868"
+        }
+      ]
     },
     {
       "id": "https://openalex.org/W1594011890",
@@ -11201,7 +10835,16 @@
       "landing_page_url": "https://doi.org/10.1214/11-aos896",
       "open_access_url": "https://hal.science/hal-00652284v1",
       "is_retracted": false,
-      "cited_by_count": 341
+      "cited_by_count": 341,
+      "alternate_locations": [
+        {
+          "id": "https://openalex.org/W2951941752",
+          "source_url": "https://openalex.org/W2951941752",
+          "venue": "HAL (Le Centre pour la Communication Scientifique Directe)",
+          "doi": "10.48550/arxiv.1007.1771",
+          "open_access_url": "https://hal.science/hal-00501509v1"
+        }
+      ]
     },
     {
       "id": "https://openalex.org/W2073161164",
@@ -11223,7 +10866,16 @@
       "landing_page_url": "https://doi.org/10.1214/11-ejs601",
       "open_access_url": "https://doi.org/10.1214/11-ejs601",
       "is_retracted": false,
-      "cited_by_count": 32
+      "cited_by_count": 32,
+      "alternate_locations": [
+        {
+          "id": "https://openalex.org/W4362679600",
+          "source_url": "https://openalex.org/W4362679600",
+          "venue": "RePEc: Research Papers in Economics",
+          "doi": "10.48550/arxiv.1009.2707",
+          "open_access_url": "https://hal.science/hal-00465801"
+        }
+      ]
     },
     {
       "id": "https://openalex.org/W4291745513",
@@ -11293,7 +10945,7 @@
       "landing_page_url": "https://doi.org/10.1093/bioinformatics/btr638",
       "open_access_url": "https://doi.org/10.1093/bioinformatics/btr638",
       "is_retracted": false,
-      "cited_by_count": 774
+      "cited_by_count": 770
     },
     {
       "id": "https://openalex.org/W2128610923",
@@ -11316,7 +10968,16 @@
       "landing_page_url": "https://doi.org/10.1007/s10444-011-9245-9",
       "open_access_url": null,
       "is_retracted": false,
-      "cited_by_count": 60
+      "cited_by_count": 60,
+      "alternate_locations": [
+        {
+          "id": "https://openalex.org/W2950035978",
+          "source_url": "https://openalex.org/W2950035978",
+          "venue": "arXiv (Cornell University)",
+          "doi": "10.48550/arxiv.1010.0556",
+          "open_access_url": "http://arxiv.org/abs/1010.0556"
+        }
+      ]
     },
     {
       "id": "https://openalex.org/W2116343548",
@@ -11431,76 +11092,6 @@
       "cited_by_count": 51
     },
     {
-      "id": "https://openalex.org/W2951941752",
-      "source": "OpenAlex",
-      "source_url": "https://openalex.org/W2951941752",
-      "doi": "10.48550/arxiv.1007.1771",
-      "title": "Oracle Inequalities and Optimal Inference under Group Sparsity",
-      "publication_year": 2010,
-      "publication_date": "2010-07-11",
-      "type": "preprint",
-      "authors": [
-        "Karim Lounici",
-        "Massimiliano Pontil",
-        "Alexandre B. Tsybakov",
-        "Sara van de Geer"
-      ],
-      "member_ids": [
-        "karim-lounici",
-        "massimiliano-pontil"
-      ],
-      "venue": "HAL (Le Centre pour la Communication Scientifique Directe)",
-      "landing_page_url": "https://hal.science/hal-00501509v1",
-      "open_access_url": "https://hal.science/hal-00501509v1",
-      "is_retracted": false,
-      "cited_by_count": 6
-    },
-    {
-      "id": "https://openalex.org/W4362679600",
-      "source": "OpenAlex",
-      "source_url": "https://openalex.org/W4362679600",
-      "doi": "10.48550/arxiv.1009.2707",
-      "title": "Pac-bayesian bounds for sparse regression estimation with exponential weights",
-      "publication_year": 2010,
-      "publication_date": "2010-09-14",
-      "type": "preprint",
-      "authors": [
-        "Pierre Alquier",
-        "Karim Lounici"
-      ],
-      "member_ids": [
-        "karim-lounici"
-      ],
-      "venue": "RePEc: Research Papers in Economics",
-      "landing_page_url": "http://crest.science/RePEc/wpstorage/2010-40.pdf",
-      "open_access_url": "https://hal.science/hal-00465801",
-      "is_retracted": false,
-      "cited_by_count": 4
-    },
-    {
-      "id": "https://openalex.org/W2950035978",
-      "source": "OpenAlex",
-      "source_url": "https://openalex.org/W2950035978",
-      "doi": "10.48550/arxiv.1010.0556",
-      "title": "Regularizers for Structured Sparsity",
-      "publication_year": 2010,
-      "publication_date": "2010-10-04",
-      "type": "preprint",
-      "authors": [
-        "Charles A. Micchelli",
-        "Jean M. Morales",
-        "Massimiliano Pontil"
-      ],
-      "member_ids": [
-        "massimiliano-pontil"
-      ],
-      "venue": "arXiv (Cornell University)",
-      "landing_page_url": "http://arxiv.org/abs/1010.0556",
-      "open_access_url": "http://arxiv.org/abs/1010.0556",
-      "is_retracted": false,
-      "cited_by_count": 6
-    },
-    {
       "id": "https://openalex.org/W1786332878",
       "source": "OpenAlex",
       "source_url": "https://openalex.org/W1786332878",
@@ -11613,32 +11204,16 @@
       "landing_page_url": "http://arxiv.org/abs/0903.1468",
       "open_access_url": "http://arxiv.org/abs/0903.1468",
       "is_retracted": false,
-      "cited_by_count": 114
-    },
-    {
-      "id": "https://openalex.org/W2964036110",
-      "source": "OpenAlex",
-      "source_url": "https://openalex.org/W2964036110",
-      "doi": null,
-      "title": "Taking Advantage of Sparsity in Multi-Task Learning",
-      "publication_year": 2009,
-      "publication_date": "2009-03-09",
-      "type": "article",
-      "authors": [
-        "Karim Lounici",
-        "Massimiliano Pontil",
-        "Alexandre B. Tsybakov",
-        "Sara A. van de Geer"
-      ],
-      "member_ids": [
-        "karim-lounici",
-        "massimiliano-pontil"
-      ],
-      "venue": null,
-      "landing_page_url": "http://citeseerx.ist.psu.edu/viewdoc/summary?doi=10.1.1.162.3133",
-      "open_access_url": "https://arxiv.org/pdf/0903.1468",
-      "is_retracted": false,
-      "cited_by_count": 144
+      "cited_by_count": 114,
+      "alternate_locations": [
+        {
+          "id": "https://openalex.org/W2964036110",
+          "source_url": "https://openalex.org/W2964036110",
+          "venue": null,
+          "doi": null,
+          "open_access_url": "https://arxiv.org/pdf/0903.1468"
+        }
+      ]
     },
     {
       "id": "https://openalex.org/W2113484479",
@@ -11661,7 +11236,16 @@
       "landing_page_url": "https://jmlr.csail.mit.edu/papers/volume10/argyriou09a/argyriou09a.pdf",
       "open_access_url": null,
       "is_retracted": false,
-      "cited_by_count": 127
+      "cited_by_count": 127,
+      "alternate_locations": [
+        {
+          "id": "https://openalex.org/W2294494068",
+          "source_url": "https://openalex.org/W2294494068",
+          "venue": "arXiv (Cornell University)",
+          "doi": "10.48550/arxiv.0809.1590",
+          "open_access_url": "http://arxiv.org/abs/0809.1590"
+        }
+      ]
     },
     {
       "id": "https://openalex.org/W1568364756",
@@ -11818,28 +11402,16 @@
       "landing_page_url": "http://arxiv.org/abs/0811.2281",
       "open_access_url": "http://arxiv.org/abs/0811.2281",
       "is_retracted": false,
-      "cited_by_count": 0
-    },
-    {
-      "id": "https://openalex.org/W4375842777",
-      "source": "OpenAlex",
-      "source_url": "https://openalex.org/W4375842777",
-      "doi": "10.48550/arxiv.0811.2281",
-      "title": "High-dimensional stochastic optimization with the generalized Dantzig estimator",
-      "publication_year": 2008,
-      "publication_date": "2008-11-14",
-      "type": "article",
-      "authors": [
-        "Karim Lounici"
-      ],
-      "member_ids": [
-        "karim-lounici"
-      ],
-      "venue": null,
-      "landing_page_url": "http://citeseerx.ist.psu.edu/viewdoc/summary?doi=10.1.1.331.6223",
-      "open_access_url": "https://hal.science/hal-00338663v1",
-      "is_retracted": false,
-      "cited_by_count": 4
+      "cited_by_count": 0,
+      "alternate_locations": [
+        {
+          "id": "https://openalex.org/W4375842777",
+          "source_url": "https://openalex.org/W4375842777",
+          "venue": null,
+          "doi": "10.48550/arxiv.0811.2281",
+          "open_access_url": "https://hal.science/hal-00338663v1"
+        }
+      ]
     },
     {
       "id": "https://openalex.org/W749229220",
@@ -11887,6 +11459,27 @@
       "cited_by_count": 31
     },
     {
+      "id": "https://openalex.org/W2273608517",
+      "source": "OpenAlex",
+      "source_url": "https://openalex.org/W2273608517",
+      "doi": null,
+      "title": "Spectral Regularization for Multi-task Learning",
+      "publication_year": 2008,
+      "publication_date": "2008-01-01",
+      "type": "conference-paper",
+      "authors": [
+        "Massimiliano Pontil"
+      ],
+      "member_ids": [
+        "massimiliano-pontil"
+      ],
+      "venue": "UCL Discovery (University College London)",
+      "landing_page_url": "http://discovery.ucl.ac.uk/163280/",
+      "open_access_url": null,
+      "is_retracted": false,
+      "cited_by_count": 0
+    },
+    {
       "id": "https://openalex.org/W2143894665",
       "source": "OpenAlex",
       "source_url": "https://openalex.org/W2143894665",
@@ -11905,28 +11498,16 @@
       "landing_page_url": "https://doi.org/10.1214/08-ejs177",
       "open_access_url": "https://doi.org/10.1214/08-ejs177",
       "is_retracted": false,
-      "cited_by_count": 127
-    },
-    {
-      "id": "https://openalex.org/W3100190044",
-      "source": "OpenAlex",
-      "source_url": "https://openalex.org/W3100190044",
-      "doi": null,
-      "title": "Sup-norm convergence rate and sign concentration property of Lasso and Dantzig estimators",
-      "publication_year": 2008,
-      "publication_date": "2008-01-01",
-      "type": "preprint",
-      "authors": [
-        "Karim Lounici"
-      ],
-      "member_ids": [
-        "karim-lounici"
-      ],
-      "venue": null,
-      "landing_page_url": "http://citeseerx.ist.psu.edu/viewdoc/summary?doi=10.1.1.245.3417",
-      "open_access_url": "https://hal.science/hal-00222251",
-      "is_retracted": false,
-      "cited_by_count": 153
+      "cited_by_count": 127,
+      "alternate_locations": [
+        {
+          "id": "https://openalex.org/W3100190044",
+          "source_url": "https://openalex.org/W3100190044",
+          "venue": null,
+          "doi": null,
+          "open_access_url": "https://hal.science/hal-00222251"
+        }
+      ]
     },
     {
       "id": "https://openalex.org/W2099693464",
@@ -11951,29 +11532,6 @@
       "open_access_url": null,
       "is_retracted": false,
       "cited_by_count": 118
-    },
-    {
-      "id": "https://openalex.org/W2294494068",
-      "source": "OpenAlex",
-      "source_url": "https://openalex.org/W2294494068",
-      "doi": "10.48550/arxiv.0809.1590",
-      "title": "When is there a representer theorem? Vector versus matrix regularizers",
-      "publication_year": 2008,
-      "publication_date": "2008-09-09",
-      "type": "preprint",
-      "authors": [
-        "Argyriou, Andreas",
-        "Micchelli, Charles",
-        "Massimiliano Pontil"
-      ],
-      "member_ids": [
-        "massimiliano-pontil"
-      ],
-      "venue": "arXiv (Cornell University)",
-      "landing_page_url": "http://arxiv.org/abs/0809.1590",
-      "open_access_url": "http://arxiv.org/abs/0809.1590",
-      "is_retracted": false,
-      "cited_by_count": 0
     },
     {
       "id": "https://openalex.org/W2127201883",
@@ -12505,6 +12063,27 @@
       "cited_by_count": 132
     },
     {
+      "id": "https://openalex.org/W2108763657",
+      "source": "OpenAlex",
+      "source_url": "https://openalex.org/W2108763657",
+      "doi": "10.1109/igarss.2004.1369024",
+      "title": "Lossless hyperspectral compression using KLT",
+      "publication_year": 2004,
+      "publication_date": "2004-12-23",
+      "type": "conference-paper",
+      "authors": [
+        "Saverio Salzo"
+      ],
+      "member_ids": [
+        "saverio-salzo"
+      ],
+      "venue": null,
+      "landing_page_url": "https://doi.org/10.1109/igarss.2004.1369024",
+      "open_access_url": null,
+      "is_retracted": false,
+      "cited_by_count": 42
+    },
+    {
       "id": "https://openalex.org/W2170981964",
       "source": "OpenAlex",
       "source_url": "https://openalex.org/W2170981964",
@@ -12756,30 +12335,6 @@
       "cited_by_count": 2
     },
     {
-      "id": "https://openalex.org/W2102549783",
-      "source": "OpenAlex",
-      "source_url": "https://openalex.org/W2102549783",
-      "doi": null,
-      "title": "Regularization and statistical learning theory for data analysis",
-      "publication_year": 2003,
-      "publication_date": "2003-01-01",
-      "type": "article",
-      "authors": [
-        "Theodoros Evgeniou",
-        "Tomaso Poggio",
-        "Massimiliano Pontil",
-        "Alessandro Verri"
-      ],
-      "member_ids": [
-        "massimiliano-pontil"
-      ],
-      "venue": "RePEc: Research Papers in Economics",
-      "landing_page_url": "http://www.sciencedirect.com/science/article/pii/S0167-9473(01)00069-X",
-      "open_access_url": null,
-      "is_retracted": false,
-      "cited_by_count": 0
-    },
-    {
       "id": "https://openalex.org/W19199171",
       "source": "OpenAlex",
       "source_url": "https://openalex.org/W19199171",
@@ -12831,7 +12386,7 @@
       "publication_date": "2002-07-21",
       "type": "article",
       "authors": [
-        "S. Andonova",
+        "Savina Andonova",
         "André Elisseeff",
         "Theodoros Evgeniou",
         "Massimiliano Pontil"
@@ -12983,7 +12538,16 @@
       "landing_page_url": "https://doi.org/10.1016/s0167-9473(01)00069-x",
       "open_access_url": null,
       "is_retracted": false,
-      "cited_by_count": 76
+      "cited_by_count": 76,
+      "alternate_locations": [
+        {
+          "id": "https://openalex.org/W2102549783",
+          "source_url": "https://openalex.org/W2102549783",
+          "venue": "RePEc: Research Papers in Economics",
+          "doi": null,
+          "open_access_url": null
+        }
+      ]
     },
     {
       "id": "https://openalex.org/W1529313332",
@@ -13123,29 +12687,16 @@
       "landing_page_url": "https://doi.org/10.1007/3-540-44673-7_12",
       "open_access_url": null,
       "is_retracted": false,
-      "cited_by_count": 563
-    },
-    {
-      "id": "https://openalex.org/W1566162434",
-      "source": "OpenAlex",
-      "source_url": "https://openalex.org/W1566162434",
-      "doi": null,
-      "title": "Support vector machines: Theory and applications",
-      "publication_year": 2001,
-      "publication_date": "2001-12-01",
-      "type": "article",
-      "authors": [
-        "Theodoros Evgeniou",
-        "Massimiliano Pontil"
-      ],
-      "member_ids": [
-        "massimiliano-pontil"
-      ],
-      "venue": null,
-      "landing_page_url": "http://citeseerx.ist.psu.edu/viewdoc/summary?doi=10.1.1.96.3274",
-      "open_access_url": null,
-      "is_retracted": false,
-      "cited_by_count": 11
+      "cited_by_count": 563,
+      "alternate_locations": [
+        {
+          "id": "https://openalex.org/W1566162434",
+          "source_url": "https://openalex.org/W1566162434",
+          "venue": null,
+          "doi": null,
+          "open_access_url": null
+        }
+      ]
     },
     {
       "id": "https://openalex.org/W2122095985",
@@ -13403,30 +12954,16 @@
       "landing_page_url": "https://doi.org/10.1023/a:1018946025316",
       "open_access_url": null,
       "is_retracted": false,
-      "cited_by_count": 1198
-    },
-    {
-      "id": "https://openalex.org/W2533558946",
-      "source": "OpenAlex",
-      "source_url": "https://openalex.org/W2533558946",
-      "doi": "10.7551/mitpress/1113.003.0014",
-      "title": "Regularization Networks and Support Vector Machines",
-      "publication_year": 2000,
-      "publication_date": "2000-09-29",
-      "type": "book-chapter",
-      "authors": [
-        "Theodoros Evgeniou",
-        "Massimiliano Pontil",
-        "Tomaso Poggio"
-      ],
-      "member_ids": [
-        "massimiliano-pontil"
-      ],
-      "venue": "The MIT Press eBooks",
-      "landing_page_url": "https://doi.org/10.7551/mitpress/1113.003.0014",
-      "open_access_url": null,
-      "is_retracted": false,
-      "cited_by_count": 122
+      "cited_by_count": 1197,
+      "alternate_locations": [
+        {
+          "id": "https://openalex.org/W2533558946",
+          "source_url": "https://openalex.org/W2533558946",
+          "venue": "The MIT Press eBooks",
+          "doi": "10.7551/mitpress/1113.003.0014",
+          "open_access_url": null
+        }
+      ]
     },
     {
       "id": "https://openalex.org/W1526103475",
@@ -13701,6 +13238,29 @@
       "cited_by_count": 812
     },
     {
+      "id": "https://openalex.org/W2741162577",
+      "source": "OpenAlex",
+      "source_url": "https://openalex.org/W2741162577",
+      "doi": null,
+      "title": "Support vector machines: a large scale QP",
+      "publication_year": 1998,
+      "publication_date": "1998-01-01",
+      "type": "book-chapter",
+      "authors": [
+        "Massimiliano Pontil",
+        "Stefano Rogai",
+        "Alessandro Verri"
+      ],
+      "member_ids": [
+        "massimiliano-pontil"
+      ],
+      "venue": "UCL Discovery (University College London)",
+      "landing_page_url": "http://discovery.ucl.ac.uk/163274/",
+      "open_access_url": null,
+      "is_retracted": false,
+      "cited_by_count": 0
+    },
+    {
       "id": "https://openalex.org/W275133072",
       "source": "OpenAlex",
       "source_url": "https://openalex.org/W275133072",
@@ -13768,6 +13328,27 @@
       "open_access_url": "https://doi.org/10.1007/3-540-63508-4_136",
       "is_retracted": false,
       "cited_by_count": 1
+    },
+    {
+      "id": "https://openalex.org/W2262300271",
+      "source": "OpenAlex",
+      "source_url": "https://openalex.org/W2262300271",
+      "doi": null,
+      "title": "Computation of Feynman Diagrams with MATHEMATICA",
+      "publication_year": 1994,
+      "publication_date": "1994-01-01",
+      "type": "dissertation",
+      "authors": [
+        "Massimiliano Pontil"
+      ],
+      "member_ids": [
+        "massimiliano-pontil"
+      ],
+      "venue": "UCL Discovery (University College London)",
+      "landing_page_url": "http://discovery.ucl.ac.uk/163278/",
+      "open_access_url": null,
+      "is_retracted": false,
+      "cited_by_count": 0
     },
     {
       "id": "https://openalex.org/W7207882615",
