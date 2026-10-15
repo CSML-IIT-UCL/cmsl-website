@@ -261,6 +261,8 @@ def dedupe_by_title(records: dict[str, dict[str, Any]]) -> dict[str, dict[str, A
         group = sorted(group, key=lambda record: record["id"])
         canonical = dict(group[0])
         canonical["member_ids"] = sorted({member_id for record in group for member_id in record.get("member_ids", [])})
+        citation_counts = [record["cited_by_count"] for record in group if isinstance(record.get("cited_by_count"), int)]
+        canonical["cited_by_count"] = max(citation_counts) if citation_counts else None
         canonical["alternate_locations"] = [
             {
                 "id": record["id"],
@@ -324,10 +326,14 @@ def merge_selected(
     coverage = dict(coverage)
     for author in selected:
         person_id = author["person_id"]
+        # Count distinct displayed records, not raw fetched works: dedupe_by_title
+        # can merge several of this person's own OpenAlex works (e.g. a preprint
+        # and its camera-ready version) into one entry.
+        linked_count = sum(person_id in record.get("member_ids", []) for record in records.values())
         coverage[person_id] = {
             "author_ids": sorted(author["openalex_ids"]),
             "last_successful_refresh_at": now,
-            "works_count": len(fetched[person_id]),
+            "works_count": linked_count,
             "status": "complete",
         }
     # A person pruned from records (above) but not re-fetched (no verified ID any

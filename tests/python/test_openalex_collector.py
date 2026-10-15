@@ -142,9 +142,13 @@ class OpenAlexCollectorTest(unittest.TestCase):
         self.assertIn("https://openalex.org/W3", by_id)
         self.assertNotIn("delinked", result["coverage_by_person"])
 
-    def test_merge_trusts_large_drops_without_a_safety_guard(self):
-        # The cache only avoids re-querying OpenAlex on every page view; it must
-        # not refuse to adopt a legitimate large change in what OpenAlex returns.
+    def test_merge_trusts_openalex_and_dedupes_same_title_locally(self):
+        # The cache only avoids re-querying OpenAlex on every page view, so a
+        # large change in what OpenAlex returns must be adopted, not refused.
+        # Separately, OpenAlex sometimes lists a preprint and its camera-ready
+        # version as two works; those sharing a title merge into one displayed
+        # entry, and works_count must reflect that merged count, not the raw
+        # fetch count (the gap that slipped through review last time).
         snapshot = {
             "last_full_refresh_at": "2026-01-01T00:00:00Z",
             "coverage_by_person": {},
@@ -154,27 +158,28 @@ class OpenAlexCollectorTest(unittest.TestCase):
             ],
         }
         selected = [{"person_id": "daniel-ordonez", "openalex_ids": ["A5089972466"]}]
-        result = collector.merge_selected(
-            snapshot, selected, {"daniel-ordonez": [work("W10", "Only one left")]}, "signature", False
-        )
-        by_id = {record["id"]: record for record in result["records"]}
-        self.assertEqual(len(by_id), 1)
-        self.assertIn("https://openalex.org/W10", by_id)
-
-    def test_dedupe_merges_same_title_into_one_entry_with_alternate_locations(self):
-        snapshot = {"last_full_refresh_at": None, "coverage_by_person": {}, "records": []}
-        selected = [{"person_id": "daniel-ordonez", "openalex_ids": ["A5089972466"]}]
-        duplicate_a = {**work("W2", "Kooplearn: a library"), "primary_location": {"source": {"display_name": "arXiv"}}}
-        duplicate_b = {**work("W1", "Kooplearn: A Library!"), "primary_location": {"source": {"display_name": "JOSS"}}}
+        duplicate_a = {
+            **work("W11", "Kooplearn: a library"),
+            "primary_location": {"source": {"display_name": "arXiv"}},
+            "cited_by_count": 12,
+        }
+        duplicate_b = {
+            **work("W10", "Kooplearn: A Library!"),
+            "primary_location": {"source": {"display_name": "JOSS"}},
+            "cited_by_count": 3,
+        }
         result = collector.merge_selected(
             snapshot, selected, {"daniel-ordonez": [duplicate_a, duplicate_b]}, "signature", False
         )
-        self.assertEqual(len(result["records"]), 1)
-        canonical = result["records"][0]
-        self.assertEqual(canonical["id"], "https://openalex.org/W1")
-        self.assertEqual(canonical["member_ids"], ["daniel-ordonez"])
-        self.assertEqual([alt["id"] for alt in canonical["alternate_locations"]], ["https://openalex.org/W2"])
+        by_id = {record["id"]: record for record in result["records"]}
+        self.assertEqual(len(by_id), 1)
+        canonical = by_id["https://openalex.org/W10"]
+        self.assertEqual([alt["id"] for alt in canonical["alternate_locations"]], ["https://openalex.org/W11"])
         self.assertEqual(canonical["alternate_locations"][0]["venue"], "arXiv")
+        self.assertEqual(result["coverage_by_person"]["daniel-ordonez"]["works_count"], 1)
+        # The higher citation count of the two merged duplicates wins, even
+        # though the lower-cited one (W10) was picked as the canonical record.
+        self.assertEqual(canonical["cited_by_count"], 12)
 
 
 if __name__ == "__main__":
