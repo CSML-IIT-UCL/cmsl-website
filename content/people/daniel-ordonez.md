@@ -8,7 +8,7 @@ draft: false
 # Homepage group (ignored for alumni): senior_academic | postdoc | phd_student | research_engineer | affiliated_researcher | research_support
 role: postdoc
 # Displayed job title (free text, e.g. "Senior Researcher", "Postdoctoral Researcher", "PhD Student", "Research Engineer", "External Collaborator")
-role_label: Post-Doctoral Researcher
+role_label: Postdoctoral Researcher
 # active | alumni | affiliated
 status: active
 # Sort position within group

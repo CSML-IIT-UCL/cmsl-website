@@ -3,8 +3,13 @@ import { glob } from 'astro/loaders';
 import { z } from 'astro/zod';
 import { NATIONALITIES } from './lib/nationality';
 
-const nullableUrl = z.string().url().startsWith('https://').nullable().optional();
-const localMediaPath = z.string().regex(/^\/media\/[A-Za-z0-9._~!$&'()*+,;=:@%/ -]+$/).nullable().optional();
+const URL_MESSAGE = 'must be a complete, valid URL, e.g. "https://example.org/page"';
+const HTTPS_MESSAGE = 'must start with "https://" — plain http://, javascript:, mailto:, and other schemes are not accepted';
+const ID_MESSAGE = 'must use only lowercase letters, digits, and hyphens between words (e.g. "jane-doe"), with no leading, trailing, or doubled hyphen';
+const MEDIA_PATH_MESSAGE = 'must be a path under /media/ (e.g. "/media/people/jane-doe.jpg") using only safe filename characters';
+
+const nullableUrl = z.string().url(URL_MESSAGE).startsWith('https://', HTTPS_MESSAGE).nullable().optional();
+const localMediaPath = z.string().regex(/^\/media\/[A-Za-z0-9._~!$&'()*+,;=:@%/ -]+$/, MEDIA_PATH_MESSAGE).nullable().optional();
 
 const about = defineCollection({
   loader: glob({ base: './content', pattern: 'about.md' }),
@@ -18,7 +23,7 @@ const people = defineCollection({
   // team members can copy it in place without it being parsed as a real person.
   loader: glob({ base: './content/people', pattern: ['**/*.md', '!_*.md'] }),
   schema: z.object({
-    id: z.string().regex(/^[a-z0-9]+(?:-[a-z0-9]+)*$/),
+    id: z.string().regex(/^[a-z0-9]+(?:-[a-z0-9]+)*$/, ID_MESSAGE),
     name: z.string().min(1),
     draft: z.boolean().default(true),
     role: z.enum([
@@ -36,7 +41,7 @@ const people = defineCollection({
     photo: localMediaPath,
     photo_alt: z.string().nullable().optional(),
     // ISO 3166-1 alpha-2 code; must be a verified entry in src/lib/nationality.ts
-    nationality: z.string().regex(/^[A-Z]{2}$/).nullable().optional()
+    nationality: z.string().regex(/^[A-Z]{2}$/, 'must be a two-letter uppercase ISO 3166-1 country code, e.g. "IT" or "CO" (not lowercase or three letters)').nullable().optional()
       .refine((code) => code == null || code in NATIONALITIES, {
         message: 'unrecognized nationality code; add it to src/lib/nationality.ts first',
       }),
@@ -44,7 +49,7 @@ const people = defineCollection({
     research_interests: z.array(z.string()).default([]),
     iit_profile: nullableUrl,
     personal_website: nullableUrl,
-    orcid: z.string().regex(/^\d{4}-\d{4}-\d{4}-\d{3}[\dX]$/).nullable().optional(),
+    orcid: z.string().regex(/^\d{4}-\d{4}-\d{4}-\d{3}[\dX]$/, 'must be a bare ORCID iD in the form 0000-0001-2345-6789 (four groups of four digits separated by hyphens; the last character may be X)').nullable().optional(),
     scholar_url: nullableUrl,
     github_url: nullableUrl,
     linkedin_url: nullableUrl,
@@ -52,8 +57,8 @@ const people = defineCollection({
     bluesky_url: nullableUrl,
     // Current employer/institution, shown only for alumni (status: alumni) cards and profiles.
     current_affiliation: z.string().min(1).nullable().optional(),
-    media_links: z.array(z.object({ label: z.string().min(1), url: z.string().url().startsWith('https://') })).default([]),
-    openalex_ids: z.array(z.string().regex(/^A\d+$/)).default([]),
+    media_links: z.array(z.object({ label: z.string().min(1), url: z.string().url(URL_MESSAGE).startsWith('https://', HTTPS_MESSAGE) })).default([]),
+    openalex_ids: z.array(z.string().regex(/^A\d+$/, 'must be a verified OpenAlex Author ID: an uppercase "A" followed by digits only, e.g. "A5089972466" (not a Work ID starting with "W", and not a bare number)')).default([]),
     publications: z.object({
       enabled: z.boolean().default(true),
       include_in_team_list: z.boolean().default(true),
@@ -72,7 +77,7 @@ const people = defineCollection({
 const research = defineCollection({
   loader: glob({ base: './content/research', pattern: ['**/*.md', '!_*.md'] }),
   schema: z.object({
-    id: z.string().regex(/^[a-z0-9]+(?:-[a-z0-9]+)*$/),
+    id: z.string().regex(/^[a-z0-9]+(?:-[a-z0-9]+)*$/, ID_MESSAGE),
     title: z.string().min(1),
     draft: z.boolean().default(true),
     order: z.number().int().default(100),
@@ -90,7 +95,7 @@ const research = defineCollection({
 const news = defineCollection({
   loader: glob({ base: './content/news', pattern: ['**/*.md', '!_*.md'] }),
   schema: z.object({
-    id: z.string().regex(/^[a-z0-9]+(?:-[a-z0-9]+)*$/),
+    id: z.string().regex(/^[a-z0-9]+(?:-[a-z0-9]+)*$/, ID_MESSAGE),
     title: z.string().min(1),
     draft: z.boolean().default(true),
     published_at: z.coerce.date(),
@@ -105,7 +110,7 @@ const news = defineCollection({
 const projects = defineCollection({
   loader: glob({ base: './content/projects', pattern: ['**/*.{yaml,yml}', '!_*.{yaml,yml}'] }),
   schema: z.object({
-    id: z.string().regex(/^[a-z0-9]+(?:-[a-z0-9]+)*$/),
+    id: z.string().regex(/^[a-z0-9]+(?:-[a-z0-9]+)*$/, ID_MESSAGE),
     title: z.string().min(1),
     acronym: z.string().min(1),
     draft: z.boolean().default(true),
@@ -127,7 +132,7 @@ const projects = defineCollection({
 const collaborations = defineCollection({
   loader: glob({ base: './content/collaborations', pattern: ['**/*.{yaml,yml}', '!_*.{yaml,yml}'] }),
   schema: z.object({
-    id: z.string().regex(/^[a-z0-9]+(?:-[a-z0-9]+)*$/),
+    id: z.string().regex(/^[a-z0-9]+(?:-[a-z0-9]+)*$/, ID_MESSAGE),
     draft: z.boolean().default(true),
     speciality: z.string().min(1),
     lab_name: z.string().min(1),
@@ -145,7 +150,7 @@ const collaborations = defineCollection({
 const openings = defineCollection({
   loader: glob({ base: './content/openings', pattern: ['**/*.md', '!_*.md'] }),
   schema: z.object({
-    id: z.string().regex(/^[a-z0-9]+(?:-[a-z0-9]+)*$/),
+    id: z.string().regex(/^[a-z0-9]+(?:-[a-z0-9]+)*$/, ID_MESSAGE),
     title: z.string().min(1),
     draft: z.boolean().default(true),
     application_type: z.enum(['phd', 'postdoc', 'research_engineer', 'open']),
@@ -161,14 +166,14 @@ const openings = defineCollection({
 const blogEntries = defineCollection({
   loader: glob({ base: './content/blog-entries', pattern: ['**/*.{yaml,yml}', '!_*.{yaml,yml}'] }),
   schema: z.object({
-    id: z.string().regex(/^[a-z0-9]+(?:-[a-z0-9]+)*$/),
+    id: z.string().regex(/^[a-z0-9]+(?:-[a-z0-9]+)*$/, ID_MESSAGE),
     draft: z.boolean().default(true),
     title: z.string().min(1),
     author: z.string().min(1),
     person_id: z.string().nullable().optional(),
-    url: z.string().url().startsWith('https://'),
+    url: z.string().url(URL_MESSAGE).startsWith('https://', HTTPS_MESSAGE),
     published_at: z.coerce.date().nullable().optional(),
-    image: z.union([localMediaPath, z.string().url().startsWith('https://')]).nullable().optional(),
+    image: z.union([localMediaPath, z.string().url(URL_MESSAGE).startsWith('https://', HTTPS_MESSAGE)]).nullable().optional(),
     image_alt: z.string().nullable().optional(),
   }),
 });
